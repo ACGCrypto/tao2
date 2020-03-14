@@ -1,25 +1,25 @@
-package tomox
+package waihui
 
 import (
-	"github.com/tomochain/tomochain/accounts/abi/bind"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/contracts/tomox/contract"
+	"github.com/tao2-core/tao2-core/accounts/abi/bind"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/contracts/waihui/contract"
 	"math/big"
 )
 
-type MyTRC21 struct {
-	*contract.MyTRC21Session
+type MyTRC2 struct {
+	*contract.MyTRC2Session
 	contractBackend bind.ContractBackend
 }
 
-func NewTRC21(transactOpts *bind.TransactOpts, contractAddr common.Address, contractBackend bind.ContractBackend) (*MyTRC21, error) {
-	smartContract, err := contract.NewMyTRC21(contractAddr, contractBackend)
+func NewTRC2(transactOpts *bind.TransactOpts, contractAddr common.Address, contractBackend bind.ContractBackend) (*MyTRC2, error) {
+	smartContract, err := contract.NewMyTRC2(contractAddr, contractBackend)
 	if err != nil {
 		return nil, err
 	}
 
-	return &MyTRC21{
-		&contract.MyTRC21Session{
+	return &MyTRC2{
+		&contract.MyTRC2Session{
 			Contract:     smartContract,
 			TransactOpts: *transactOpts,
 		},
@@ -27,12 +27,12 @@ func NewTRC21(transactOpts *bind.TransactOpts, contractAddr common.Address, cont
 	}, nil
 }
 
-func DeployTRC21(transactOpts *bind.TransactOpts, contractBackend bind.ContractBackend, name string, symbol string, decimals uint8, cap, fee *big.Int) (common.Address, *MyTRC21, error) {
-	contractAddr, _, _, err := contract.DeployMyTRC21(transactOpts, contractBackend, name, symbol, decimals, cap, fee)
+func DeployTRC2(transactOpts *bind.TransactOpts, contractBackend bind.ContractBackend, name string, symbol string, decimals uint8, cap, fee *big.Int) (common.Address, *MyTRC2, error) {
+	contractAddr, _, _, err := contract.DeployMyTRC2(transactOpts, contractBackend, name, symbol, decimals, cap, fee)
 	if err != nil {
 		return contractAddr, nil, err
 	}
-	smartContract, err := NewTRC21(transactOpts, contractAddr, contractBackend)
+	smartContract, err := NewTRC2(transactOpts, contractAddr, contractBackend)
 	if err != nil {
 		return contractAddr, nil, err
 	}

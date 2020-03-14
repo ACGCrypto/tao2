@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/swarm/storage"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/swarm/storage"
 )
 
 func init() {

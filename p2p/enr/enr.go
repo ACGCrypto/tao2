@@ -35,9 +35,9 @@ import (
 	"io"
 	"sort"
 
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/crypto/sha3"
-	"github.com/tomochain/tomochain/rlp"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/crypto/sha3"
+	"github.com/tao2-core/tao2-core/rlp"
 )
 
 const SizeLimit = 300 // maximum encoded size of a node record in bytes

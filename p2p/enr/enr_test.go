@@ -24,8 +24,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/rlp"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/rlp"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

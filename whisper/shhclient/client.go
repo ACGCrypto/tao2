@@ -19,10 +19,10 @@ package shhclient
 import (
 	"context"
 
-	"github.com/tomochain/tomochain"
-	"github.com/tomochain/tomochain/common/hexutil"
-	"github.com/tomochain/tomochain/rpc"
-	whisper "github.com/tomochain/tomochain/whisper/whisperv6"
+	"github.com/tao2-core/taoblockchain"
+	"github.com/tao2-core/tao2-core/common/hexutil"
+	"github.com/tao2-core/tao2-core/rpc"
+	whisper "github.com/tao2-core/tao2-core/whisper/whisperv6"
 )
 
 // Client defines typed wrappers for the Whisper v6 RPC API.

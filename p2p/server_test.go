@@ -25,10 +25,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/crypto/sha3"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/p2p/discover"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/crypto/sha3"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/p2p/discover"
 )
 
 func init() {

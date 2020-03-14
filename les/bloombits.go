@@ -19,8 +19,8 @@ package les
 import (
 	"time"
 
-	"github.com/tomochain/tomochain/common/bitutil"
-	"github.com/tomochain/tomochain/light"
+	"github.com/tao2-core/tao2-core/common/bitutil"
+	"github.com/tao2-core/tao2-core/light"
 )
 
 const (

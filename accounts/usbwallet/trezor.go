@@ -27,12 +27,12 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/tomochain/tomochain/accounts"
-	"github.com/tomochain/tomochain/accounts/usbwallet/internal/trezor"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/common/hexutil"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/log"
+	"github.com/tao2-core/tao2-core/accounts"
+	"github.com/tao2-core/tao2-core/accounts/usbwallet/internal/trezor"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/common/hexutil"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/log"
 	"github.com/golang/protobuf/proto"
 )
 

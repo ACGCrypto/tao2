@@ -25,9 +25,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/tomochain/tomochain/event"
-	"github.com/tomochain/tomochain/p2p/discover"
-	"github.com/tomochain/tomochain/rlp"
+	"github.com/tao2-core/tao2-core/event"
+	"github.com/tao2-core/tao2-core/p2p/discover"
+	"github.com/tao2-core/tao2-core/rlp"
 )
 
 // Msg defines the structure of a p2p message.

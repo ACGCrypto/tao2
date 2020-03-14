@@ -1,25 +1,25 @@
-package trc21issuer
+package trc2issuer
 
 import (
-	"github.com/tomochain/tomochain/accounts/abi/bind"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/contracts/trc21issuer/contract"
+	"github.com/tao2-core/tao2-core/accounts/abi/bind"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/contracts/trc2issuer/contract"
 	"math/big"
 )
 
-type TRC21Issuer struct {
-	*contract.TRC21IssuerSession
+type TRC2Issuer struct {
+	*contract.TRC2IssuerSession
 	contractBackend bind.ContractBackend
 }
 
-func NewTRC21Issuer(transactOpts *bind.TransactOpts, contractAddr common.Address, contractBackend bind.ContractBackend) (*TRC21Issuer, error) {
-	contractObject, err := contract.NewTRC21Issuer(contractAddr, contractBackend)
+func NewTRC2Issuer(transactOpts *bind.TransactOpts, contractAddr common.Address, contractBackend bind.ContractBackend) (*TRC2Issuer, error) {
+	contractObject, err := contract.NewTRC2Issuer(contractAddr, contractBackend)
 	if err != nil {
 		return nil, err
 	}
 
-	return &TRC21Issuer{
-		&contract.TRC21IssuerSession{
+	return &TRC2Issuer{
+		&contract.TRC2IssuerSession{
 			Contract:     contractObject,
 			TransactOpts: *transactOpts,
 		},
@@ -27,12 +27,12 @@ func NewTRC21Issuer(transactOpts *bind.TransactOpts, contractAddr common.Address
 	}, nil
 }
 
-func DeployTRC21Issuer(transactOpts *bind.TransactOpts, contractBackend bind.ContractBackend, minApply *big.Int) (common.Address, *TRC21Issuer, error) {
-	contractAddr, _, _, err := contract.DeployTRC21Issuer(transactOpts, contractBackend, minApply)
+func DeployTRC2Issuer(transactOpts *bind.TransactOpts, contractBackend bind.ContractBackend, minApply *big.Int) (common.Address, *TRC2Issuer, error) {
+	contractAddr, _, _, err := contract.DeployTRC2Issuer(transactOpts, contractBackend, minApply)
 	if err != nil {
 		return contractAddr, nil, err
 	}
-	contractObject, err := NewTRC21Issuer(transactOpts, contractAddr, contractBackend)
+	contractObject, err := NewTRC2Issuer(transactOpts, contractAddr, contractBackend)
 	if err != nil {
 		return contractAddr, nil, err
 	}

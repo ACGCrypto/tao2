@@ -21,10 +21,10 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/tomochain/tomochain/accounts/keystore"
-	"github.com/tomochain/tomochain/cmd/utils"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/crypto"
+	"github.com/tao2-core/tao2-core/accounts/keystore"
+	"github.com/tao2-core/tao2-core/cmd/utils"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/crypto"
 	"gopkg.in/urfave/cli.v1"
 )
 

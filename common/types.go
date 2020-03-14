@@ -23,8 +23,8 @@ import (
 	"math/rand"
 	"reflect"
 
-	"github.com/tomochain/tomochain/common/hexutil"
-	"github.com/tomochain/tomochain/crypto/sha3"
+	"github.com/tao2-core/tao2-core/common/hexutil"
+	"github.com/tao2-core/tao2-core/crypto/sha3"
 )
 
 const (
@@ -35,8 +35,8 @@ const (
 	RandomizeSMC        = "0x0000000000000000000000000000000000000090"
 	FoudationAddr       = "0x0000000000000000000000000000000000000068"
 	TeamAddr            = "0x0000000000000000000000000000000000000099"
-	TomoXAddr           = "0x0000000000000000000000000000000000000091"
-	TomoXStateAddr      = "0x0000000000000000000000000000000000000092"
+	WaihuiAddr           = "0x0000000000000000000000000000000000000091"
+	WaihuiStateAddr      = "0x0000000000000000000000000000000000000092"
 	TomoNativeAddress   = "0x0000000000000000000000000000000000000001"
 	VoteMethod          = "0x6dd7d8ea"
 	UnvoteMethod        = "0x02aa9be2"

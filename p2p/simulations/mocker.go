@@ -24,8 +24,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/p2p/discover"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/p2p/discover"
 )
 
 //a map of mocker names to its function

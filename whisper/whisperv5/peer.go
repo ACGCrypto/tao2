@@ -20,10 +20,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/p2p"
-	"github.com/tomochain/tomochain/rlp"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/p2p"
+	"github.com/tao2-core/tao2-core/rlp"
 	mapset "github.com/deckarep/golang-set"
 )
 

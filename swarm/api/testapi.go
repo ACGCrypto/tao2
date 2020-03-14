@@ -17,7 +17,7 @@
 package api
 
 import (
-	"github.com/tomochain/tomochain/swarm/network"
+	"github.com/tao2-core/tao2-core/swarm/network"
 )
 
 type Control struct {

@@ -22,11 +22,11 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/internal/ethapi"
-	"github.com/tomochain/tomochain/params"
-	"github.com/tomochain/tomochain/rpc"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/internal/ethapi"
+	"github.com/tao2-core/tao2-core/params"
+	"github.com/tao2-core/tao2-core/rpc"
 )
 
 var maxPrice = big.NewInt(500 * params.Shannon)

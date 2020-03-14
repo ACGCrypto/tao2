@@ -36,14 +36,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tomochain/tomochain/accounts/abi/bind"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/common/hexutil"
-	"github.com/tomochain/tomochain/contracts/chequebook/contract"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/swarm/services/swap/swap"
+	"github.com/tao2-core/tao2-core/accounts/abi/bind"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/common/hexutil"
+	"github.com/tao2-core/tao2-core/contracts/chequebook/contract"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/swarm/services/swap/swap"
 )
 
 // TODO(zelig): watch peer solvency and notify of bouncing cheques

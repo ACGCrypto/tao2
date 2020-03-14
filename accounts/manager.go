@@ -21,7 +21,7 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/tomochain/tomochain/event"
+	"github.com/tao2-core/tao2-core/event"
 )
 
 // Manager is an overarching account manager that can communicate with various

@@ -23,7 +23,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tomochain/tomochain/log"
+	"github.com/tao2-core/tao2-core/log"
 )
 
 /*

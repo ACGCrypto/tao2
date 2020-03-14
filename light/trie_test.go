@@ -23,13 +23,13 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/tomochain/tomochain/consensus/ethash"
-	"github.com/tomochain/tomochain/core"
-	"github.com/tomochain/tomochain/core/state"
-	"github.com/tomochain/tomochain/core/vm"
-	"github.com/tomochain/tomochain/ethdb"
-	"github.com/tomochain/tomochain/params"
-	"github.com/tomochain/tomochain/trie"
+	"github.com/tao2-core/tao2-core/consensus/ethash"
+	"github.com/tao2-core/tao2-core/core"
+	"github.com/tao2-core/tao2-core/core/state"
+	"github.com/tao2-core/tao2-core/core/vm"
+	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/tao2-core/tao2-core/params"
+	"github.com/tao2-core/tao2-core/trie"
 )
 
 func TestNodeIterator(t *testing.T) {

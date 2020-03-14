@@ -20,28 +20,28 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
-	"github.com/tomochain/tomochain/tomox"
+	"github.com/tao2-core/tao2-core/waihui"
 	"io/ioutil"
 	"math/big"
 	"path/filepath"
 
-	"github.com/tomochain/tomochain/accounts"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/common/math"
-	"github.com/tomochain/tomochain/consensus"
-	"github.com/tomochain/tomochain/core"
-	"github.com/tomochain/tomochain/core/bloombits"
-	"github.com/tomochain/tomochain/core/state"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/core/vm"
-	"github.com/tomochain/tomochain/eth/downloader"
-	"github.com/tomochain/tomochain/eth/gasprice"
-	"github.com/tomochain/tomochain/ethclient"
-	"github.com/tomochain/tomochain/ethdb"
-	"github.com/tomochain/tomochain/event"
-	"github.com/tomochain/tomochain/light"
-	"github.com/tomochain/tomochain/params"
-	"github.com/tomochain/tomochain/rpc"
+	"github.com/tao2-core/tao2-core/accounts"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/common/math"
+	"github.com/tao2-core/tao2-core/consensus"
+	"github.com/tao2-core/tao2-core/core"
+	"github.com/tao2-core/tao2-core/core/bloombits"
+	"github.com/tao2-core/tao2-core/core/state"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/core/vm"
+	"github.com/tao2-core/tao2-core/eth/downloader"
+	"github.com/tao2-core/tao2-core/eth/gasprice"
+	"github.com/tao2-core/tao2-core/ethclient"
+	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/tao2-core/tao2-core/event"
+	"github.com/tao2-core/tao2-core/light"
+	"github.com/tao2-core/tao2-core/params"
+	"github.com/tao2-core/tao2-core/rpc"
 )
 
 type LesApiBackend struct {
@@ -261,9 +261,9 @@ func (b *LesApiBackend) AreTwoBlockSamePath(bh1 common.Hash, bh2 common.Hash) bo
 
 // GetOrderNonce get order nonce
 func (b *LesApiBackend) GetOrderNonce(address common.Hash) (uint64, error) {
-	return 0, errors.New("cannot find tomox service")
+	return 0, errors.New("cannot find waihui service")
 }
 
-func (b *LesApiBackend) TomoxService() *tomox.TomoX {
+func (b *LesApiBackend) TomoxService() *waihui.Waihui {
 	return nil
 }

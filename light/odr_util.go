@@ -20,11 +20,11 @@ import (
 	"bytes"
 	"context"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/core"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/rlp"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/core"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/rlp"
 )
 
 var sha3_nil = crypto.Keccak256Hash(nil)

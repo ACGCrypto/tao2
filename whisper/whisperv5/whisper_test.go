@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tomochain/tomochain/common"
+	"github.com/tao2-core/tao2-core/common"
 )
 
 func TestWhisperBasic(t *testing.T) {

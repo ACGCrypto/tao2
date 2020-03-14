@@ -21,18 +21,18 @@ import (
 	"fmt"
 	"sync/atomic"
 
-	"github.com/tomochain/tomochain/accounts"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/consensus"
-	"github.com/tomochain/tomochain/core"
-	"github.com/tomochain/tomochain/core/state"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/eth/downloader"
-	"github.com/tomochain/tomochain/ethdb"
-	"github.com/tomochain/tomochain/event"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/params"
-	"github.com/tomochain/tomochain/tomox"
+	"github.com/tao2-core/tao2-core/accounts"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/consensus"
+	"github.com/tao2-core/tao2-core/core"
+	"github.com/tao2-core/tao2-core/core/state"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/eth/downloader"
+	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/tao2-core/tao2-core/event"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/params"
+	"github.com/tao2-core/tao2-core/waihui"
 )
 
 // Backend wraps all methods required for mining.
@@ -41,7 +41,7 @@ type Backend interface {
 	BlockChain() *core.BlockChain
 	TxPool() *core.TxPool
 	ChainDb() ethdb.Database
-	GetTomoX() *tomox.TomoX
+	GetWaihui() *waihui.Waihui
 	OrderPool() *core.OrderPool
 }
 

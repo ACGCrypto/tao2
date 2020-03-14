@@ -10,11 +10,11 @@ fi
 # Create fake Go workspace if it doesn't exist yet.
 workspace="$PWD/build/_workspace"
 root="$PWD"
-ethdir="$workspace/src/github.com/tomochain"
-if [ ! -L "$ethdir/tomochain" ]; then
+ethdir="$workspace/src/github.com/tao2-core"
+if [ ! -L "$ethdir/taoblockchain" ]; then
     mkdir -p "$ethdir"
     cd "$ethdir"
-    ln -s ../../../../../. tomochain
+    ln -s ../../../../../. tao
     cd "$root"
 fi
 
@@ -23,8 +23,8 @@ GOPATH="$workspace"
 export GOPATH
 
 # Run the command inside the workspace.
-cd "$ethdir/tomochain"
-PWD="$ethdir/tomochain"
+cd "$ethdir/taoblockchain"
+PWD="$ethdir/taoblockchain"
 
 # Launch the arguments with the configured environment.
 exec "$@"

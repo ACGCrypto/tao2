@@ -24,7 +24,7 @@ import (
 	"os/exec"
 	"runtime"
 
-	"github.com/tomochain/tomochain/log"
+	"github.com/tao2-core/tao2-core/log"
 )
 
 func externalUnmount(mountPoint string) error {

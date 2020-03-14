@@ -21,11 +21,11 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/common/math"
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/crypto/bn256"
-	"github.com/tomochain/tomochain/params"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/common/math"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/crypto/bn256"
+	"github.com/tao2-core/tao2-core/params"
 	"golang.org/x/crypto/ripemd160"
 )
 

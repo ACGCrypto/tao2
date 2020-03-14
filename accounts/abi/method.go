@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/tomochain/tomochain/crypto"
+	"github.com/tao2-core/tao2-core/crypto"
 )
 
 // Method represents a callable given a `Name` and whether the method is a constant.

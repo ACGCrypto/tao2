@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/tomochain/tomochain/common"
+	"github.com/tao2-core/tao2-core/common"
 )
 
 var (
@@ -30,7 +30,7 @@ var (
 )
 
 var (
-	// TomoChain mainnet config
+	// Tao mainnet config
 	TomoMainnetChainConfig = &ChainConfig{
 		ChainId:        big.NewInt(88),
 		HomesteadBlock: big.NewInt(1),
@@ -245,11 +245,11 @@ func (c *ChainConfig) IsTIPRandomize(num *big.Int) bool {
 	return isForked(common.TIPRandomize, num)
 }
 
-func (c *ChainConfig) IsTIPTomoX(num *big.Int) bool {
+func (c *ChainConfig) IsTIPWaihui(num *big.Int) bool {
 	if common.IsTestnet {
-		return isForked(common.TIPTomoXTestnet, num)
+		return isForked(common.TIPWaihuiTestnet, num)
 	} else {
-		return isForked(common.TIPTomoX, num)
+		return isForked(common.TIPWaihui, num)
 	}
 }
 

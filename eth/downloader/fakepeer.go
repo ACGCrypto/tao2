@@ -19,10 +19,10 @@ package downloader
 import (
 	"math/big"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/core"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/ethdb"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/core"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/ethdb"
 )
 
 // FakePeer is a mock downloader peer that operates on a local database instance

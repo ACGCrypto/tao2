@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Tomochain
+// Copyright (c) 2020 Tao Network
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
@@ -21,7 +21,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/tomochain/tomochain/tomox/tomox_state"
+	"github.com/tao2-core/tao2-core/waihui/waihui_state"
 	"gopkg.in/karalabe/cookiejar.v2/collections/prque"
 	"io/ioutil"
 	"math/big"
@@ -34,21 +34,21 @@ import (
 	"time"
 
 	lru "github.com/hashicorp/golang-lru"
-	"github.com/tomochain/tomochain/accounts"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/common/hexutil"
-	"github.com/tomochain/tomochain/consensus"
-	"github.com/tomochain/tomochain/consensus/clique"
-	"github.com/tomochain/tomochain/consensus/misc"
-	"github.com/tomochain/tomochain/core/state"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/crypto/sha3"
-	"github.com/tomochain/tomochain/ethdb"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/params"
-	"github.com/tomochain/tomochain/rlp"
-	"github.com/tomochain/tomochain/rpc"
+	"github.com/tao2-core/tao2-core/accounts"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/common/hexutil"
+	"github.com/tao2-core/tao2-core/consensus"
+	"github.com/tao2-core/tao2-core/consensus/clique"
+	"github.com/tao2-core/tao2-core/consensus/misc"
+	"github.com/tao2-core/tao2-core/core/state"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/crypto/sha3"
+	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/params"
+	"github.com/tao2-core/tao2-core/rlp"
+	"github.com/tao2-core/tao2-core/rpc"
 )
 
 const (
@@ -62,14 +62,14 @@ type Masternode struct {
 	Stake   *big.Int
 }
 
-type TomoXService interface {
+type WaihuiService interface {
 	GetTomoxStateRoot(block *types.Block) (common.Hash, error)
-	GetTomoxState(block *types.Block) (*tomox_state.TomoXStateDB, error)
-	GetStateCache() tomox_state.Database
+	GetTomoxState(block *types.Block) (*waihui_state.WaihuiStateDB, error)
+	GetStateCache() waihui_state.Database
 	GetTriegc() *prque.Prque
-	ApplyOrder(coinbase common.Address, chain consensus.ChainContext, statedb *state.StateDB, tomoXstatedb *tomox_state.TomoXStateDB, orderBook common.Hash, order *tomox_state.OrderItem) ([]map[string]string, []*tomox_state.OrderItem, error)
+	ApplyOrder(coinbase common.Address, chain consensus.ChainContext, statedb *state.StateDB, waihuistatedb *waihui_state.WaihuiStateDB, orderBook common.Hash, order *waihui_state.OrderItem) ([]map[string]string, []*waihui_state.OrderItem, error)
 	IsSDKNode() bool
-	SyncDataToSDKNode(takerOrder *tomox_state.OrderItem, txHash common.Hash, txMatchTime time.Time, statedb *state.StateDB, trades []map[string]string, rejectedOrders []*tomox_state.OrderItem, dirtyOrderCount *uint64) error
+	SyncDataToSDKNode(takerOrder *waihui_state.OrderItem, txHash common.Hash, txMatchTime time.Time, statedb *state.StateDB, trades []map[string]string, rejectedOrders []*waihui_state.OrderItem, dirtyOrderCount *uint64) error
 	RollbackReorgTxMatch(txhash common.Hash)
 	GetTokenDecimal(chain consensus.ChainContext, statedb *state.StateDB, coinbase common.Address, tokenAddr common.Address) (*big.Int, error)
 }
@@ -247,7 +247,7 @@ type Posv struct {
 	HookPenaltyTIPSigning      func(chain consensus.ChainReader, header *types.Header, candidate []common.Address) ([]common.Address, error)
 	HookValidator              func(header *types.Header, signers []common.Address) ([]byte, error)
 	HookVerifyMNs              func(header *types.Header, signers []common.Address) error
-	GetTomoXService            func() TomoXService
+	GetWaihuiService            func() WaihuiService
 	HookGetSignersFromContract func(blockHash common.Hash) ([]common.Address, error)
 }
 
@@ -563,7 +563,7 @@ func (c *Posv) YourTurn(chain consensus.ChainReader, parent *types.Header, signe
 	masternodes := c.GetMasternodes(chain, parent)
 
 	if common.IsTestnet {
-		// Only three mns hard code for tomo testnet.
+		// Only three mns hard code for tao testnet.
 		masternodes = []common.Address{
 			common.HexToAddress("0xfFC679Dcdf444D2eEb0491A998E7902B411CcF20"),
 			common.HexToAddress("0xd76fd76F7101811726DCE9E43C2617706a4c45c8"),
@@ -1261,7 +1261,7 @@ func (c *Posv) CheckMNTurn(chain consensus.ChainReader, parent *types.Header, si
 	masternodes := c.GetMasternodes(chain, parent)
 
 	if common.IsTestnet {
-		// Only three mns hard code for tomo testnet.
+		// Only three mns hard code for tao testnet.
 		masternodes = []common.Address{
 			common.HexToAddress("0xfFC679Dcdf444D2eEb0491A998E7902B411CcF20"),
 			common.HexToAddress("0xd76fd76F7101811726DCE9E43C2617706a4c45c8"),

@@ -1,13 +1,13 @@
 package utils
 
 import (
-	"github.com/tomochain/tomochain/eth"
-	"github.com/tomochain/tomochain/eth/downloader"
-	"github.com/tomochain/tomochain/ethstats"
-	"github.com/tomochain/tomochain/les"
-	"github.com/tomochain/tomochain/node"
-	"github.com/tomochain/tomochain/tomox"
-	whisper "github.com/tomochain/tomochain/whisper/whisperv6"
+	"github.com/tao2-core/tao2-core/eth"
+	"github.com/tao2-core/tao2-core/eth/downloader"
+	"github.com/tao2-core/tao2-core/ethstats"
+	"github.com/tao2-core/tao2-core/les"
+	"github.com/tao2-core/tao2-core/node"
+	"github.com/tao2-core/tao2-core/waihui"
+	whisper "github.com/tao2-core/tao2-core/whisper/whisperv6"
 )
 
 // RegisterEthService adds an Ethereum client to the stack.
@@ -19,10 +19,10 @@ func RegisterEthService(stack *node.Node, cfg *eth.Config) {
 		})
 	} else {
 		err = stack.Register(func(ctx *node.ServiceContext) (node.Service, error) {
-			var tomoXServ *tomox.TomoX
-			ctx.Service(&tomoXServ)
+			var waihuiServ *waihui.Waihui
+			ctx.Service(&waihuiServ)
 
-			fullNode, err := eth.New(ctx, cfg, tomoXServ)
+			fullNode, err := eth.New(ctx, cfg, waihuiServ)
 			if fullNode != nil && cfg.LightServ > 0 {
 				ls, _ := les.NewLesServer(fullNode, cfg)
 				fullNode.AddLesServer(ls)
@@ -61,10 +61,10 @@ func RegisterEthStatsService(stack *node.Node, url string) {
 	}
 }
 
-func RegisterTomoXService(stack *node.Node, cfg *tomox.Config) {
+func RegisterWaihuiService(stack *node.Node, cfg *waihui.Config) {
 	if err := stack.Register(func(n *node.ServiceContext) (node.Service, error) {
-		return tomox.New(cfg), nil
+		return waihui.New(cfg), nil
 	}); err != nil {
-		Fatalf("Failed to register the TomoX service: %v", err)
+		Fatalf("Failed to register the Waihui service: %v", err)
 	}
 }

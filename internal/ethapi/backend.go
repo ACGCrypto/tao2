@@ -19,22 +19,22 @@ package ethapi
 
 import (
 	"context"
-	"github.com/tomochain/tomochain/tomox"
+	"github.com/tao2-core/tao2-core/waihui"
 	"math/big"
 
-	"github.com/tomochain/tomochain/accounts"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/consensus"
-	"github.com/tomochain/tomochain/core"
-	"github.com/tomochain/tomochain/core/state"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/core/vm"
-	"github.com/tomochain/tomochain/eth/downloader"
-	"github.com/tomochain/tomochain/ethclient"
-	"github.com/tomochain/tomochain/ethdb"
-	"github.com/tomochain/tomochain/event"
-	"github.com/tomochain/tomochain/params"
-	"github.com/tomochain/tomochain/rpc"
+	"github.com/tao2-core/tao2-core/accounts"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/consensus"
+	"github.com/tao2-core/tao2-core/core"
+	"github.com/tao2-core/tao2-core/core/state"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/core/vm"
+	"github.com/tao2-core/tao2-core/eth/downloader"
+	"github.com/tao2-core/tao2-core/ethclient"
+	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/tao2-core/tao2-core/event"
+	"github.com/tao2-core/tao2-core/params"
+	"github.com/tao2-core/tao2-core/rpc"
 )
 
 // Backend interface provides the common API services (that are provided by
@@ -47,7 +47,7 @@ type Backend interface {
 	ChainDb() ethdb.Database
 	EventMux() *event.TypeMux
 	AccountManager() *accounts.Manager
-	TomoxService() *tomox.TomoX
+	TomoxService() *waihui.Waihui
 
 	// BlockChain API
 	SetHead(number uint64)
@@ -106,9 +106,9 @@ func GetAPIs(apiBackend Backend) []rpc.API {
 			Service:   NewPublicTransactionPoolAPI(apiBackend, nonceLock),
 			Public:    true,
 		}, {
-			Namespace: "tomox",
+			Namespace: "waihui",
 			Version:   "1.0",
-			Service:   NewPublicTomoXTransactionPoolAPI(apiBackend, nonceLock),
+			Service:   NewPublicWaihuiTransactionPoolAPI(apiBackend, nonceLock),
 			Public:    true,
 		}, {
 			Namespace: "txpool",

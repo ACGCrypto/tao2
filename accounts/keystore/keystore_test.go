@@ -26,9 +26,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tomochain/tomochain/accounts"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/event"
+	"github.com/tao2-core/tao2-core/accounts"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/event"
 )
 
 var testSigData = make([]byte, 32)

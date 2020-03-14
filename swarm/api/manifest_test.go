@@ -25,7 +25,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/tomochain/tomochain/swarm/storage"
+	"github.com/tao2-core/tao2-core/swarm/storage"
 )
 
 func manifest(paths ...string) (manifestReader storage.LazySectionReader) {

@@ -21,7 +21,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/tomochain/tomochain/core/vm"
+	"github.com/tao2-core/tao2-core/core/vm"
 )
 
 // Iterator for disassembled EVM instructions

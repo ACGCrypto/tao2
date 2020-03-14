@@ -30,10 +30,10 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/metrics"
-	"github.com/tomochain/tomochain/swarm/storage"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/metrics"
+	"github.com/tao2-core/tao2-core/swarm/storage"
 )
 
 var hashMatcher = regexp.MustCompile("^[0-9A-Fa-f]{64}")

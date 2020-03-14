@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/ethdb"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/ethdb"
 )
 
 // makeTestTrie create a sample test trie to test node-wise reconstruction.

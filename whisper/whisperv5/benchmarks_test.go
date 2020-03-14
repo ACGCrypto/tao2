@@ -19,7 +19,7 @@ package whisperv5
 import (
 	"testing"
 
-	"github.com/tomochain/tomochain/crypto"
+	"github.com/tao2-core/tao2-core/crypto"
 )
 
 func BenchmarkDeriveKeyMaterial(b *testing.B) {

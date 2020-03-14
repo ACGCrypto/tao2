@@ -21,10 +21,10 @@ import (
 	"math"
 	"math/big"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/core/vm"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/params"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/core/vm"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/params"
 )
 
 var (
@@ -242,7 +242,7 @@ func (st *StateTransition) TransitionDb(owner common.Address) (ret []byte, usedG
 		vmerr error
 	)
 	// for debugging purpose
-	// TODO: clean it after fixing the issue https://github.com/tomochain/tomochain/issues/401
+	// TODO: clean it after fixing the issue https://github.com/taoblockchain/tao2-core/issues/401
 	var contractAction string
 	nonce := uint64(1)
 	if contractCreation {
@@ -266,7 +266,7 @@ func (st *StateTransition) TransitionDb(owner common.Address) (ret []byte, usedG
 	}
 	st.refundGas()
 
-	if st.evm.BlockNumber.Cmp(common.TIPTRC21Fee) > 0 {
+	if st.evm.BlockNumber.Cmp(common.TIPTRC2Fee) > 0 {
 		if (owner != common.Address{}) {
 			st.state.AddBalance(owner, new(big.Int).Mul(new(big.Int).SetUint64(st.gasUsed()), st.gasPrice))
 		}

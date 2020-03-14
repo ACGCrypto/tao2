@@ -2,7 +2,7 @@ pragma solidity ^0.4.24;
 
 import "./SafeMath.sol";
 
-contract AbstractTOMOXListing {
+contract AbstractWAIHUIListing {
     function getTokenStatus(address) public view returns (bool);
 }
 
@@ -37,7 +37,7 @@ contract RelayerRegistration {
     uint public RelayerCount;
     uint256 public MinimumDeposit;
 
-    AbstractTOMOXListing private TomoXListing;
+    AbstractWAIHUIListing private WaihuiListing;
 
     /// @dev Events
     /// struct-mapping -> values
@@ -51,8 +51,8 @@ contract RelayerRegistration {
     event SellEvent(bool is_on_sale, address coinbase, uint256 price);
     event BuyEvent(bool success, address coinbase, uint256 price);
 
-    constructor (address tomoxListing, uint maxRelayers, uint maxTokenList, uint minDeposit) public {
-        TomoXListing = AbstractTOMOXListing(tomoxListing);
+    constructor (address waihuiListing, uint maxRelayers, uint maxTokenList, uint minDeposit) public {
+        WaihuiListing = AbstractWAIHUIListing(waihuiListing);
         RelayerCount = 0;
         MaximumRelayers = maxRelayers;
         MaximumTokenList = maxTokenList;
@@ -116,7 +116,7 @@ contract RelayerRegistration {
         require(RELAYER_LIST[coinbase]._deposit == 0, "Coinbase already registered.");
         require(RelayerCount < MaximumRelayers, "Maximum relayers registered");
 
-        // check valid tokens, token must pair with tomo(x/TOMO)
+        // check valid tokens, token must pair with tao(x/TOMO)
         require(validateTokens(fromTokens, toTokens) == true, "Invalid quote tokens");
 
         /// @notice Do we need to check the duplication of Token trade-pairs?
@@ -314,8 +314,8 @@ contract RelayerRegistration {
         address[] memory nonTomoPairs = new address[](fromTokens.length);
 
         for (uint i = 0; i < toTokens.length; i++) {
-            bool b = TomoXListing.getTokenStatus(toTokens[i]) || (toTokens[i] == tomoNative);
-            b = b && (TomoXListing.getTokenStatus(fromTokens[i]) || fromTokens[i] == tomoNative);
+            bool b = WaihuiListing.getTokenStatus(toTokens[i]) || (toTokens[i] == tomoNative);
+            b = b && (WaihuiListing.getTokenStatus(fromTokens[i]) || fromTokens[i] == tomoNative);
             if (!b) {
                 return false;
             }
@@ -354,13 +354,13 @@ contract RelayerRegistration {
             return true;
         }
 
-        bool b = TomoXListing.getTokenStatus(toToken) || (toToken == tomoNative);
-        b = b && (TomoXListing.getTokenStatus(fromToken) || fromToken == tomoNative);
+        bool b = WaihuiListing.getTokenStatus(toToken) || (toToken == tomoNative);
+        b = b && (WaihuiListing.getTokenStatus(fromToken) || fromToken == tomoNative);
         if (!b) {
             return false;
         }
 
-        // get tokens that paired with tomo
+        // get tokens that paired with tao
         for (uint i = 0; i < RELAYER_LIST[coinbase]._toTokens.length; i++) {
             if (RELAYER_LIST[coinbase]._toTokens[i] == tomoNative) {
                 tomoPairs[countPair] = RELAYER_LIST[coinbase]._fromTokens[i];

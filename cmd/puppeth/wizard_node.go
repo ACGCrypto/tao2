@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/tomochain/tomochain/accounts/keystore"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/log"
+	"github.com/tao2-core/tao2-core/accounts/keystore"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/log"
 )
 
 // deployNode creates a new node configuration based on some user input.

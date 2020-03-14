@@ -22,9 +22,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/tomochain/tomochain/swarm/api"
-	httpapi "github.com/tomochain/tomochain/swarm/api/http"
-	"github.com/tomochain/tomochain/swarm/storage"
+	"github.com/tao2-core/tao2-core/swarm/api"
+	httpapi "github.com/tao2-core/tao2-core/swarm/api/http"
+	"github.com/tao2-core/tao2-core/swarm/storage"
 )
 
 func NewTestSwarmServer(t *testing.T) *TestSwarmServer {

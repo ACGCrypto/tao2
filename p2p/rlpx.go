@@ -35,12 +35,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/crypto/ecies"
-	"github.com/tomochain/tomochain/crypto/secp256k1"
-	"github.com/tomochain/tomochain/crypto/sha3"
-	"github.com/tomochain/tomochain/p2p/discover"
-	"github.com/tomochain/tomochain/rlp"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/crypto/ecies"
+	"github.com/tao2-core/tao2-core/crypto/secp256k1"
+	"github.com/tao2-core/tao2-core/crypto/sha3"
+	"github.com/tao2-core/tao2-core/p2p/discover"
+	"github.com/tao2-core/tao2-core/rlp"
 	"github.com/golang/snappy"
 )
 

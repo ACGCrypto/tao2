@@ -32,9 +32,9 @@ import (
 	"io/ioutil"
 	"sync"
 
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/metrics"
-	"github.com/tomochain/tomochain/rlp"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/metrics"
+	"github.com/tao2-core/tao2-core/rlp"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/iterator"
 )

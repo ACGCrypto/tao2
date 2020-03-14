@@ -24,10 +24,10 @@ import (
 	"math/big"
 	"sync/atomic"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/common/hexutil"
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/rlp"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/common/hexutil"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/rlp"
 )
 
 //go:generate gencodec -type txdata -field-override txdataMarshaling -out gen_tx_json.go
@@ -255,10 +255,10 @@ func (tx *Transaction) AsMessage(s Signer, balanceFee *big.Int, number *big.Int)
 	var err error
 	msg.from, err = Sender(s, tx)
 	if balanceFee != nil {
-		if number.Cmp(common.TIPTRC21Fee) > 0 {
-			msg.gasPrice = common.TRC21GasPrice
+		if number.Cmp(common.TIPTRC2Fee) > 0 {
+			msg.gasPrice = common.TRC2GasPrice
 		} else {
-			msg.gasPrice = common.TRC21GasPriceBefore
+			msg.gasPrice = common.TRC2GasPriceBefore
 		}
 	}
 	return msg, err
@@ -284,8 +284,8 @@ func (tx *Transaction) Cost() *big.Int {
 }
 
 // Cost returns amount + gasprice * gaslimit.
-func (tx *Transaction) TRC21Cost() *big.Int {
-	total := new(big.Int).Mul(common.TRC21GasPrice, new(big.Int).SetUint64(tx.data.GasLimit))
+func (tx *Transaction) TRC2Cost() *big.Int {
+	total := new(big.Int).Mul(common.TRC2GasPrice, new(big.Int).SetUint64(tx.data.GasLimit))
 	total.Add(total, tx.data.Amount)
 	return total
 }
@@ -306,7 +306,7 @@ func (tx *Transaction) IsMatchingTransaction() bool {
 		return false
 	}
 
-	if tx.To().String() != common.TomoXAddr {
+	if tx.To().String() != common.WaihuiAddr {
 		return false
 	}
 
@@ -317,7 +317,7 @@ func (tx *Transaction) IsSkipNonceTransaction() bool {
 	if tx.To() == nil {
 		return false
 	}
-	if tx.To().String() == common.TomoXAddr || tx.To().String() == common.TomoXStateAddr {
+	if tx.To().String() == common.WaihuiAddr || tx.To().String() == common.WaihuiStateAddr {
 		return true
 	}
 	return false
@@ -489,14 +489,14 @@ func (s TxByPrice) Less(i, j int) bool {
 	i_price := s.txs[i].data.Price
 	if s.txs[i].To() != nil {
 		if _, ok := s.payersSwap[*s.txs[i].To()]; ok {
-			i_price = common.TRC21GasPrice
+			i_price = common.TRC2GasPrice
 		}
 	}
 
 	j_price := s.txs[j].data.Price
 	if s.txs[j].To() != nil {
 		if _, ok := s.payersSwap[*s.txs[j].To()]; ok {
-			j_price = common.TRC21GasPrice
+			j_price = common.TRC2GasPrice
 		}
 	}
 	return i_price.Cmp(j_price) > 0
@@ -616,7 +616,7 @@ type Message struct {
 
 func NewMessage(from common.Address, to *common.Address, nonce uint64, amount *big.Int, gasLimit uint64, gasPrice *big.Int, data []byte, checkNonce bool, balanceTokenFee *big.Int) Message {
 	if balanceTokenFee != nil {
-		gasPrice = common.TRC21GasPrice
+		gasPrice = common.TRC2GasPrice
 	}
 	return Message{
 		from:            from,

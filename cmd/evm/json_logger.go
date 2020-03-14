@@ -22,9 +22,9 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/common/math"
-	"github.com/tomochain/tomochain/core/vm"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/common/math"
+	"github.com/tao2-core/tao2-core/core/vm"
 )
 
 type JSONLogger struct {

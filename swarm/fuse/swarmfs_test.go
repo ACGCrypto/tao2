@@ -27,8 +27,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/tomochain/tomochain/swarm/api"
-	"github.com/tomochain/tomochain/swarm/storage"
+	"github.com/tao2-core/tao2-core/swarm/api"
+	"github.com/tao2-core/tao2-core/swarm/storage"
 )
 
 type fileInfo struct {

@@ -21,7 +21,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/tomochain/tomochain/eth/tracers/internal/tracers"
+	"github.com/tao2-core/tao2-core/eth/tracers/internal/tracers"
 )
 
 // all contains all the built in JavaScript tracers by name.

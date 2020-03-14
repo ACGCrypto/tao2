@@ -19,8 +19,8 @@
 package whisperv5
 
 import (
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/common/hexutil"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/common/hexutil"
 )
 
 // Topic represents a cryptographically secure, probabilistic partial

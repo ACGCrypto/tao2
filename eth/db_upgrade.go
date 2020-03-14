@@ -21,11 +21,11 @@ import (
 	"bytes"
 	"time"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/core"
-	"github.com/tomochain/tomochain/ethdb"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/rlp"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/core"
+	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/rlp"
 )
 
 var deduplicateData = []byte("dbUpgrade_20170714deduplicateData")

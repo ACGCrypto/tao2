@@ -21,32 +21,32 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/tomochain/tomochain/tomox"
+	"github.com/tao2-core/tao2-core/waihui"
 	"io/ioutil"
 	"math/big"
 	"path/filepath"
 
-	"github.com/tomochain/tomochain/consensus/posv"
+	"github.com/tao2-core/tao2-core/consensus/posv"
 
-	"github.com/tomochain/tomochain/accounts"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/common/math"
-	"github.com/tomochain/tomochain/consensus"
-	"github.com/tomochain/tomochain/contracts"
-	"github.com/tomochain/tomochain/core"
-	"github.com/tomochain/tomochain/core/bloombits"
-	"github.com/tomochain/tomochain/core/state"
-	stateDatabase "github.com/tomochain/tomochain/core/state"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/core/vm"
-	"github.com/tomochain/tomochain/eth/downloader"
-	"github.com/tomochain/tomochain/eth/gasprice"
-	"github.com/tomochain/tomochain/ethclient"
-	"github.com/tomochain/tomochain/ethdb"
-	"github.com/tomochain/tomochain/event"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/params"
-	"github.com/tomochain/tomochain/rpc"
+	"github.com/tao2-core/tao2-core/accounts"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/common/math"
+	"github.com/tao2-core/tao2-core/consensus"
+	"github.com/tao2-core/tao2-core/contracts"
+	"github.com/tao2-core/tao2-core/core"
+	"github.com/tao2-core/tao2-core/core/bloombits"
+	"github.com/tao2-core/tao2-core/core/state"
+	stateDatabase "github.com/tao2-core/tao2-core/core/state"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/core/vm"
+	"github.com/tao2-core/tao2-core/eth/downloader"
+	"github.com/tao2-core/tao2-core/eth/gasprice"
+	"github.com/tao2-core/tao2-core/ethclient"
+	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/tao2-core/tao2-core/event"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/params"
+	"github.com/tao2-core/tao2-core/rpc"
 )
 
 // EthApiBackend implements ethapi.Backend for full nodes
@@ -411,17 +411,17 @@ func (b *EthApiBackend) AreTwoBlockSamePath(bh1 common.Hash, bh2 common.Hash) bo
 
 // GetOrderNonce get order nonce
 func (b *EthApiBackend) GetOrderNonce(address common.Hash) (uint64, error) {
-	tomoxService := b.eth.GetTomoX()
-	if tomoxService != nil {
-		tomoxState, err := tomoxService.GetTomoxState(b.CurrentBlock())
+	waihuiService := b.eth.GetWaihui()
+	if waihuiService != nil {
+		waihuiState, err := waihuiService.GetTomoxState(b.CurrentBlock())
 		if err != nil {
 			return 0, err
 		}
-		return tomoxState.GetNonce(address), nil
+		return waihuiState.GetNonce(address), nil
 	}
-	return 0, errors.New("cannot find tomox service")
+	return 0, errors.New("cannot find waihui service")
 }
 
-func (b *EthApiBackend) TomoxService() *tomox.TomoX {
-	return b.eth.TomoX
+func (b *EthApiBackend) TomoxService() *waihui.Waihui {
+	return b.eth.Waihui
 }

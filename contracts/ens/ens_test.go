@@ -20,11 +20,11 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/tomochain/tomochain/accounts/abi/bind"
-	"github.com/tomochain/tomochain/accounts/abi/bind/backends"
-	"github.com/tomochain/tomochain/contracts/ens/contract"
-	"github.com/tomochain/tomochain/core"
-	"github.com/tomochain/tomochain/crypto"
+	"github.com/tao2-core/tao2-core/accounts/abi/bind"
+	"github.com/tao2-core/tao2-core/accounts/abi/bind/backends"
+	"github.com/tao2-core/tao2-core/contracts/ens/contract"
+	"github.com/tao2-core/tao2-core/core"
+	"github.com/tao2-core/tao2-core/crypto"
 )
 
 var (

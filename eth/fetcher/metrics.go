@@ -19,7 +19,7 @@
 package fetcher
 
 import (
-	"github.com/tomochain/tomochain/metrics"
+	"github.com/tao2-core/tao2-core/metrics"
 )
 
 var (

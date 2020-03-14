@@ -20,7 +20,7 @@ import (
 	"html/template"
 	"path"
 
-	"github.com/tomochain/tomochain/swarm/api"
+	"github.com/tao2-core/tao2-core/swarm/api"
 )
 
 type htmlListData struct {

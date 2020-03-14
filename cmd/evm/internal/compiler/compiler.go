@@ -20,7 +20,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/tomochain/tomochain/core/asm"
+	"github.com/tao2-core/tao2-core/core/asm"
 )
 
 func Compile(fn string, src []byte, debug bool) (string, error) {

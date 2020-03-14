@@ -24,7 +24,7 @@ import (
 	"path/filepath"
 	"strconv"
 
-	"github.com/tomochain/tomochain/log"
+	"github.com/tao2-core/tao2-core/log"
 )
 
 // nginxDockerfile is theis the Dockerfile required to build an nginx reverse-

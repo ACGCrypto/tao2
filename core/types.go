@@ -17,11 +17,11 @@
 package core
 
 import (
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/core/state"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/core/vm"
-	"github.com/tomochain/tomochain/tomox/tomox_state"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/core/state"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/core/vm"
+	"github.com/tao2-core/tao2-core/waihui/waihui_state"
 	"math/big"
 )
 
@@ -37,7 +37,7 @@ type Validator interface {
 	// gas used.
 	ValidateState(block, parent *types.Block, state *state.StateDB, receipts types.Receipts, usedGas uint64) error
 
-	ValidateMatchingOrder(statedb *state.StateDB, tomoxStatedb *tomox_state.TomoXStateDB, txMatchBatch tomox_state.TxMatchBatch, coinbase common.Address) error
+	ValidateMatchingOrder(statedb *state.StateDB, waihuiStatedb *waihui_state.WaihuiStateDB, txMatchBatch waihui_state.TxMatchBatch, coinbase common.Address) error
 }
 
 // Processor is an interface for processing blocks using a given initial state.

@@ -24,22 +24,22 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/core"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/params"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/core"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/params"
 
 	"context"
 	"math/big"
 
-	"github.com/tomochain/tomochain/accounts/abi/bind"
-	"github.com/tomochain/tomochain/accounts/abi/bind/backends"
-	blockSignerContract "github.com/tomochain/tomochain/contracts/blocksigner"
-	multiSignWalletContract "github.com/tomochain/tomochain/contracts/multisigwallet"
-	randomizeContract "github.com/tomochain/tomochain/contracts/randomize"
-	validatorContract "github.com/tomochain/tomochain/contracts/validator"
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/rlp"
+	"github.com/tao2-core/tao2-core/accounts/abi/bind"
+	"github.com/tao2-core/tao2-core/accounts/abi/bind/backends"
+	blockSignerContract "github.com/tao2-core/tao2-core/contracts/blocksigner"
+	multiSignWalletContract "github.com/tao2-core/tao2-core/contracts/multisigwallet"
+	randomizeContract "github.com/tao2-core/tao2-core/contracts/randomize"
+	validatorContract "github.com/tao2-core/tao2-core/contracts/validator"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/rlp"
 )
 
 // makeGenesis creates a new genesis struct based on some user input.
@@ -152,7 +152,7 @@ func (w *wizard) makeGenesis() {
 			}
 		}
 		validatorCap := new(big.Int)
-		validatorCap.SetString("50000000000000000000000", 10)
+		validatorCap.SetString("100000000000000000000000", 10)
 		var validatorCaps []*big.Int
 		genesis.ExtraData = make([]byte, 32+len(signers)*common.AddressLength+65)
 		for i, signer := range signers {
@@ -312,7 +312,7 @@ func (w *wizard) makeGenesis() {
 		}
 
 		fmt.Println()
-		fmt.Println("What is swap wallet address for fund 55m tomo?")
+		fmt.Println("What is swap wallet address for fund 55m tao?")
 		swapAddr := *w.readAddress()
 		baseBalance := big.NewInt(0) // 55m
 		baseBalance.Add(baseBalance, big.NewInt(55*1000*1000))

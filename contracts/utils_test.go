@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Tomochain
+// Copyright (c) 2020 Tao Network
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
@@ -19,14 +19,14 @@ import (
 	"bytes"
 	"context"
 	"crypto/ecdsa"
-	"github.com/tomochain/tomochain/accounts/abi/bind"
-	"github.com/tomochain/tomochain/accounts/abi/bind/backends"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/consensus/posv"
-	"github.com/tomochain/tomochain/contracts/blocksigner"
-	"github.com/tomochain/tomochain/core"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/crypto"
+	"github.com/tao2-core/tao2-core/accounts/abi/bind"
+	"github.com/tao2-core/tao2-core/accounts/abi/bind/backends"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/consensus/posv"
+	"github.com/tao2-core/tao2-core/contracts/blocksigner"
+	"github.com/tao2-core/tao2-core/core"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/crypto"
 	"math/big"
 	"math/rand"
 	"testing"

@@ -22,7 +22,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/tomochain/tomochain/common"
+	"github.com/tao2-core/tao2-core/common"
 )
 
 type keyStorePlain struct {

@@ -22,9 +22,9 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/tomochain/tomochain/cmd/utils"
-	"github.com/tomochain/tomochain/console"
-	"github.com/tomochain/tomochain/crypto"
+	"github.com/tao2-core/tao2-core/cmd/utils"
+	"github.com/tao2-core/tao2-core/console"
+	"github.com/tao2-core/tao2-core/crypto"
 	"gopkg.in/urfave/cli.v1"
 )
 

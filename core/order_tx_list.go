@@ -20,7 +20,7 @@ import (
 	"container/heap"
 	"sort"
 
-	"github.com/tomochain/tomochain/core/types"
+	"github.com/tao2-core/tao2-core/core/types"
 )
 
 // txSortedMap is a nonce->transaction hash map with a heap based index to allow

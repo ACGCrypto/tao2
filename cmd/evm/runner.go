@@ -27,16 +27,16 @@ import (
 
 	goruntime "runtime"
 
-	"github.com/tomochain/tomochain/cmd/evm/internal/compiler"
-	"github.com/tomochain/tomochain/cmd/utils"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/core"
-	"github.com/tomochain/tomochain/core/state"
-	"github.com/tomochain/tomochain/core/vm"
-	"github.com/tomochain/tomochain/core/vm/runtime"
-	"github.com/tomochain/tomochain/ethdb"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/params"
+	"github.com/tao2-core/tao2-core/cmd/evm/internal/compiler"
+	"github.com/tao2-core/tao2-core/cmd/utils"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/core"
+	"github.com/tao2-core/tao2-core/core/state"
+	"github.com/tao2-core/tao2-core/core/vm"
+	"github.com/tao2-core/tao2-core/core/vm/runtime"
+	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/params"
 	cli "gopkg.in/urfave/cli.v1"
 )
 

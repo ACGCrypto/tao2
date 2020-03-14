@@ -1,24 +1,24 @@
-package tomox
+package waihui
 
 import (
-	"github.com/tomochain/tomochain/accounts/abi/bind"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/contracts/tomox/contract"
+	"github.com/tao2-core/tao2-core/accounts/abi/bind"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/contracts/waihui/contract"
 )
 
-type TOMOXListing struct {
-	*contract.TOMOXListingSession
+type WAIHUIListing struct {
+	*contract.WAIHUIListingSession
 	contractBackend bind.ContractBackend
 }
 
-func NewMyTOMOXListing(transactOpts *bind.TransactOpts, contractAddr common.Address, contractBackend bind.ContractBackend) (*TOMOXListing, error) {
-	smartContract, err := contract.NewTOMOXListing(contractAddr, contractBackend)
+func NewMyWAIHUIListing(transactOpts *bind.TransactOpts, contractAddr common.Address, contractBackend bind.ContractBackend) (*WAIHUIListing, error) {
+	smartContract, err := contract.NewWAIHUIListing(contractAddr, contractBackend)
 	if err != nil {
 		return nil, err
 	}
 
-	return &TOMOXListing{
-		&contract.TOMOXListingSession{
+	return &WAIHUIListing{
+		&contract.WAIHUIListingSession{
 			Contract:     smartContract,
 			TransactOpts: *transactOpts,
 		},
@@ -26,12 +26,12 @@ func NewMyTOMOXListing(transactOpts *bind.TransactOpts, contractAddr common.Addr
 	}, nil
 }
 
-func DeployTOMOXListing(transactOpts *bind.TransactOpts, contractBackend bind.ContractBackend) (common.Address, *TOMOXListing, error) {
-	contractAddr, _, _, err := contract.DeployTOMOXListing(transactOpts, contractBackend)
+func DeployWAIHUIListing(transactOpts *bind.TransactOpts, contractBackend bind.ContractBackend) (common.Address, *WAIHUIListing, error) {
+	contractAddr, _, _, err := contract.DeployWAIHUIListing(transactOpts, contractBackend)
 	if err != nil {
 		return contractAddr, nil, err
 	}
-	smartContract, err := NewMyTOMOXListing(transactOpts, contractAddr, contractBackend)
+	smartContract, err := NewMyWAIHUIListing(transactOpts, contractAddr, contractBackend)
 	if err != nil {
 		return contractAddr, nil, err
 	}

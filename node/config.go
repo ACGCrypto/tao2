@@ -25,14 +25,14 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/tomochain/tomochain/accounts"
-	"github.com/tomochain/tomochain/accounts/keystore"
-	"github.com/tomochain/tomochain/accounts/usbwallet"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/p2p"
-	"github.com/tomochain/tomochain/p2p/discover"
+	"github.com/tao2-core/tao2-core/accounts"
+	"github.com/tao2-core/tao2-core/accounts/keystore"
+	"github.com/tao2-core/tao2-core/accounts/usbwallet"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/p2p"
+	"github.com/tao2-core/tao2-core/p2p/discover"
 )
 
 const (

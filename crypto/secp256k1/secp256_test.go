@@ -24,8 +24,8 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/tomochain/tomochain/common/math"
-	"github.com/tomochain/tomochain/crypto/randentropy"
+	"github.com/tao2-core/tao2-core/common/math"
+	"github.com/tao2-core/tao2-core/crypto/randentropy"
 )
 
 const TestCount = 1000

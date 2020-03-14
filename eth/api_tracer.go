@@ -27,18 +27,18 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/common/hexutil"
-	"github.com/tomochain/tomochain/core"
-	"github.com/tomochain/tomochain/core/state"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/core/vm"
-	"github.com/tomochain/tomochain/eth/tracers"
-	"github.com/tomochain/tomochain/internal/ethapi"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/rlp"
-	"github.com/tomochain/tomochain/rpc"
-	"github.com/tomochain/tomochain/trie"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/common/hexutil"
+	"github.com/tao2-core/tao2-core/core"
+	"github.com/tao2-core/tao2-core/core/state"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/core/vm"
+	"github.com/tao2-core/tao2-core/eth/tracers"
+	"github.com/tao2-core/tao2-core/internal/ethapi"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/rlp"
+	"github.com/tao2-core/tao2-core/rpc"
+	"github.com/tao2-core/tao2-core/trie"
 )
 
 const (
@@ -190,7 +190,7 @@ func (api *PrivateDebugAPI) traceChain(ctx context.Context, start, end *types.Bl
 			// Fetch and execute the next block trace tasks
 			for task := range tasks {
 				signer := types.MakeSigner(api.config, task.block.Number())
-				feeCapacity := state.GetTRC21FeeCapacityFromState(task.statedb)
+				feeCapacity := state.GetTRC2FeeCapacityFromState(task.statedb)
 				// Trace all the transactions contained within
 				for i, tx := range task.block.Transactions() {
 					var balacne *big.Int
@@ -280,7 +280,7 @@ func (api *PrivateDebugAPI) traceChain(ctx context.Context, start, end *types.Bl
 				}
 				traced += uint64(len(txs))
 			}
-			feeCapacity := state.GetTRC21FeeCapacityFromState(statedb)
+			feeCapacity := state.GetTRC2FeeCapacityFromState(statedb)
 			// Generate the next state snapshot fast without tracing
 			_, _, _, err := api.eth.blockchain.Processor().Process(block, statedb, vm.Config{}, feeCapacity)
 			if err != nil {
@@ -431,7 +431,7 @@ func (api *PrivateDebugAPI) traceBlock(ctx context.Context, block *types.Block, 
 
 			// Fetch and execute the next transaction trace tasks
 			for task := range jobs {
-				feeCapacity := state.GetTRC21FeeCapacityFromState(task.statedb)
+				feeCapacity := state.GetTRC2FeeCapacityFromState(task.statedb)
 				var balacne *big.Int
 				if txs[task.index].To() != nil {
 					if value, ok := feeCapacity[*txs[task.index].To()]; ok {
@@ -451,7 +451,7 @@ func (api *PrivateDebugAPI) traceBlock(ctx context.Context, block *types.Block, 
 		}()
 	}
 	// Feed the transactions into the tracers and return
-	feeCapacity := state.GetTRC21FeeCapacityFromState(statedb)
+	feeCapacity := state.GetTRC2FeeCapacityFromState(statedb)
 	var failed error
 	for i, tx := range txs {
 		// Send the trace task over for execution
@@ -531,7 +531,7 @@ func (api *PrivateDebugAPI) computeStateDB(block *types.Block, reexec uint64) (*
 		if block = api.eth.blockchain.GetBlockByNumber(block.NumberU64() + 1); block == nil {
 			return nil, fmt.Errorf("block #%d not found", block.NumberU64()+1)
 		}
-		feeCapacity := state.GetTRC21FeeCapacityFromState(statedb)
+		feeCapacity := state.GetTRC2FeeCapacityFromState(statedb)
 		_, _, _, err := api.eth.blockchain.Processor().Process(block, statedb, vm.Config{}, feeCapacity)
 		if err != nil {
 			return nil, err
@@ -655,7 +655,7 @@ func (api *PrivateDebugAPI) computeTxEnv(blockHash common.Hash, txIndex int, ree
 	}
 	// Recompute transactions up to the target index.
 	signer := types.MakeSigner(api.config, block.Number())
-	feeCapacity := state.GetTRC21FeeCapacityFromState(statedb)
+	feeCapacity := state.GetTRC2FeeCapacityFromState(statedb)
 	for idx, tx := range block.Transactions() {
 		var balacne *big.Int
 		if tx.To() != nil {

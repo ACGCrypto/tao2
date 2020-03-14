@@ -19,7 +19,7 @@ package vm
 import (
 	"math/big"
 
-	"github.com/tomochain/tomochain/params"
+	"github.com/tao2-core/tao2-core/params"
 )
 
 const (

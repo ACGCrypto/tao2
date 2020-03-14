@@ -27,10 +27,10 @@ import (
 	"errors"
 	"strconv"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/crypto/ecies"
-	"github.com/tomochain/tomochain/log"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/crypto/ecies"
+	"github.com/tao2-core/tao2-core/log"
 )
 
 // Options specifies the exact way a message should be wrapped into an Envelope.

@@ -22,8 +22,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/metrics"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/metrics"
 )
 
 //metrics variables

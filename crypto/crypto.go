@@ -28,10 +28,10 @@ import (
 	"math/big"
 	"os"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/common/math"
-	"github.com/tomochain/tomochain/crypto/sha3"
-	"github.com/tomochain/tomochain/rlp"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/common/math"
+	"github.com/tao2-core/tao2-core/crypto/sha3"
+	"github.com/tao2-core/tao2-core/rlp"
 )
 
 var (

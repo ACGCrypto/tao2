@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Tomochain
+// Copyright (c) 2020 Tao Network
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
@@ -16,25 +16,25 @@
 package validator
 
 import (
-	"github.com/tomochain/tomochain/accounts/abi/bind"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/contracts/validator/contract"
+	"github.com/tao2-core/tao2-core/accounts/abi/bind"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/contracts/validator/contract"
 	"math/big"
 )
 
 type Validator struct {
-	*contract.TomoValidatorSession
+	*contract.TaoValidatorSession
 	contractBackend bind.ContractBackend
 }
 
 func NewValidator(transactOpts *bind.TransactOpts, contractAddr common.Address, contractBackend bind.ContractBackend) (*Validator, error) {
-	validator, err := contract.NewTomoValidator(contractAddr, contractBackend)
+	validator, err := contract.NewTaoValidator(contractAddr, contractBackend)
 	if err != nil {
 		return nil, err
 	}
 
 	return &Validator{
-		&contract.TomoValidatorSession{
+		&contract.TaoValidatorSession{
 			Contract:     validator,
 			TransactOpts: *transactOpts,
 		},
@@ -44,7 +44,7 @@ func NewValidator(transactOpts *bind.TransactOpts, contractAddr common.Address, 
 
 func DeployValidator(transactOpts *bind.TransactOpts, contractBackend bind.ContractBackend, validatorAddress []common.Address, caps []*big.Int, ownerAddress common.Address) (common.Address, *Validator, error) {
 	minDeposit := new(big.Int)
-	minDeposit.SetString("50000000000000000000000", 10)
+	minDeposit.SetString("100000000000000000000000", 10)
 	minVoterCap := new(big.Int)
 	minVoterCap.SetString("10000000000000000000", 10)
 	// Deposit 50K TOMO
@@ -52,7 +52,7 @@ func DeployValidator(transactOpts *bind.TransactOpts, contractBackend bind.Contr
 	// 150 masternodes
 	// Candidate Delay Withdraw 30 days = 1296000 blocks
 	// Voter Delay Withdraw 2 days = 86400 blocks
-	validatorAddr, _, _, err := contract.DeployTomoValidator(transactOpts, contractBackend, validatorAddress, caps, ownerAddress, minDeposit, minVoterCap, big.NewInt(150), big.NewInt(1296000), big.NewInt(86400))
+	validatorAddr, _, _, err := contract.DeployTaoValidator(transactOpts, contractBackend, validatorAddress, caps, ownerAddress, minDeposit, minVoterCap, big.NewInt(150), big.NewInt(1296000), big.NewInt(86400))
 	if err != nil {
 		return validatorAddr, nil, err
 	}

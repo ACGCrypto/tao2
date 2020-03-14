@@ -30,8 +30,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/crypto"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/crypto"
 )
 
 // Node represents a host on the network.

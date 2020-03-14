@@ -28,32 +28,32 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/tomochain/tomochain/accounts"
-	"github.com/tomochain/tomochain/accounts/keystore"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/common/fdlimit"
-	"github.com/tomochain/tomochain/consensus"
-	"github.com/tomochain/tomochain/consensus/ethash"
-	"github.com/tomochain/tomochain/consensus/posv"
-	"github.com/tomochain/tomochain/core"
-	"github.com/tomochain/tomochain/core/state"
-	"github.com/tomochain/tomochain/core/vm"
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/eth"
-	"github.com/tomochain/tomochain/eth/downloader"
-	"github.com/tomochain/tomochain/eth/gasprice"
-	"github.com/tomochain/tomochain/ethdb"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/metrics"
-	"github.com/tomochain/tomochain/node"
-	"github.com/tomochain/tomochain/p2p"
-	"github.com/tomochain/tomochain/p2p/discover"
-	"github.com/tomochain/tomochain/p2p/discv5"
-	"github.com/tomochain/tomochain/p2p/nat"
-	"github.com/tomochain/tomochain/p2p/netutil"
-	"github.com/tomochain/tomochain/params"
-	"github.com/tomochain/tomochain/tomox"
-	whisper "github.com/tomochain/tomochain/whisper/whisperv6"
+	"github.com/tao2-core/tao2-core/accounts"
+	"github.com/tao2-core/tao2-core/accounts/keystore"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/common/fdlimit"
+	"github.com/tao2-core/tao2-core/consensus"
+	"github.com/tao2-core/tao2-core/consensus/ethash"
+	"github.com/tao2-core/tao2-core/consensus/posv"
+	"github.com/tao2-core/tao2-core/core"
+	"github.com/tao2-core/tao2-core/core/state"
+	"github.com/tao2-core/tao2-core/core/vm"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/eth"
+	"github.com/tao2-core/tao2-core/eth/downloader"
+	"github.com/tao2-core/tao2-core/eth/gasprice"
+	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/metrics"
+	"github.com/tao2-core/tao2-core/node"
+	"github.com/tao2-core/tao2-core/p2p"
+	"github.com/tao2-core/tao2-core/p2p/discover"
+	"github.com/tao2-core/tao2-core/p2p/discv5"
+	"github.com/tao2-core/tao2-core/p2p/nat"
+	"github.com/tao2-core/tao2-core/p2p/netutil"
+	"github.com/tao2-core/tao2-core/params"
+	"github.com/tao2-core/tao2-core/waihui"
+	whisper "github.com/tao2-core/tao2-core/whisper/whisperv6"
 	"gopkg.in/urfave/cli.v1"
 )
 
@@ -148,7 +148,7 @@ var (
 		Usage: "Ropsten network: pre-configured proof-of-work test network",
 	}
 	TomoTestnetFlag = cli.BoolFlag{
-		Name:  "tomo-testnet",
+		Name:  "tao-testnet",
 		Usage: "Tomo test network",
 	}
 	RinkebyFlag = cli.BoolFlag{
@@ -205,10 +205,10 @@ var (
 		Name:  "lightkdf",
 		Usage: "Reduce key-derivation RAM & CPU usage at some expense of KDF strength",
 	}
-	// TomoX settings
-	TomoXEnabledFlag = cli.BoolFlag{
-		Name:  "tomox",
-		Usage: "Enable the tomoX protocol",
+	// Waihui settings
+	WaihuiEnabledFlag = cli.BoolFlag{
+		Name:  "waihui",
+		Usage: "Enable the waihui protocol",
 	}
 	// Ethash settings
 	EthashCacheDirFlag = DirectoryFlag{
@@ -533,28 +533,28 @@ var (
 		Usage: "Minimum POW accepted",
 		Value: whisper.DefaultMinimumPoW,
 	}
-	TomoXDataDirFlag = DirectoryFlag{
-		Name:  "tomox.datadir",
-		Usage: "Data directory for the TomoX databases",
+	WaihuiDataDirFlag = DirectoryFlag{
+		Name:  "waihui.datadir",
+		Usage: "Data directory for the Waihui databases",
 		Value: DirectoryString{node.DefaultDataDir()},
 	}
-	TomoXDBEngineFlag = cli.StringFlag{
-		Name:  "tomox.dbengine",
-		Usage: "Database engine for TomoX (leveldb, mongodb)",
+	WaihuiDBEngineFlag = cli.StringFlag{
+		Name:  "waihui.dbengine",
+		Usage: "Database engine for Waihui (leveldb, mongodb)",
 		Value: "leveldb",
 	}
-	TomoXDBNameFlag = cli.StringFlag{
-		Name:  "tomox.dbName",
-		Usage: "Database name for TomoX",
+	WaihuiDBNameFlag = cli.StringFlag{
+		Name:  "waihui.dbName",
+		Usage: "Database name for Waihui",
 		Value: "tomodex",
 	}
-	TomoXDBConnectionUrlFlag = cli.StringFlag{
-		Name:  "tomox.dbConnectionUrl",
+	WaihuiDBConnectionUrlFlag = cli.StringFlag{
+		Name:  "waihui.dbConnectionUrl",
 		Usage: "ConnectionUrl to database if dbEngine is mongodb. Host:port. If there are multiple instances, separated by comma. Eg: localhost:27017,localhost:27018",
 		Value: "localhost:27017",
 	}
-	TomoXDBReplicaSetNameFlag = cli.StringFlag{
-		Name:  "tomox.dbReplicaSetName",
+	WaihuiDBReplicaSetNameFlag = cli.StringFlag{
+		Name:  "waihui.dbReplicaSetName",
 		Usage: "ReplicaSetName if Master-Slave is setup",
 	}
 	TomoSlaveModeFlag = cli.BoolFlag{
@@ -762,7 +762,7 @@ func setIPC(ctx *cli.Context, cfg *node.Config) {
 }
 
 // MakeDatabaseHandles raises out the number of allowed file handles per process
-// for tomo and returns half of the allowance to assign to the database.
+// for tao and returns half of the allowance to assign to the database.
 func MakeDatabaseHandles() int {
 	limit, err := fdlimit.Current()
 	if err != nil {
@@ -794,7 +794,7 @@ func MakeAddress(ks *keystore.KeyStore, account string) (accounts.Account, error
 	log.Warn("-------------------------------------------------------------------")
 	log.Warn("Referring to accounts by order in the keystore folder is dangerous!")
 	log.Warn("This functionality is deprecated and will be removed in the future!")
-	log.Warn("Please use explicit addresses! (can search via `tomo account list`)")
+	log.Warn("Please use explicit addresses! (can search via `tao account list`)")
 	log.Warn("-------------------------------------------------------------------")
 
 	accs := ks.Accounts()
@@ -1045,31 +1045,31 @@ func SetShhConfig(ctx *cli.Context, stack *node.Node, cfg *whisper.Config) {
 	}
 }
 
-func SetTomoXConfig(ctx *cli.Context, cfg *tomox.Config) {
+func SetWaihuiConfig(ctx *cli.Context, cfg *waihui.Config) {
 	if len(cfg.DataDir) == 0 {
-		if ctx.GlobalIsSet(TomoXDataDirFlag.Name) {
-			cfg.DataDir = ctx.GlobalString(TomoXDataDirFlag.Name)
+		if ctx.GlobalIsSet(WaihuiDataDirFlag.Name) {
+			cfg.DataDir = ctx.GlobalString(WaihuiDataDirFlag.Name)
 		} else {
-			cfg.DataDir = TomoXDataDirFlag.Value.String()
+			cfg.DataDir = WaihuiDataDirFlag.Value.String()
 		}
 	}
-	if ctx.GlobalIsSet(TomoXDBEngineFlag.Name) {
-		cfg.DBEngine = ctx.GlobalString(TomoXDBEngineFlag.Name)
+	if ctx.GlobalIsSet(WaihuiDBEngineFlag.Name) {
+		cfg.DBEngine = ctx.GlobalString(WaihuiDBEngineFlag.Name)
 	} else {
-		cfg.DBEngine = TomoXDBEngineFlag.Value
+		cfg.DBEngine = WaihuiDBEngineFlag.Value
 	}
-	if ctx.GlobalIsSet(TomoXDBNameFlag.Name) {
-		cfg.DBName = ctx.GlobalString(TomoXDBNameFlag.Name)
+	if ctx.GlobalIsSet(WaihuiDBNameFlag.Name) {
+		cfg.DBName = ctx.GlobalString(WaihuiDBNameFlag.Name)
 	} else {
-		cfg.DBName = TomoXDBNameFlag.Value
+		cfg.DBName = WaihuiDBNameFlag.Value
 	}
-	if ctx.GlobalIsSet(TomoXDBConnectionUrlFlag.Name) {
-		cfg.ConnectionUrl = ctx.GlobalString(TomoXDBConnectionUrlFlag.Name)
+	if ctx.GlobalIsSet(WaihuiDBConnectionUrlFlag.Name) {
+		cfg.ConnectionUrl = ctx.GlobalString(WaihuiDBConnectionUrlFlag.Name)
 	} else {
-		cfg.ConnectionUrl = TomoXDBConnectionUrlFlag.Value
+		cfg.ConnectionUrl = WaihuiDBConnectionUrlFlag.Value
 	}
-	if ctx.GlobalIsSet(TomoXDBReplicaSetNameFlag.Name) {
-		cfg.ReplicaSetName = ctx.GlobalString(TomoXDBReplicaSetNameFlag.Name)
+	if ctx.GlobalIsSet(WaihuiDBReplicaSetNameFlag.Name) {
+		cfg.ReplicaSetName = ctx.GlobalString(WaihuiDBReplicaSetNameFlag.Name)
 	}
 }
 
@@ -1135,7 +1135,7 @@ func SetEthConfig(ctx *cli.Context, stack *node.Node, cfg *eth.Config) {
 		cfg.EnablePreimageRecording = ctx.GlobalBool(VMEnableDebugFlag.Name)
 	}
 	if ctx.GlobalIsSet(StoreRewardFlag.Name) {
-		common.StoreRewardFolder = filepath.Join(stack.DataDir(), "tomo", "rewards")
+		common.StoreRewardFolder = filepath.Join(stack.DataDir(), "tao", "rewards")
 		if _, err := os.Stat(common.StoreRewardFolder); os.IsNotExist(err) {
 			os.Mkdir(common.StoreRewardFolder, os.ModePerm)
 		}
@@ -1284,11 +1284,11 @@ func MakeConsolePreloads(ctx *cli.Context) []string {
 // This is a temporary function used for migrating old command/flags to the
 // new format.
 //
-// e.g. tomo account new --keystore /tmp/mykeystore --lightkdf
+// e.g. tao account new --keystore /tmp/mykeystore --lightkdf
 //
 // is equivalent after calling this method with:
 //
-// tomo --keystore /tmp/mykeystore --lightkdf account new
+// tao --keystore /tmp/mykeystore --lightkdf account new
 //
 // This allows the use of the existing configuration functionality.
 // When all flags are migrated this function can be removed and the existing

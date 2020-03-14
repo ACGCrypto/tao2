@@ -17,10 +17,10 @@
 package clique
 
 import (
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/consensus"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/rpc"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/consensus"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/rpc"
 )
 
 // API is a user facing RPC API to allow controlling the signer and voting

@@ -4,8 +4,8 @@ import (
 	"math/big"
 	"os"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/crypto"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/crypto"
 )
 
 var (
@@ -14,13 +14,13 @@ var (
 	MainKey, _  = crypto.HexToECDSA(os.Getenv("MAIN_ADDRESS_KEY"))
 	MainAddr    = crypto.PubkeyToAddress(MainKey.PublicKey) //0x17F2beD710ba50Ed27aEa52fc4bD7Bda5ED4a037
 
-	// TRC21 Token
-	MinTRC21Apply   = big.NewInt(0).Mul(big.NewInt(10), BaseTOMO) // 10 TOMO
-	TRC21TokenCap   = big.NewInt(0).Mul(big.NewInt(1000000000000), BaseTOMO)
-	TRC21TokenFee   = big.NewInt(100)
-	TomoXListingFee = big.NewInt(0).Mul(big.NewInt(1000), BaseTOMO) // 1000 TOMO
+	// TRC2 Token
+	MinTRC2Apply   = big.NewInt(0).Mul(big.NewInt(10), BaseTOMO) // 10 TOMO
+	TRC2TokenCap   = big.NewInt(0).Mul(big.NewInt(1000000000000), BaseTOMO)
+	TRC2TokenFee   = big.NewInt(100)
+	WaihuiListingFee = big.NewInt(0).Mul(big.NewInt(1000), BaseTOMO) // 1000 TOMO
 
-	// TOMOX
+	// WAIHUI
 	MaxRelayers  = big.NewInt(200)
 	MaxTokenList = big.NewInt(200)
 	MinDeposit   = big.NewInt(0).Mul(big.NewInt(25000), BaseTOMO) // 25000 TOMO

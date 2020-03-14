@@ -2,11 +2,11 @@ package core
 
 import (
 	"context"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/ethclient"
-	"github.com/tomochain/tomochain/rpc"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/ethclient"
+	"github.com/tao2-core/tao2-core/rpc"
 	"log"
 	"math/big"
 	"strconv"
@@ -48,7 +48,7 @@ func getNonce(t *testing.T, userAddress common.Address) (uint64, error) {
 
 		return 0, err
 	}
-	err = rpcClient.Call(&result, "tomox_getOrderCount", userAddress)
+	err = rpcClient.Call(&result, "waihui_getOrderCount", userAddress)
 	if err != nil {
 		return 0, err
 	}

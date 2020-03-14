@@ -16,7 +16,7 @@
 
 package bind
 
-import "github.com/tomochain/tomochain/accounts/abi"
+import "github.com/tao2-core/tao2-core/accounts/abi"
 
 // tmplData is the data structure required to fill the binding template.
 type tmplData struct {

@@ -24,7 +24,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/tomochain/tomochain/common"
+	"github.com/tao2-core/tao2-core/common"
 )
 
 // Hash represents the 32 byte Keccak256 hash of arbitrary data.

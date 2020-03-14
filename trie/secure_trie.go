@@ -19,8 +19,8 @@ package trie
 import (
 	"fmt"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/log"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/log"
 )
 
 // SecureTrie wraps a trie with key hashing. In a secure trie, all

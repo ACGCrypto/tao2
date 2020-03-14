@@ -20,7 +20,7 @@ import (
 	"bytes"
 	"encoding/binary"
 	"fmt"
-	"github.com/tomochain/tomochain/accounts"
+	"github.com/tao2-core/tao2-core/accounts"
 
 	"math/big"
 	"os"
@@ -28,22 +28,22 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/tomochain/tomochain/tomox/tomox_state"
+	"github.com/tao2-core/tao2-core/waihui/waihui_state"
 
 	mapset "github.com/deckarep/golang-set"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/consensus"
-	"github.com/tomochain/tomochain/consensus/misc"
-	"github.com/tomochain/tomochain/consensus/posv"
-	"github.com/tomochain/tomochain/contracts"
-	"github.com/tomochain/tomochain/core"
-	"github.com/tomochain/tomochain/core/state"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/core/vm"
-	"github.com/tomochain/tomochain/ethdb"
-	"github.com/tomochain/tomochain/event"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/params"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/consensus"
+	"github.com/tao2-core/tao2-core/consensus/misc"
+	"github.com/tao2-core/tao2-core/consensus/posv"
+	"github.com/tao2-core/tao2-core/contracts"
+	"github.com/tao2-core/tao2-core/core"
+	"github.com/tao2-core/tao2-core/core/state"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/core/vm"
+	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/tao2-core/tao2-core/event"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/params"
 )
 
 const (
@@ -82,7 +82,7 @@ type Work struct {
 
 	state       *state.StateDB // apply state changes here
 	parentState *state.StateDB
-	tomoxState  *tomox_state.TomoXStateDB
+	waihuiState  *waihui_state.WaihuiStateDB
 	ancestors   mapset.Set // ancestor set (used for checking uncle parent validity)
 	family      mapset.Set // family set (used for checking uncle invalidity)
 	uncles      mapset.Set // uncle set
@@ -310,7 +310,7 @@ func (self *worker) update() {
 				self.currentMu.Lock()
 				acc, _ := types.Sender(self.current.signer, ev.Tx)
 				txs := map[common.Address]types.Transactions{acc: {ev.Tx}}
-				feeCapacity := state.GetTRC21FeeCapacityFromState(self.current.state)
+				feeCapacity := state.GetTRC2FeeCapacityFromState(self.current.state)
 				txset, specialTxs := types.NewTransactionsByPriceAndNonce(self.current.signer, txs, nil, feeCapacity)
 				self.current.commitTransactions(self.mux, feeCapacity, txset, specialTxs, self.chain, self.coinbase)
 				self.currentMu.Unlock()
@@ -355,7 +355,7 @@ func (self *worker) wait() {
 				log.BlockHash = block.Hash()
 			}
 			self.currentMu.Lock()
-			stat, err := self.chain.WriteBlockWithState(block, work.receipts, work.state, work.tomoxState)
+			stat, err := self.chain.WriteBlockWithState(block, work.receipts, work.state, work.waihuiState)
 			self.currentMu.Unlock()
 			if err != nil {
 				log.Error("Failed writing block to chain", "err", err)
@@ -451,10 +451,10 @@ func (self *worker) makeCurrent(parent *types.Block, header *types.Header) error
 	if err != nil {
 		return err
 	}
-	var tomoxState *tomox_state.TomoXStateDB
+	var waihuiState *waihui_state.WaihuiStateDB
 	if self.config.Posv != nil {
-		tomoX := self.eth.GetTomoX()
-		tomoxState, err = tomoX.GetTomoxState(parent)
+		waihui := self.eth.GetWaihui()
+		waihuiState, err = waihui.GetTomoxState(parent)
 		if err != nil {
 			log.Error("Failed to create mining context", "err", err)
 			return err
@@ -466,7 +466,7 @@ func (self *worker) makeCurrent(parent *types.Block, header *types.Header) error
 		signer:      types.NewEIP155Signer(self.config.ChainId),
 		state:       state,
 		parentState: state.Copy(),
-		tomoxState:  tomoxState,
+		waihuiState:  waihuiState,
 		ancestors:   mapset.NewSet(),
 		family:      mapset.NewSet(),
 		uncles:      mapset.NewSet(),
@@ -615,10 +615,10 @@ func (self *worker) commitNewWork() {
 		txs                 *types.TransactionsByPriceAndNonce
 		specialTxs          types.Transactions
 		matchingTransaction *types.Transaction
-		txMatches           []tomox_state.TxDataMatch
-		matchingResults     map[common.Hash]tomox_state.MatchingResult
+		txMatches           []waihui_state.TxDataMatch
+		matchingResults     map[common.Hash]waihui_state.MatchingResult
 	)
-	feeCapacity := state.GetTRC21FeeCapacityFromStateWithCache(parent.Root(), work.state)
+	feeCapacity := state.GetTRC2FeeCapacityFromStateWithCache(parent.Root(), work.state)
 	if self.config.Posv != nil && header.Number.Uint64()%self.config.Posv.Epoch != 0 {
 		pending, err := self.eth.TxPool().Pending()
 		if err != nil {
@@ -633,42 +633,42 @@ func (self *worker) commitNewWork() {
 			log.Warn("Can't find coinbase account wallet", "coinbase", self.coinbase, "err", err)
 			return
 		}
-		if self.config.Posv != nil && header.Number.Uint64()%self.config.Posv.Epoch != 0 && self.chain.Config().IsTIPTomoX(header.Number) {
-			tomoX := self.eth.GetTomoX()
-			if tomoX != nil && header.Number.Uint64() > self.config.Posv.Epoch {
+		if self.config.Posv != nil && header.Number.Uint64()%self.config.Posv.Epoch != 0 && self.chain.Config().IsTIPWaihui(header.Number) {
+			waihui := self.eth.GetWaihui()
+			if waihui != nil && header.Number.Uint64() > self.config.Posv.Epoch {
 				log.Debug("Start processing order pending")
 				orderPending, _ := self.eth.OrderPool().Pending()
 				log.Debug("Start processing order pending", "len", len(orderPending))
-				txMatches, matchingResults = tomoX.ProcessOrderPending(self.coinbase, self.chain, orderPending, work.state, work.tomoxState)
+				txMatches, matchingResults = waihui.ProcessOrderPending(self.coinbase, self.chain, orderPending, work.state, work.waihuiState)
 				log.Debug("transaction matches found", "txMatches", len(txMatches))
 			}
-			txMatchBatch := &tomox_state.TxMatchBatch{
+			txMatchBatch := &waihui_state.TxMatchBatch{
 				Data:      txMatches,
 				Timestamp: time.Now().UnixNano(),
 				TxHash:    common.Hash{},
 			}
-			txMatchBytes, err := tomox_state.EncodeTxMatchesBatch(*txMatchBatch)
+			txMatchBytes, err := waihui_state.EncodeTxMatchesBatch(*txMatchBatch)
 			if err != nil {
 				log.Error("Fail to marshal txMatch", "error", err)
 				return
 			}
 			nonce := work.state.GetNonce(self.coinbase)
-			tx := types.NewTransaction(nonce, common.HexToAddress(common.TomoXAddr), big.NewInt(0), txMatchGasLimit, big.NewInt(0), txMatchBytes)
+			tx := types.NewTransaction(nonce, common.HexToAddress(common.WaihuiAddr), big.NewInt(0), txMatchGasLimit, big.NewInt(0), txMatchBytes)
 			txM, err := wallet.SignTx(accounts.Account{Address: self.coinbase}, tx, self.config.ChainId)
 			if err != nil {
 				log.Error("Fail to create tx matches", "error", err)
 				return
 			} else {
 				matchingTransaction = txM
-				if tomoX != nil && tomoX.IsSDKNode() {
+				if waihui != nil && waihui.IsSDKNode() {
 					self.chain.AddMatchingResult(matchingTransaction.Hash(), matchingResults)
 				}
 			}
 			// force adding matching transaction to this block
 			specialTxs = append(specialTxs, matchingTransaction)
 		}
-		TomoxStateRoot := work.tomoxState.IntermediateRoot()
-		tx := types.NewTransaction(work.state.GetNonce(self.coinbase), common.HexToAddress(common.TomoXStateAddr), big.NewInt(0), txMatchGasLimit, big.NewInt(0), TomoxStateRoot.Bytes())
+		TomoxStateRoot := work.waihuiState.IntermediateRoot()
+		tx := types.NewTransaction(work.state.GetNonce(self.coinbase), common.HexToAddress(common.WaihuiStateAddr), big.NewInt(0), txMatchGasLimit, big.NewInt(0), TomoxStateRoot.Bytes())
 		txStateRoot, err := wallet.SignTx(accounts.Account{Address: self.coinbase}, tx, self.config.ChainId)
 		if err != nil {
 			log.Error("Fail to create tx state root", "error", err)
@@ -807,8 +807,8 @@ func (env *Work) commitTransactions(mux *event.TypeMux, balanceFee map[common.Ad
 		}
 		if tokenFeeUsed {
 			fee := new(big.Int).SetUint64(gas)
-			if env.header.Number.Cmp(common.TIPTRC21Fee) > 0 {
-				fee = fee.Mul(fee, common.TRC21GasPrice)
+			if env.header.Number.Cmp(common.TIPTRC2Fee) > 0 {
+				fee = fee.Mul(fee, common.TRC2GasPrice)
 			}
 			balanceFee[*tx.To()] = new(big.Int).Sub(balanceFee[*tx.To()], fee)
 			balanceUpdated[*tx.To()] = balanceFee[*tx.To()]
@@ -906,15 +906,15 @@ func (env *Work) commitTransactions(mux *event.TypeMux, balanceFee map[common.Ad
 		}
 		if tokenFeeUsed {
 			fee := new(big.Int).SetUint64(gas)
-			if env.header.Number.Cmp(common.TIPTRC21Fee) > 0 {
-				fee = fee.Mul(fee, common.TRC21GasPrice)
+			if env.header.Number.Cmp(common.TIPTRC2Fee) > 0 {
+				fee = fee.Mul(fee, common.TRC2GasPrice)
 			}
 			balanceFee[*tx.To()] = new(big.Int).Sub(balanceFee[*tx.To()], fee)
 			balanceUpdated[*tx.To()] = balanceFee[*tx.To()]
 			totalFeeUsed = totalFeeUsed.Add(totalFeeUsed, fee)
 		}
 	}
-	state.UpdateTRC21Fee(env.state, balanceUpdated, totalFeeUsed)
+	state.UpdateTRC2Fee(env.state, balanceUpdated, totalFeeUsed)
 	if len(coalescedLogs) > 0 || env.tcount > 0 {
 		// make a copy, the state caches the logs and these logs get "upgraded" from pending to mined
 		// logs by filling in the block hash when the block was mined by the local miner. This can

@@ -26,7 +26,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/tomochain/tomochain/common"
+	"github.com/tao2-core/tao2-core/common"
 	"github.com/stretchr/testify/require"
 )
 

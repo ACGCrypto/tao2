@@ -3,11 +3,11 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/tomochain/tomochain/accounts/abi/bind"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/contracts/trc21issuer"
-	"github.com/tomochain/tomochain/contracts/trc21issuer/simulation"
-	"github.com/tomochain/tomochain/ethclient"
+	"github.com/tao2-core/tao2-core/accounts/abi/bind"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/contracts/trc2issuer"
+	"github.com/tao2-core/tao2-core/contracts/trc2issuer/simulation"
+	"github.com/tao2-core/tao2-core/ethclient"
 	"log"
 	"math/big"
 	"time"
@@ -25,46 +25,46 @@ func main() {
 	}
 	nonce, _ := client.NonceAt(context.Background(), simulation.MainAddr, nil)
 
-	// init trc21 issuer
+	// init trc2 issuer
 	auth := bind.NewKeyedTransactor(simulation.MainKey)
 	auth.Nonce = big.NewInt(int64(nonce))
 	auth.Value = big.NewInt(0)      // in wei
 	auth.GasLimit = uint64(4000000) // in units
 	auth.GasPrice = big.NewInt(210000000000000)
-	trc21IssuerAddr, trc21Issuer, err := trc21issuer.DeployTRC21Issuer(auth, client, simulation.MinApply)
+	trc2IssuerAddr, trc2Issuer, err := trc2issuer.DeployTRC2Issuer(auth, client, simulation.MinApply)
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Println("main address", simulation.MainAddr.Hex(), "nonce", nonce)
-	fmt.Println("===> trc21 issuer address", trc21IssuerAddr.Hex())
+	fmt.Println("===> trc2 issuer address", trc2IssuerAddr.Hex())
 
 	auth.Nonce = big.NewInt(int64(nonce + 1))
 
-	// init trc20
-	trc21TokenAddr, trc21Token, err := trc21issuer.DeployTRC21(auth, client, "TEST", "TOMO", 18, simulation.Cap, simulation.Fee)
+	// init trc1
+	trc2TokenAddr, trc2Token, err := trc2issuer.DeployTRC2(auth, client, "TEST", "TOMO", 18, simulation.Cap, simulation.Fee)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("===>  trc21 token address", trc21TokenAddr.Hex(), "cap", simulation.Cap)
+	fmt.Println("===>  trc2 token address", trc2TokenAddr.Hex(), "cap", simulation.Cap)
 
 	fmt.Println("wait 10s to execute init smart contract")
 	time.Sleep(10 * time.Second)
 
-	trc21Issuer.TransactOpts.Nonce = big.NewInt(int64(nonce + 2))
-	trc21Issuer.TransactOpts.Value = simulation.MinApply
-	trc21Issuer.TransactOpts.GasPrice = big.NewInt(common.DefaultMinGasPrice)
-	trc21Token.TransactOpts.GasPrice = big.NewInt(common.DefaultMinGasPrice)
-	trc21Token.TransactOpts.GasLimit = uint64(4000000)
+	trc2Issuer.TransactOpts.Nonce = big.NewInt(int64(nonce + 2))
+	trc2Issuer.TransactOpts.Value = simulation.MinApply
+	trc2Issuer.TransactOpts.GasPrice = big.NewInt(common.DefaultMinGasPrice)
+	trc2Token.TransactOpts.GasPrice = big.NewInt(common.DefaultMinGasPrice)
+	trc2Token.TransactOpts.GasLimit = uint64(4000000)
 	auth.GasPrice = big.NewInt(common.DefaultMinGasPrice)
-	// get balance init trc21 smart contract
-	balance, err := trc21Token.BalanceOf(simulation.MainAddr)
+	// get balance init trc2 smart contract
+	balance, err := trc2Token.BalanceOf(simulation.MainAddr)
 	if err != nil || balance.Cmp(simulation.Cap) != 0 {
 		log.Fatal(err, "\tget\t", balance, "\twant\t", simulation.Cap)
 	}
 	fmt.Println("balance", balance, "mainAddr", simulation.MainAddr.Hex())
 
-	// add trc20 list token trc21 issuer
-	_, err = trc21Issuer.Apply(trc21TokenAddr)
+	// add trc1 list token trc2 issuer
+	_, err = trc2Issuer.Apply(trc2TokenAddr)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -72,14 +72,14 @@ func main() {
 	fmt.Println("wait 10s to add token to list issuer")
 	time.Sleep(10 * time.Second)
 
-	//check trc21 SMC balance
-	balance, err = client.BalanceAt(context.Background(), trc21IssuerAddr, nil)
+	//check trc2 SMC balance
+	balance, err = client.BalanceAt(context.Background(), trc2IssuerAddr, nil)
 	if err != nil || balance.Cmp(simulation.MinApply) != 0 {
-		log.Fatal("can't get balance  in trc21Issuer SMC: ", err, "got", balance, "wanted", simulation.MinApply)
+		log.Fatal("can't get balance  in trc2Issuer SMC: ", err, "got", balance, "wanted", simulation.MinApply)
 	}
 
 	//check balance fee
-	balanceIssuerFee, err := trc21Issuer.GetTokenCapacity(trc21TokenAddr)
+	balanceIssuerFee, err := trc2Issuer.GetTokenCapacity(trc2TokenAddr)
 	if err != nil || balanceIssuerFee.Cmp(simulation.MinApply) != 0 {
 		log.Fatal("can't get balance token fee in  smart contract: ", err, "got", balanceIssuerFee, "wanted", simulation.MinApply)
 	}

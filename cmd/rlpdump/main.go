@@ -26,7 +26,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/tomochain/tomochain/rlp"
+	"github.com/tao2-core/tao2-core/rlp"
 )
 
 var (

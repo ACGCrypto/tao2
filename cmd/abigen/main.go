@@ -24,8 +24,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/tomochain/tomochain/accounts/abi/bind"
-	"github.com/tomochain/tomochain/common/compiler"
+	"github.com/tao2-core/tao2-core/accounts/abi/bind"
+	"github.com/tao2-core/tao2-core/common/compiler"
 )
 
 var (

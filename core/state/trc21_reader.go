@@ -2,18 +2,18 @@ package state
 
 import (
 	"bytes"
-	"github.com/tomochain/tomochain/common"
+	"github.com/tao2-core/tao2-core/common"
 	"github.com/hashicorp/golang-lru"
 	"math/big"
 )
 
 var (
-	SlotTRC21Issuer = map[string]uint64{
+	SlotTRC2Issuer = map[string]uint64{
 		"minCap":      0,
 		"tokens":      1,
 		"tokensState": 2,
 	}
-	SlotTRC21Token = map[string]uint64{
+	SlotTRC2Token = map[string]uint64{
 		"balances": 0,
 		"minFee":   1,
 		"issuer":   2,
@@ -23,7 +23,7 @@ var (
 	cache, _            = lru.NewARC(128)
 )
 
-func GetTRC21FeeCapacityFromStateWithCache(trieRoot common.Hash, statedb *StateDB) map[common.Address]*big.Int {
+func GetTRC2FeeCapacityFromStateWithCache(trieRoot common.Hash, statedb *StateDB) map[common.Address]*big.Int {
 	if statedb == nil {
 		return map[common.Address]*big.Int{}
 	}
@@ -32,7 +32,7 @@ func GetTRC21FeeCapacityFromStateWithCache(trieRoot common.Hash, statedb *StateD
 	if data != nil {
 		info = data.(map[common.Address]*big.Int)
 	} else {
-		info = GetTRC21FeeCapacityFromState(statedb)
+		info = GetTRC2FeeCapacityFromState(statedb)
 	}
 	cache.Add(trieRoot, info)
 	tokensFee := map[common.Address]*big.Int{}
@@ -41,33 +41,33 @@ func GetTRC21FeeCapacityFromStateWithCache(trieRoot common.Hash, statedb *StateD
 	}
 	return tokensFee
 }
-func GetTRC21FeeCapacityFromState(statedb *StateDB) map[common.Address]*big.Int {
+func GetTRC2FeeCapacityFromState(statedb *StateDB) map[common.Address]*big.Int {
 	if statedb == nil {
 		return map[common.Address]*big.Int{}
 	}
 	tokensCapacity := map[common.Address]*big.Int{}
-	slotTokens := SlotTRC21Issuer["tokens"]
+	slotTokens := SlotTRC2Issuer["tokens"]
 	slotTokensHash := common.BigToHash(new(big.Int).SetUint64(slotTokens))
-	slotTokensState := SlotTRC21Issuer["tokensState"]
-	tokenCount := statedb.GetState(common.TRC21IssuerSMC, slotTokensHash).Big().Uint64()
+	slotTokensState := SlotTRC2Issuer["tokensState"]
+	tokenCount := statedb.GetState(common.TRC2IssuerSMC, slotTokensHash).Big().Uint64()
 	for i := uint64(0); i < tokenCount; i++ {
 		key := GetLocDynamicArrAtElement(slotTokensHash, i, 1)
-		value := statedb.GetState(common.TRC21IssuerSMC, key)
+		value := statedb.GetState(common.TRC2IssuerSMC, key)
 		if !common.EmptyHash(value) {
 			token := common.BytesToAddress(value.Bytes())
 			balanceKey := GetLocMappingAtKey(token.Hash(), slotTokensState)
-			balanceHash := statedb.GetState(common.TRC21IssuerSMC, common.BigToHash(balanceKey))
+			balanceHash := statedb.GetState(common.TRC2IssuerSMC, common.BigToHash(balanceKey))
 			tokensCapacity[common.BytesToAddress(token.Bytes())] = balanceHash.Big()
 		}
 	}
 	return tokensCapacity
 }
 
-func PayFeeWithTRC21TxFail(statedb *StateDB, from common.Address, token common.Address) {
+func PayFeeWithTRC2TxFail(statedb *StateDB, from common.Address, token common.Address) {
 	if statedb == nil {
 		return
 	}
-	slotBalanceTrc21 := SlotTRC21Token["balances"]
+	slotBalanceTrc21 := SlotTRC2Token["balances"]
 	balanceKey := GetLocMappingAtKey(from.Hash(), slotBalanceTrc21)
 	balanceHash := statedb.GetState(token, common.BigToHash(balanceKey))
 	if !common.EmptyHash(balanceHash) {
@@ -76,12 +76,12 @@ func PayFeeWithTRC21TxFail(statedb *StateDB, from common.Address, token common.A
 		if balance.Cmp(feeUsed) <= 0 {
 			return
 		}
-		issuerTokenKey := GetLocSimpleVariable(SlotTRC21Token["issuer"])
+		issuerTokenKey := GetLocSimpleVariable(SlotTRC2Token["issuer"])
 		if common.EmptyHash(issuerTokenKey) {
 			return
 		}
 		issuerAddr := common.BytesToAddress(statedb.GetState(token, issuerTokenKey).Bytes())
-		feeTokenKey := GetLocSimpleVariable(SlotTRC21Token["minFee"])
+		feeTokenKey := GetLocSimpleVariable(SlotTRC2Token["minFee"])
 		feeHash := statedb.GetState(token, feeTokenKey)
 		fee := feeHash.Big()
 		if balance.Cmp(fee) < 0 {
@@ -100,17 +100,17 @@ func PayFeeWithTRC21TxFail(statedb *StateDB, from common.Address, token common.A
 	}
 }
 
-func ValidateTRC21Tx(statedb *StateDB, from common.Address, token common.Address, data []byte) bool {
+func ValidateTRC2Tx(statedb *StateDB, from common.Address, token common.Address, data []byte) bool {
 	if data == nil || statedb == nil {
 		return false
 	}
-	slotBalanceTrc21 := SlotTRC21Token["balances"]
+	slotBalanceTrc21 := SlotTRC2Token["balances"]
 	balanceKey := GetLocMappingAtKey(from.Hash(), slotBalanceTrc21)
 	balanceHash := statedb.GetState(token, common.BigToHash(balanceKey))
 
 	if !common.EmptyHash(balanceHash) {
 		balance := balanceHash.Big()
-		minFeeTokenKey := GetLocSimpleVariable(SlotTRC21Token["minFee"])
+		minFeeTokenKey := GetLocSimpleVariable(SlotTRC2Token["minFee"])
 		minFeeHash := statedb.GetState(token, minFeeTokenKey)
 		requiredMinBalance := minFeeHash.Big()
 		funcHex := data[:4]
@@ -130,7 +130,7 @@ func ValidateTRC21Tx(statedb *StateDB, from common.Address, token common.Address
 		}
 	} else {
 		// we both accept tx with balance = 0 and fee = 0
-		minFeeTokenKey := GetLocSimpleVariable(SlotTRC21Token["minFee"])
+		minFeeTokenKey := GetLocSimpleVariable(SlotTRC2Token["minFee"])
 		if !common.EmptyHash(minFeeTokenKey) {
 			return true
 		}
@@ -139,14 +139,14 @@ func ValidateTRC21Tx(statedb *StateDB, from common.Address, token common.Address
 	return false
 }
 
-func UpdateTRC21Fee(statedb *StateDB, newBalance map[common.Address]*big.Int, totalFeeUsed *big.Int) {
+func UpdateTRC2Fee(statedb *StateDB, newBalance map[common.Address]*big.Int, totalFeeUsed *big.Int) {
 	if statedb == nil || len(newBalance) == 0 {
 		return
 	}
-	slotTokensState := SlotTRC21Issuer["tokensState"]
+	slotTokensState := SlotTRC2Issuer["tokensState"]
 	for token, value := range newBalance {
 		balanceKey := GetLocMappingAtKey(token.Hash(), slotTokensState)
-		statedb.SetState(common.TRC21IssuerSMC, common.BigToHash(balanceKey), common.BigToHash(value))
+		statedb.SetState(common.TRC2IssuerSMC, common.BigToHash(balanceKey), common.BigToHash(value))
 	}
-	statedb.SubBalance(common.TRC21IssuerSMC, totalFeeUsed)
+	statedb.SubBalance(common.TRC2IssuerSMC, totalFeeUsed)
 }

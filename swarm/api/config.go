@@ -22,14 +22,14 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/contracts/ens"
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/node"
-	"github.com/tomochain/tomochain/swarm/network"
-	"github.com/tomochain/tomochain/swarm/services/swap"
-	"github.com/tomochain/tomochain/swarm/storage"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/contracts/ens"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/node"
+	"github.com/tao2-core/tao2-core/swarm/network"
+	"github.com/tao2-core/tao2-core/swarm/services/swap"
+	"github.com/tao2-core/tao2-core/swarm/storage"
 )
 
 const (

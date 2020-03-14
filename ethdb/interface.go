@@ -16,7 +16,7 @@
 
 package ethdb
 
-import "github.com/tomochain/tomochain/common"
+import "github.com/tao2-core/tao2-core/common"
 
 // Code using batches should try to add this much data to the batch.
 // The value was determined empirically.

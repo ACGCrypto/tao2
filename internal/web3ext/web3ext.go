@@ -29,7 +29,7 @@ var Modules = map[string]string{
 	"personal":   Personal_JS,
 	"rpc":        RPC_JS,
 	"shh":        Shh_JS,
-	"tomox":      TomoX_JS,
+	"waihui":      Waihui_JS,
 	"swarmfs":    SWARMFS_JS,
 	"txpool":     TxPool_JS,
 }
@@ -624,128 +624,128 @@ web3._extend({
 });
 `
 
-const TomoX_JS = `
+const Waihui_JS = `
 web3._extend({
-	property: 'tomox',
+	property: 'waihui',
 	methods: [
 		new web3._extend.Method({
 			name: 'version',
-			call: 'tomox_version',
+			call: 'waihui_version',
 			params: 0,
 			outputFormatter: web3._extend.utils.toDecimal
 		}),
 		new web3._extend.Method({
 			name: 'info',
-			call: 'tomox_info',
+			call: 'waihui_info',
 			params: 0
 		}),
 		new web3._extend.Method({
             name: 'markTrustedPeer',
-            call: 'tomox_markTrustedPeer',
+            call: 'waihui_markTrustedPeer',
             params: 1
         }),
 		new web3._extend.Method({
             name: 'createOrder',
-            call: 'tomox_createOrder',
+            call: 'waihui_createOrder',
             params: 1,
             inputFormatter: [null]
         }),
         new web3._extend.Method({
             name: 'cancelOrder',
-            call: 'tomox_cancelOrder',
+            call: 'waihui_cancelOrder',
             params: 1,
             inputFormatter: [null]
         }),
 		new web3._extend.Method({
             name: 'newTopic',
-            call: 'tomox_newTopic',
+            call: 'waihui_newTopic',
             params: 1
         }),
         new web3._extend.Method({
             name: 'deleteTopic',
-            call: 'tomox_deleteTopic',
+            call: 'waihui_deleteTopic',
             params: 1
         }),
         new web3._extend.Method({
             name: 'getOrders',
-            call: 'tomox_getOrders',
+            call: 'waihui_getOrders',
             params: 1
         }),
 		new web3._extend.Method({
             name: 'getOrderNonce',
-            call: 'tomox_getOrderNonce',
+            call: 'waihui_getOrderNonce',
             params: 1,
             inputFormatter: [web3._extend.formatters.inputAddressFormatter]
 		}),
 		new web3._extend.Method({
             name: 'GetFeeByEpoch',
-            call: 'tomoX_GetFeeByEpoch',
+            call: 'waihui_GetFeeByEpoch',
             params: 1,
             inputFormatter: [null, web3._extend.formatters.inputAddressFormatter]
         }),
 		new web3._extend.Method({
             name: 'getPendingOrders',
-            call: 'tomox_getPendingOrders',
+            call: 'waihui_getPendingOrders',
             params: 1
         }),
 		new web3._extend.Method({
             name: 'getAllPendingHashes',
-            call: 'tomox_getAllPendingHashes',
+            call: 'waihui_getAllPendingHashes',
             params: 0
         }),
 		new web3._extend.Method({
             name: 'purgePendingOrders',
-            call: 'tomox_purgePendingOrders',
+            call: 'waihui_purgePendingOrders',
             params: 0
         }),
 		new web3._extend.Method({
             name: 'getProcessedHashes',
-            call: 'tomox_getProcessedHashes',
+            call: 'waihui_getProcessedHashes',
             params: 0
         }),
 		new web3._extend.Method({
             name: 'sendOrderRawTransaction',
-            call: 'tomox_sendOrderRawTransaction',
+            call: 'waihui_sendOrderRawTransaction',
             params: 1
         }),
 		new web3._extend.Method({
             name: 'sendOrderTransaction',
-            call: 'tomox_sendOrder',
+            call: 'waihui_sendOrder',
             params: 1
 		}),
 		new web3._extend.Method({
             name: 'getOrderCount',
-            call: 'tomox_getOrderCount',
+            call: 'waihui_getOrderCount',
             params: 1
         }),
 		new web3._extend.Method({
             name: 'getBestBid',
-            call: 'tomox_getBestBid',
+            call: 'waihui_getBestBid',
             params: 2
 		}),
 		new web3._extend.Method({
             name: 'getBestAsk',
-            call: 'tomox_getBestAsk',
+            call: 'waihui_getBestAsk',
             params: 2
 		}),
 		new web3._extend.Method({
             name: 'getBidTree',
-            call: 'tomox_getBidTree',
+            call: 'waihui_getBidTree',
             params: 2
 		}),
 		new web3._extend.Method({
             name: 'getAskTree',
-            call: 'tomox_getAskTree',
+            call: 'waihui_getAskTree',
             params: 2
 		}),
 		new web3._extend.Method({
             name: 'getOrderById',
-            call: 'tomox_getOrderById',
+            call: 'waihui_getOrderById',
             params: 3
 		}),
 		new web3._extend.Method({
             name: 'getPrice',
-            call: 'tomox_getPrice',
+            call: 'waihui_getPrice',
             params: 2
 		}),
 	]
@@ -762,7 +762,7 @@ web3._extend({
 
    var sendOrderTransaction = new Method({
        name: 'sendOrder',
-       call: 'tomox_sendOrder',
+       call: 'waihui_sendOrder',
        params: 1,
        inputFormatter: [null]
    });

@@ -21,8 +21,8 @@ package geth
 import (
 	"math/big"
 
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/ethclient"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/ethclient"
 )
 
 // EthereumClient provides access to the Ethereum APIs.

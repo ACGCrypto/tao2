@@ -3,10 +3,10 @@ package state
 import (
 	"math/big"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/core/types"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/core/types"
 
-	"github.com/tomochain/tomochain/crypto"
+	"github.com/tao2-core/tao2-core/crypto"
 )
 
 var (

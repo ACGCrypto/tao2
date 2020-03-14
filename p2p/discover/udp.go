@@ -25,11 +25,11 @@ import (
 	"net"
 	"time"
 
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/p2p/nat"
-	"github.com/tomochain/tomochain/p2p/netutil"
-	"github.com/tomochain/tomochain/rlp"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/p2p/nat"
+	"github.com/tao2-core/tao2-core/p2p/netutil"
+	"github.com/tao2-core/tao2-core/rlp"
 )
 
 const Version = 4

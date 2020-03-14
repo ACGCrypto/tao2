@@ -28,22 +28,22 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/tomochain/tomochain/accounts"
-	"github.com/tomochain/tomochain/accounts/keystore"
-	"github.com/tomochain/tomochain/cmd/utils"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/console"
-	"github.com/tomochain/tomochain/crypto"
-	"github.com/tomochain/tomochain/ethclient"
-	"github.com/tomochain/tomochain/internal/debug"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/node"
-	"github.com/tomochain/tomochain/p2p"
-	"github.com/tomochain/tomochain/p2p/discover"
-	"github.com/tomochain/tomochain/params"
-	"github.com/tomochain/tomochain/swarm"
-	bzzapi "github.com/tomochain/tomochain/swarm/api"
-	swarmmetrics "github.com/tomochain/tomochain/swarm/metrics"
+	"github.com/tao2-core/tao2-core/accounts"
+	"github.com/tao2-core/tao2-core/accounts/keystore"
+	"github.com/tao2-core/tao2-core/cmd/utils"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/console"
+	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/tao2-core/tao2-core/ethclient"
+	"github.com/tao2-core/tao2-core/internal/debug"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/node"
+	"github.com/tao2-core/tao2-core/p2p"
+	"github.com/tao2-core/tao2-core/p2p/discover"
+	"github.com/tao2-core/tao2-core/params"
+	"github.com/tao2-core/tao2-core/swarm"
+	bzzapi "github.com/tao2-core/tao2-core/swarm/api"
+	swarmmetrics "github.com/tao2-core/tao2-core/swarm/metrics"
 
 	"gopkg.in/urfave/cli.v1"
 )
@@ -405,9 +405,9 @@ func bzzd(ctx *cli.Context) error {
 	}
 
 	cfg := defaultNodeConfig
-	//tomo only supports --datadir via command line
+	//tao only supports --datadir via command line
 	//in order to be consistent within swarm, if we pass --datadir via environment variable
-	//or via config file, we get the same directory for tomo and swarm
+	//or via config file, we get the same directory for tao and swarm
 	if _, err := os.Stat(bzzconfig.Path); err == nil {
 		cfg.DataDir = bzzconfig.Path
 	}

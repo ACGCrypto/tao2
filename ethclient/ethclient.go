@@ -24,12 +24,12 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/tomochain/tomochain"
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/common/hexutil"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/rlp"
-	"github.com/tomochain/tomochain/rpc"
+	"github.com/tao2-core/taoblockchain"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/common/hexutil"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/rlp"
+	"github.com/tao2-core/tao2-core/rpc"
 )
 
 // Client defines typed wrappers for the Ethereum RPC API.
@@ -495,7 +495,7 @@ func (ec *Client) SendOrderTransaction(ctx context.Context, tx *types.OrderTrans
 	if err != nil {
 		return err
 	}
-	return ec.c.CallContext(ctx, nil, "tomox_sendOrderRawTransaction", common.ToHex(data))
+	return ec.c.CallContext(ctx, nil, "waihui_sendOrderRawTransaction", common.ToHex(data))
 }
 
 func toCallArg(msg ethereum.CallMsg) interface{} {

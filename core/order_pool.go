@@ -24,16 +24,16 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tomochain/tomochain/consensus"
-	"github.com/tomochain/tomochain/consensus/posv"
-	"github.com/tomochain/tomochain/tomox/tomox_state"
+	"github.com/tao2-core/tao2-core/consensus"
+	"github.com/tao2-core/tao2-core/consensus/posv"
+	"github.com/tao2-core/tao2-core/waihui/waihui_state"
 
-	"github.com/tomochain/tomochain/common"
-	"github.com/tomochain/tomochain/core/state"
-	"github.com/tomochain/tomochain/core/types"
-	"github.com/tomochain/tomochain/event"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/params"
+	"github.com/tao2-core/tao2-core/common"
+	"github.com/tao2-core/tao2-core/core/state"
+	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/tao2-core/tao2-core/event"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/params"
 	"gopkg.in/karalabe/cookiejar.v2/collections/prque"
 )
 
@@ -78,11 +78,11 @@ type OrderPoolConfig struct {
 	Lifetime time.Duration // Maximum amount of time non-executable transaction are queued
 }
 
-// blockChain_tomox add order state
+// blockChain_waihui add order state
 type blockChainTomox interface {
 	CurrentBlock() *types.Block
 	GetBlock(hash common.Hash, number uint64) *types.Block
-	OrderStateAt(block *types.Block) (*tomox_state.TomoXStateDB, error)
+	OrderStateAt(block *types.Block) (*waihui_state.WaihuiStateDB, error)
 	StateAt(root common.Hash) (*state.StateDB, error)
 	SubscribeChainHeadEvent(ch chan<- ChainHeadEvent) event.Subscription
 	Engine() consensus.Engine
@@ -139,8 +139,8 @@ type OrderPool struct {
 	mu           sync.RWMutex
 
 	currentRootState  *state.StateDB
-	currentOrderState *tomox_state.TomoXStateDB      // Current order state in the blockchain head
-	pendingState      *tomox_state.TomoXManagedState // Pending state tracking virtual nonces
+	currentOrderState *waihui_state.WaihuiStateDB      // Current order state in the blockchain head
+	pendingState      *waihui_state.WaihuiManagedState // Pending state tracking virtual nonces
 
 	locals  *orderAccountSet // Set of local transaction to exempt from eviction rules
 	journal *ordertxJournal  // Journal of local transaction to back up to disk
@@ -280,7 +280,7 @@ func (pool *OrderPool) loop() {
 // reset retrieves the current state of the blockchain and ensures the content
 // of the transaction pool is valid with regard to the chain state.
 func (pool *OrderPool) reset(oldHead, newblock *types.Block) {
-	if !pool.chainconfig.IsTIPTomoX(pool.chain.CurrentBlock().Number()) {
+	if !pool.chainconfig.IsTIPWaihui(pool.chain.CurrentBlock().Number()) {
 		return
 	}
 	// If we're reorging an old state, reinject all dropped transactions
@@ -297,7 +297,7 @@ func (pool *OrderPool) reset(oldHead, newblock *types.Block) {
 		return
 	}
 	pool.currentOrderState = orderstate
-	pool.pendingState = tomox_state.ManageState(orderstate)
+	pool.pendingState = waihui_state.ManageState(orderstate)
 
 	state, err := pool.chain.StateAt(newHead.Root)
 	if err != nil {
@@ -348,7 +348,7 @@ func (pool *OrderPool) SubscribeTxPreEvent(ch chan<- OrderTxPreEvent) event.Subs
 }
 
 // State returns the virtual managed state of the transaction pool.
-func (pool *OrderPool) State() *tomox_state.TomoXManagedState {
+func (pool *OrderPool) State() *waihui_state.WaihuiManagedState {
 	pool.mu.RLock()
 	defer pool.mu.RUnlock()
 
@@ -425,7 +425,7 @@ func (pool *OrderPool) validateOrder(tx *types.OrderTransaction) error {
 	quantity := tx.Quantity()
 
 	cloneStateDb := pool.currentRootState.Copy()
-	cloneTomoXStateDb := pool.currentOrderState.Copy()
+	cloneWaihuiStateDb := pool.currentOrderState.Copy()
 
 	if !tx.IsCancelledOrder() {
 		if quantity == nil || quantity.Cmp(big.NewInt(0)) <= 0 {
@@ -443,7 +443,7 @@ func (pool *OrderPool) validateOrder(tx *types.OrderTransaction) error {
 		if orderType != OrderTypeLimit && orderType != OrderTypeMarket {
 			return ErrInvalidOrderType
 		}
-		if err := tomox_state.VerifyPair(cloneStateDb, tx.ExchangeAddress(), tx.BaseToken(), tx.QuoteToken()); err != nil {
+		if err := waihui_state.VerifyPair(cloneStateDb, tx.ExchangeAddress(), tx.BaseToken(), tx.QuoteToken()); err != nil {
 			return err
 		}
 
@@ -452,19 +452,19 @@ func (pool *OrderPool) validateOrder(tx *types.OrderTransaction) error {
 			if !ok {
 				return ErrNotPoSV
 			}
-			tomoXServ := posvEngine.GetTomoXService()
-			if tomoXServ == nil {
-				return fmt.Errorf("tomox not found in order validation")
+			waihuiServ := posvEngine.GetWaihuiService()
+			if waihuiServ == nil {
+				return fmt.Errorf("waihui not found in order validation")
 			}
-			baseDecimal, err := tomoXServ.GetTokenDecimal(pool.chain, cloneStateDb, pool.chain.CurrentBlock().Header().Coinbase, tx.BaseToken())
+			baseDecimal, err := waihuiServ.GetTokenDecimal(pool.chain, cloneStateDb, pool.chain.CurrentBlock().Header().Coinbase, tx.BaseToken())
 			if err != nil {
 				return fmt.Errorf("validateOrder: failed to get baseDecimal. err: %v", err)
 			}
-			quoteDecimal, err := tomoXServ.GetTokenDecimal(pool.chain, cloneStateDb, pool.chain.CurrentBlock().Header().Coinbase, tx.QuoteToken())
+			quoteDecimal, err := waihuiServ.GetTokenDecimal(pool.chain, cloneStateDb, pool.chain.CurrentBlock().Header().Coinbase, tx.QuoteToken())
 			if err != nil {
 				return fmt.Errorf("validateOrder: failed to get quoteDecimal. err: %v", err)
 			}
-			if err := tomox_state.VerifyBalance(cloneStateDb, cloneTomoXStateDb, tx, baseDecimal, quoteDecimal); err != nil {
+			if err := waihui_state.VerifyBalance(cloneStateDb, cloneWaihuiStateDb, tx, baseDecimal, quoteDecimal); err != nil {
 				return fmt.Errorf("not enough balance to make this order. OrderHash: %s. UserAddress: %s. PairName: %s. Err: %v", tx.Hash().Hex(), tx.UserAddress().Hex(), tx.PairName(), err)
 			}
 		}
@@ -496,7 +496,7 @@ func (pool *OrderPool) validateOrder(tx *types.OrderTransaction) error {
 		return ErrInvalidOrderUserAddress
 	}
 
-	if !tomox_state.IsValidRelayer(cloneStateDb, tx.ExchangeAddress()) {
+	if !waihui_state.IsValidRelayer(cloneStateDb, tx.ExchangeAddress()) {
 		return fmt.Errorf("invalid relayer. ExchangeAddress: %s", tx.ExchangeAddress().Hex())
 	}
 
@@ -696,7 +696,7 @@ func (pool *OrderPool) AddRemotes(txs []*types.OrderTransaction) []error {
 
 // addTx enqueues a single transaction into the pool if it is valid.
 func (pool *OrderPool) addTx(tx *types.OrderTransaction, local bool) error {
-	if !pool.chainconfig.IsTIPTomoX(pool.chain.CurrentBlock().Number()) {
+	if !pool.chainconfig.IsTIPWaihui(pool.chain.CurrentBlock().Number()) {
 		return nil
 	}
 	tx.CacheHash()

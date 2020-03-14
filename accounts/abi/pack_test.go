@@ -24,7 +24,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/tomochain/tomochain/common"
+	"github.com/tao2-core/tao2-core/common"
 )
 
 func TestPack(t *testing.T) {

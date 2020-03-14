@@ -22,8 +22,8 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"github.com/tomochain/tomochain/cmd/utils"
-	swarm "github.com/tomochain/tomochain/swarm/api/client"
+	"github.com/tao2-core/tao2-core/cmd/utils"
+	swarm "github.com/tao2-core/tao2-core/swarm/api/client"
 	"gopkg.in/urfave/cli.v1"
 )
 

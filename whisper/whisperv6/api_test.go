@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tomochain/tomochain/common"
+	"github.com/tao2-core/tao2-core/common"
 	mapset "github.com/deckarep/golang-set"
 )
 

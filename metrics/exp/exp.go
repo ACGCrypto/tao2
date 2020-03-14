@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/tomochain/tomochain/metrics"
+	"github.com/tao2-core/tao2-core/metrics"
 )
 
 type exp struct {

@@ -20,7 +20,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/tomochain/tomochain/common/math"
+	"github.com/tao2-core/tao2-core/common/math"
 )
 
 func TestBlockNumberJSONUnmarshal(t *testing.T) {

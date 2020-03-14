@@ -23,8 +23,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/tomochain/tomochain/core"
-	"github.com/tomochain/tomochain/log"
+	"github.com/tao2-core/tao2-core/core"
+	"github.com/tao2-core/tao2-core/log"
 	"github.com/olekukonko/tablewriter"
 )
 

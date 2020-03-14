@@ -34,7 +34,7 @@ import (
 	"reflect"
 	"sync"
 
-	"github.com/tomochain/tomochain/p2p"
+	"github.com/tao2-core/tao2-core/p2p"
 )
 
 // error codes used by this  protocol scheme

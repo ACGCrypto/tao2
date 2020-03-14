@@ -21,7 +21,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tomochain/tomochain/common/mclock"
+	"github.com/tao2-core/tao2-core/common/mclock"
 )
 
 const fcTimeConst = time.Millisecond

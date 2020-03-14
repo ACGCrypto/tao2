@@ -23,9 +23,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/tomochain/tomochain/accounts/usbwallet"
-	"github.com/tomochain/tomochain/log"
-	"github.com/tomochain/tomochain/rpc"
+	"github.com/tao2-core/tao2-core/accounts/usbwallet"
+	"github.com/tao2-core/tao2-core/log"
+	"github.com/tao2-core/tao2-core/rpc"
 	"github.com/robertkrimen/otto"
 )
 
