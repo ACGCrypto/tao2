@@ -35,10 +35,11 @@ var nginxDockerfile = `FROM linuxserver/letsencrypt:latest`
 // an nginx reverse-proxy. The proxy is responsible for exposing one or more HTTP
 // services running on a single host.
 var nginxComposefile = `
-version: "2"
+version: '2'
 services:
   letsencrypt:
-  	image: linuxserver/letsencrypt
+  	build: .
+  	image: {{.Network}}/nginx
     cap_add:
       - NET_ADMIN
     environment:
