@@ -29,7 +29,7 @@ import (
 
 // nginxDockerfile is theis the Dockerfile required to build an nginx reverse-
 // proxy.
-var nginxDockerfile = `FROM linuxserver/letsencrypt`
+var nginxDockerfile = `FROM linuxserver/letsencrypt:latest`
 
 // nginxComposefile is the docker-compose.yml file required to deploy and maintain
 // an nginx reverse-proxy. The proxy is responsible for exposing one or more HTTP
@@ -51,6 +51,7 @@ services:
       - VALIDATION=http
     volumes:
       - /root/dns-config:/config
+      - /var/run/docker.sock:/tmp/docker.sock:ro      
     ports:
       - 443:443
       - 80:80 #optional
