@@ -39,7 +39,6 @@ version: "2"
 services:
   letsencrypt:
     image: {{.Network}}/nginx
-    container_name: {{.Network}}/nginx
     cap_add:
       - NET_ADMIN
     environment:
