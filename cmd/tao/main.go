@@ -112,7 +112,7 @@ var (
 		//utils.TestnetFlag,
 		//utils.RinkebyFlag,
 		//utils.VMEnableDebugFlag,
-		utils.TomoTestnetFlag,
+		utils.TaoTestnetFlag,
 		utils.NetworkIdFlag,
 		utils.RPCCORSDomainFlag,
 		utils.RPCVirtualHostsFlag,
@@ -127,7 +127,7 @@ var (
 		utils.AnnounceTxsFlag,
 		utils.StoreRewardFlag,
 		utils.RollbackFlag,
-		utils.TomoSlaveModeFlag,
+		utils.TaoSlaveModeFlag,
 	}
 
 	rpcFlags = []cli.Flag{
@@ -297,7 +297,7 @@ func startNode(ctx *cli.Context, stack *node.Node, cfg tomoConfig) {
 		go func() {
 			started := false
 			ok := false
-			slaveMode := ctx.GlobalIsSet(utils.TomoSlaveModeFlag.Name)
+			slaveMode := ctx.GlobalIsSet(utils.TaoSlaveModeFlag.Name)
 			var err error
 			if common.IsTestnet {
 				ok, err = ethereum.ValidateMasternodeTestnet()

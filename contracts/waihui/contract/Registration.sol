@@ -311,7 +311,7 @@ contract RelayerRegistration {
         uint countNonPair = 0;
 
         address[] memory tomoPairs = new address[](fromTokens.length);
-        address[] memory nonTomoPairs = new address[](fromTokens.length);
+        address[] memory nonTaoPairs = new address[](fromTokens.length);
 
         for (uint i = 0; i < toTokens.length; i++) {
             bool b = WaihuiListing.getTokenStatus(toTokens[i]) || (toTokens[i] == tomoNative);
@@ -327,13 +327,13 @@ contract RelayerRegistration {
                     tomoPairs[countPair] = toTokens[i];
                     countPair++;
                 }
-                nonTomoPairs[countNonPair] = toTokens[i];
+                nonTaoPairs[countNonPair] = toTokens[i];
                 countNonPair++;
             }
         }
 
-        for (uint j = 0; j < nonTomoPairs.length; j++) {
-            if (!indexOf(tomoPairs, nonTomoPairs[j])) {
+        for (uint j = 0; j < nonTaoPairs.length; j++) {
+            if (!indexOf(tomoPairs, nonTaoPairs[j])) {
                 return false;
             }
         }

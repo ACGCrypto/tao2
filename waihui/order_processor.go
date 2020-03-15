@@ -217,11 +217,11 @@ func (waihui *Waihui) processOrderList(coinbase common.Address, chain consensus.
 			maxTradedQuantity = waihui_state.CloneBigInt(amount)
 		}
 		var quotePrice *big.Int
-		if oldestOrder.QuoteToken.String() != common.TomoNativeAddress {
-			quotePrice = waihuistatedb.GetPrice(waihui_state.GetOrderBookHash(oldestOrder.QuoteToken, common.HexToAddress(common.TomoNativeAddress)))
+		if oldestOrder.QuoteToken.String() != common.TaoNativeAddress {
+			quotePrice = waihuistatedb.GetPrice(waihui_state.GetOrderBookHash(oldestOrder.QuoteToken, common.HexToAddress(common.TaoNativeAddress)))
 			log.Debug("TryGet quotePrice QuoteToken/TOMO", "quotePrice", quotePrice)
-			if (quotePrice == nil || quotePrice.Sign() == 0) && oldestOrder.BaseToken.String() != common.TomoNativeAddress {
-				inversePrice := waihuistatedb.GetPrice(waihui_state.GetOrderBookHash(common.HexToAddress(common.TomoNativeAddress), oldestOrder.QuoteToken))
+			if (quotePrice == nil || quotePrice.Sign() == 0) && oldestOrder.BaseToken.String() != common.TaoNativeAddress {
+				inversePrice := waihuistatedb.GetPrice(waihui_state.GetOrderBookHash(common.HexToAddress(common.TaoNativeAddress), oldestOrder.QuoteToken))
 				quoteTokenDecimal, err := waihui.GetTokenDecimal(chain, statedb, coinbase, oldestOrder.QuoteToken)
 				if err != nil || quoteTokenDecimal.Sign() == 0 {
 					return nil, nil, nil, fmt.Errorf("Fail to get tokenDecimal. Token: %v . Err: %v", oldestOrder.QuoteToken.String(), err)
@@ -324,7 +324,7 @@ func (waihui *Waihui) getTradeQuantity(quotePrice *big.Int, coinbase common.Addr
 	if err != nil || quoteTokenDecimal.Sign() == 0 {
 		return waihui_state.Zero, false, fmt.Errorf("Fail to get tokenDecimal. Token: %v . Err: %v", makerOrder.QuoteToken.String(), err)
 	}
-	if makerOrder.QuoteToken.String() == common.TomoNativeAddress {
+	if makerOrder.QuoteToken.String() == common.TaoNativeAddress {
 		quotePrice = quoteTokenDecimal
 	}
 	if takerOrder.ExchangeAddress.String() == makerOrder.ExchangeAddress.String() {

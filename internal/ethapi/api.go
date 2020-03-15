@@ -1882,12 +1882,12 @@ func (s *PublicWaihuiTransactionPoolAPI) GetBestBid(ctx context.Context, baseTok
 	if block == nil {
 		return result, errors.New("Current block not found")
 	}
-	waihuiService := s.b.TomoxService()
+	waihuiService := s.b.WaihuiService()
 	if waihuiService == nil {
 		return result, errors.New("Waihui service not found")
 	}
 
-	waihuiState, err := waihuiService.GetTomoxState(block)
+	waihuiState, err := waihuiService.GetWaihuiState(block)
 	if err != nil {
 		return result, err
 	}
@@ -1904,12 +1904,12 @@ func (s *PublicWaihuiTransactionPoolAPI) GetBestAsk(ctx context.Context, baseTok
 	if block == nil {
 		return result, errors.New("Current block not found")
 	}
-	waihuiService := s.b.TomoxService()
+	waihuiService := s.b.WaihuiService()
 	if waihuiService == nil {
 		return result, errors.New("Waihui service not found")
 	}
 
-	waihuiState, err := waihuiService.GetTomoxState(block)
+	waihuiState, err := waihuiService.GetWaihuiState(block)
 	if err != nil {
 		return result, err
 	}
@@ -1925,11 +1925,11 @@ func (s *PublicWaihuiTransactionPoolAPI) GetBidTree(ctx context.Context, baseTok
 	if block == nil {
 		return nil, errors.New("Current block not found")
 	}
-	waihuiService := s.b.TomoxService()
+	waihuiService := s.b.WaihuiService()
 	if waihuiService == nil {
 		return nil, errors.New("Waihui service not found")
 	}
-	waihuiState, err := waihuiService.GetTomoxState(block)
+	waihuiState, err := waihuiService.GetWaihuiState(block)
 	if err != nil {
 		return nil, err
 	}
@@ -1945,11 +1945,11 @@ func (s *PublicWaihuiTransactionPoolAPI) GetPrice(ctx context.Context, baseToken
 	if block == nil {
 		return nil, errors.New("Current block not found")
 	}
-	waihuiService := s.b.TomoxService()
+	waihuiService := s.b.WaihuiService()
 	if waihuiService == nil {
 		return nil, errors.New("Waihui service not found")
 	}
-	waihuiState, err := waihuiService.GetTomoxState(block)
+	waihuiState, err := waihuiService.GetWaihuiState(block)
 	if err != nil {
 		return nil, err
 	}
@@ -1965,11 +1965,11 @@ func (s *PublicWaihuiTransactionPoolAPI) GetAskTree(ctx context.Context, baseTok
 	if block == nil {
 		return nil, errors.New("Current block not found")
 	}
-	waihuiService := s.b.TomoxService()
+	waihuiService := s.b.WaihuiService()
 	if waihuiService == nil {
 		return nil, errors.New("Waihui service not found")
 	}
-	waihuiState, err := waihuiService.GetTomoxState(block)
+	waihuiState, err := waihuiService.GetWaihuiState(block)
 	if err != nil {
 		return nil, err
 	}
@@ -1985,11 +1985,11 @@ func (s *PublicWaihuiTransactionPoolAPI) GetOrderById(ctx context.Context, baseT
 	if block == nil {
 		return nil, errors.New("Current block not found")
 	}
-	waihuiService := s.b.TomoxService()
+	waihuiService := s.b.WaihuiService()
 	if waihuiService == nil {
 		return nil, errors.New("Waihui service not found")
 	}
-	waihuiState, err := waihuiService.GetTomoxState(block)
+	waihuiState, err := waihuiService.GetWaihuiState(block)
 	if err != nil {
 		return nil, err
 	}

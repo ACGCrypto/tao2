@@ -114,7 +114,7 @@ func CheckRelayerFee(relayer common.Address, fee *big.Int, statedb *state.StateD
 }
 func AddTokenBalance(addr common.Address, value *big.Int, token common.Address, statedb *state.StateDB) error {
 	// TOMO native
-	if token.String() == common.TomoNativeAddress {
+	if token.String() == common.TaoNativeAddress {
 		balance := statedb.GetBalance(addr)
 		log.Debug("ApplyWaihuiMatchedTransaction settle balance: ADD TOKEN TOMO NATIVE BEFORE", "token", token.String(), "address", addr.String(), "balance", balance, "orderValue", value)
 		balance = balance.Add(balance, value)
@@ -141,7 +141,7 @@ func AddTokenBalance(addr common.Address, value *big.Int, token common.Address, 
 
 func SubTokenBalance(addr common.Address, value *big.Int, token common.Address, statedb *state.StateDB) error {
 	// TOMO native
-	if token.String() == common.TomoNativeAddress {
+	if token.String() == common.TaoNativeAddress {
 
 		balance := statedb.GetBalance(addr)
 		log.Debug("ApplyWaihuiMatchedTransaction settle balance: SUB TOMO NATIVE BALANCE BEFORE", "token", token.String(), "address", addr.String(), "balance", balance, "orderValue", value)
@@ -174,7 +174,7 @@ func SubTokenBalance(addr common.Address, value *big.Int, token common.Address, 
 
 func CheckSubTokenBalance(addr common.Address, value *big.Int, token common.Address, statedb *state.StateDB, mapBalances map[common.Address]map[common.Address]*big.Int) (*big.Int, error) {
 	// TOMO native
-	if token.String() == common.TomoNativeAddress {
+	if token.String() == common.TaoNativeAddress {
 		var balance *big.Int
 		if value := mapBalances[token][addr]; value != nil {
 			balance = value
@@ -211,7 +211,7 @@ func CheckSubTokenBalance(addr common.Address, value *big.Int, token common.Addr
 
 func CheckAddTokenBalance(addr common.Address, value *big.Int, token common.Address, statedb *state.StateDB, mapBalances map[common.Address]map[common.Address]*big.Int) (*big.Int, error) {
 	// TOMO native
-	if token.String() == common.TomoNativeAddress {
+	if token.String() == common.TaoNativeAddress {
 		var balance *big.Int
 		if value := mapBalances[token][addr]; value != nil {
 			balance = value
@@ -263,7 +263,7 @@ func CheckSubRelayerFee(relayer common.Address, fee *big.Int, statedb *state.Sta
 
 func GetTokenBalance(addr common.Address, token common.Address, statedb *state.StateDB) *big.Int {
 	// TOMO native
-	if token.String() == common.TomoNativeAddress {
+	if token.String() == common.TaoNativeAddress {
 		return statedb.GetBalance(addr)
 	}
 	// TRC tokens
@@ -278,7 +278,7 @@ func GetTokenBalance(addr common.Address, token common.Address, statedb *state.S
 
 func SetTokenBalance(addr common.Address, balance *big.Int, token common.Address, statedb *state.StateDB) error {
 	// TOMO native
-	if token.String() == common.TomoNativeAddress {
+	if token.String() == common.TaoNativeAddress {
 		statedb.SetBalance(addr, balance)
 		return nil
 	}

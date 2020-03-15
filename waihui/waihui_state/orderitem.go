@@ -352,8 +352,8 @@ func VerifyPair(statedb *state.StateDB, exchangeAddress, baseToken, quoteToken c
 
 func VerifyBalance(statedb *state.StateDB, waihuiStateDb *WaihuiStateDB, order *types.OrderTransaction, baseDecimal, quoteDecimal *big.Int) error {
 	var quotePrice *big.Int
-	if order.QuoteToken().String() != common.TomoNativeAddress {
-		quotePrice = waihuiStateDb.GetPrice(GetOrderBookHash(order.QuoteToken(), common.HexToAddress(common.TomoNativeAddress)))
+	if order.QuoteToken().String() != common.TaoNativeAddress {
+		quotePrice = waihuiStateDb.GetPrice(GetOrderBookHash(order.QuoteToken(), common.HexToAddress(common.TaoNativeAddress)))
 	}
 	feeRate := GetExRelayerFee(order.ExchangeAddress(), statedb)
 	balanceResult, err := GetSettleBalance(quotePrice, order.Side(), feeRate, order.BaseToken(), order.QuoteToken(), order.Price(), feeRate, baseDecimal, quoteDecimal, order.Quantity())

@@ -459,7 +459,7 @@ func (waihui *Waihui) GetTokenDecimal(chain consensus.ChainContext, statedb *sta
 	if tokenDecimal, ok := waihui.tokenDecimalCache.Get(tokenAddr); ok {
 		return tokenDecimal.(*big.Int), nil
 	}
-	if tokenAddr.String() == common.TomoNativeAddress {
+	if tokenAddr.String() == common.TaoNativeAddress {
 		waihui.tokenDecimalCache.Add(tokenAddr, common.BasePrice)
 		return common.BasePrice, nil
 	}

@@ -110,7 +110,7 @@ func NewApp(gitCommit, usage string) *cli.App {
 // are the same for all commands.
 
 var (
-	// Tomo flags.
+	// Tao flags.
 	RollbackFlag = cli.StringFlag{
 		Name:  "rollback",
 		Usage: "Rollback chain at hash",
@@ -140,16 +140,16 @@ var (
 	}
 	NetworkIdFlag = cli.Uint64Flag{
 		Name:  "networkid",
-		Usage: "Network identifier (integer, 89=Tomochain)",
+		Usage: "Network identifier (integer, 89=Tao)",
 		Value: eth.DefaultConfig.NetworkId,
 	}
 	TestnetFlag = cli.BoolFlag{
 		Name:  "testnet",
 		Usage: "Ropsten network: pre-configured proof-of-work test network",
 	}
-	TomoTestnetFlag = cli.BoolFlag{
+	TaoTestnetFlag = cli.BoolFlag{
 		Name:  "tao-testnet",
-		Usage: "Tomo test network",
+		Usage: "Tao test network",
 	}
 	RinkebyFlag = cli.BoolFlag{
 		Name:  "rinkeby",
@@ -324,7 +324,7 @@ var (
 	TargetGasLimitFlag = cli.Uint64Flag{
 		Name:  "targetgaslimit",
 		Usage: "Target gas limit sets the artificial target gas floor for the blocks to mine",
-		Value: params.TomoGenesisGasLimit,
+		Value: params.TaoGenesisGasLimit,
 	}
 	EtherbaseFlag = cli.StringFlag{
 		Name:  "etherbase",
@@ -557,7 +557,7 @@ var (
 		Name:  "waihui.dbReplicaSetName",
 		Usage: "ReplicaSetName if Master-Slave is setup",
 	}
-	TomoSlaveModeFlag = cli.BoolFlag{
+	TaoSlaveModeFlag = cli.BoolFlag{
 		Name:  "slave",
 		Usage: "Enable slave mode",
 	}
@@ -632,7 +632,7 @@ func setBootstrapNodes(ctx *cli.Context, cfg *p2p.Config) {
 		return // already set, don't apply defaults.
 	case !ctx.GlobalIsSet(BootnodesFlag.Name):
 		urls = params.MainnetBootnodes
-	case ctx.GlobalBool(TomoTestnetFlag.Name):
+	case ctx.GlobalBool(TaoTestnetFlag.Name):
 		urls = params.TestnetBootnodes
 	}
 	cfg.BootstrapNodes = make([]*discover.Node, 0, len(urls))

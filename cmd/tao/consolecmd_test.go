@@ -41,7 +41,7 @@ func TestConsoleWelcome(t *testing.T) {
 	coinbase := "0x8605cdbbdb6d264aa742e77020dcbc58fcdce182"
 
 	// Start a tao console, make sure it's cleaned up and terminate the console
-	tao := runTomo(t,
+	tao := runTao(t,
 		"--waihui.datadir", tmpdir(t)+"waihui/"+time.Now().String(),
 		"--port", "0", "--maxpeers", "0", "--nodiscover", "--nat", "none",
 		"--etherbase", coinbase,
@@ -57,7 +57,7 @@ func TestConsoleWelcome(t *testing.T) {
 
 	// Verify the actual welcome message to the required template
 	tao.Expect(`
-Welcome to the Tomo JavaScript console!
+Welcome to the Tao JavaScript console!
 
 instance: tao/v{{tomover}}/{{goos}}-{{goarch}}/{{gover}}
 coinbase: {{.Etherbase}}
@@ -82,7 +82,7 @@ func TestIPCAttachWelcome(t *testing.T) {
 		defer os.RemoveAll(ws)
 		ipc = filepath.Join(ws, "tao.ipc")
 	}
-	tao := runTomo(t,
+	tao := runTao(t,
 		"--waihui.datadir", tmpdir(t)+"waihui/"+time.Now().String(),
 		"--port", "0", "--maxpeers", "0", "--nodiscover", "--nat", "none",
 		"--etherbase", coinbase, "--ipcpath", ipc)
@@ -97,7 +97,7 @@ func TestIPCAttachWelcome(t *testing.T) {
 func TestHTTPAttachWelcome(t *testing.T) {
 	coinbase := "0x8605cdbbdb6d264aa742e77020dcbc58fcdce182"
 	port := strconv.Itoa(trulyRandInt(1024, 65536)) // Yeah, sometimes this will fail, sorry :P
-	tao := runTomo(t,
+	tao := runTao(t,
 		"--waihui.datadir", tmpdir(t)+"waihui/"+time.Now().String(),
 		"--port", "0", "--maxpeers", "0", "--nodiscover", "--nat", "none",
 		"--etherbase", coinbase, "--rpc", "--rpcport", port)
@@ -113,7 +113,7 @@ func TestWSAttachWelcome(t *testing.T) {
 	coinbase := "0x8605cdbbdb6d264aa742e77020dcbc58fcdce182"
 	port := strconv.Itoa(trulyRandInt(1024, 65536)) // Yeah, sometimes this will fail, sorry :P
 
-	tao := runTomo(t,
+	tao := runTao(t,
 		"--waihui.datadir", tmpdir(t)+"waihui/"+time.Now().String(),
 		"--port", "0", "--maxpeers", "0", "--nodiscover", "--nat", "none",
 		"--etherbase", coinbase, "--ws", "--wsport", port)
@@ -127,7 +127,7 @@ func TestWSAttachWelcome(t *testing.T) {
 
 func testAttachWelcome(t *testing.T, tao *testtomo, endpoint, apis string) {
 	// Attach to a running tao note and terminate immediately
-	attach := runTomo(t, "attach", endpoint)
+	attach := runTao(t, "attach", endpoint)
 	defer attach.ExpectExit()
 	attach.CloseStdin()
 
@@ -144,7 +144,7 @@ func testAttachWelcome(t *testing.T, tao *testtomo, endpoint, apis string) {
 
 	// Verify the actual welcome message to the required template
 	attach.Expect(`
-Welcome to the Tomo JavaScript console!
+Welcome to the Tao JavaScript console!
 
 instance: tao/v{{tomover}}/{{goos}}-{{goarch}}/{{gover}}
 coinbase: {{etherbase}}

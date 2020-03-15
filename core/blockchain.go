@@ -108,7 +108,7 @@ type BlockChain struct {
 	cacheConfig *CacheConfig        // Cache configuration for pruning
 
 	db      ethdb.Database // Low level persistent database to store final content in
-	waihuiDb ethdb.TomoxDatabase
+	waihuiDb ethdb.WaihuiDatabase
 	triegc  *prque.Prque  // Priority queue mapping block numbers to tries to gc
 	gcproc  time.Duration // Accumulates canonical block processing for trie dumping
 
@@ -240,13 +240,13 @@ func NewBlockChain(db ethdb.Database, cacheConfig *CacheConfig, chainConfig *par
 }
 
 // NewBlockChainEx extend old blockchain, add order state db
-func NewBlockChainEx(db ethdb.Database, waihuiDb ethdb.TomoxDatabase, cacheConfig *CacheConfig, chainConfig *params.ChainConfig, engine consensus.Engine, vmConfig vm.Config) (*BlockChain, error) {
+func NewBlockChainEx(db ethdb.Database, waihuiDb ethdb.WaihuiDatabase, cacheConfig *CacheConfig, chainConfig *params.ChainConfig, engine consensus.Engine, vmConfig vm.Config) (*BlockChain, error) {
 	blockchain, err := NewBlockChain(db, cacheConfig, chainConfig, engine, vmConfig)
 	if err != nil {
 		return nil, err
 	}
 	if blockchain != nil {
-		blockchain.addTomoxDb(waihuiDb)
+		blockchain.addWaihuiDb(waihuiDb)
 	}
 	return blockchain, nil
 }
@@ -255,7 +255,7 @@ func (bc *BlockChain) getProcInterrupt() bool {
 	return atomic.LoadInt32(&bc.procInterrupt) == 1
 }
 
-func (bc *BlockChain) addTomoxDb(waihuiDb ethdb.TomoxDatabase) {
+func (bc *BlockChain) addWaihuiDb(waihuiDb ethdb.WaihuiDatabase) {
 	bc.waihuiDb = waihuiDb
 }
 
@@ -286,7 +286,7 @@ func (bc *BlockChain) loadLastState() error {
 		if ok {
 			waihuiService := engine.GetWaihuiService()
 			if bc.Config().IsTIPWaihui(currentBlock.Number()) && waihuiService != nil {
-				waihuiRoot, err := waihuiService.GetTomoxStateRoot(currentBlock)
+				waihuiRoot, err := waihuiService.GetWaihuiStateRoot(currentBlock)
 				if err != nil {
 					repair = true
 				} else {
@@ -480,7 +480,7 @@ func (bc *BlockChain) OrderStateAt(block *types.Block) (*waihui_state.WaihuiStat
 		waihuiService := engine.GetWaihuiService()
 		if bc.Config().IsTIPWaihui(block.Number()) && waihuiService != nil {
 			log.Debug("OrderStateAt", "blocknumber", block.Header().Number)
-			waihuiState, err := waihuiService.GetTomoxState(block)
+			waihuiState, err := waihuiService.GetWaihuiState(block)
 			if err == nil {
 				return waihuiState, nil
 			} else {
@@ -539,7 +539,7 @@ func (bc *BlockChain) repair(head **types.Block) error {
 			if ok {
 				waihuiService := engine.GetWaihuiService()
 				if bc.Config().IsTIPWaihui((*head).Number()) && waihuiService != nil {
-					waihuiRoot, err := waihuiService.GetTomoxStateRoot(*head)
+					waihuiRoot, err := waihuiService.GetWaihuiStateRoot(*head)
 					if err == nil {
 						_, err = waihui_state.New(waihuiRoot, waihuiService.GetStateCache())
 						if err == nil {
@@ -820,7 +820,7 @@ func (bc *BlockChain) Stop() {
 				}
 				if bc.Config().IsTIPWaihui(bc.CurrentBlock().Number()) && engine != nil {
 					if waihuiService := engine.GetWaihuiService(); waihuiService != nil {
-						waihuiRoot, _ := waihuiService.GetTomoxStateRoot(recent)
+						waihuiRoot, _ := waihuiService.GetWaihuiStateRoot(recent)
 						if !common.EmptyHash(waihuiRoot) && waihuiTriedb != nil {
 							if err := waihuiTriedb.Commit(waihuiRoot, true); err != nil {
 								log.Error("Failed to commit recent state trie", "err", err)
@@ -1123,7 +1123,7 @@ func (bc *BlockChain) WriteBlockWithState(block *types.Block, receipts []*types.
 			oldWaihuiRoot := common.Hash{}
 			if bc.Config().IsTIPWaihui(block.Number()) && engine != nil {
 				if waihuiService := engine.GetWaihuiService(); waihuiService != nil {
-					oldWaihuiRoot, _ = waihuiService.GetTomoxStateRoot(bc.GetBlock(header.Hash(), current-triesInMemory))
+					oldWaihuiRoot, _ = waihuiService.GetWaihuiStateRoot(bc.GetBlock(header.Hash(), current-triesInMemory))
 				}
 			}
 			// Only write to disk if we exceeded our memory allowance *and* also have at
@@ -1391,7 +1391,7 @@ func (bc *BlockChain) insertChain(chain types.Blocks) (int, []interface{}, []*ty
 					bc.reportBlock(block, nil, err)
 					return i, events, coalescedLogs, err
 				}
-				waihuiState, err = waihuiService.GetTomoxState(parent)
+				waihuiState, err = waihuiService.GetWaihuiState(parent)
 				if err != nil {
 					bc.reportBlock(block, nil, err)
 					return i, events, coalescedLogs, err
@@ -1406,16 +1406,16 @@ func (bc *BlockChain) insertChain(chain types.Blocks) (int, []interface{}, []*ty
 				}
 				if len(txMatchBatchData) > 0 {
 					gotRoot := waihuiState.IntermediateRoot()
-					expectRoot, _ := waihuiService.GetTomoxStateRoot(block)
+					expectRoot, _ := waihuiService.GetWaihuiStateRoot(block)
 					if gotRoot != expectRoot {
 						err = fmt.Errorf("invalid waihui merke trie got : %s , expect : %s ", gotRoot.Hex(), expectRoot.Hex())
 						bc.reportBlock(block, nil, err)
 						return i, events, coalescedLogs, err
 					}
 				}
-				parentWaihuiRoot, _ := waihuiService.GetTomoxStateRoot(parent)
-				nextTomoxRoot, _ := waihuiService.GetTomoxStateRoot(block)
-				log.Debug("Waihui State Root", "number", block.NumberU64(), "parent", parentWaihuiRoot.Hex(), "nextTomoxRoot", nextTomoxRoot.Hex())
+				parentWaihuiRoot, _ := waihuiService.GetWaihuiStateRoot(parent)
+				nextWaihuiRoot, _ := waihuiService.GetWaihuiStateRoot(block)
+				log.Debug("Waihui State Root", "number", block.NumberU64(), "parent", parentWaihuiRoot.Hex(), "nextWaihuiRoot", nextWaihuiRoot.Hex())
 			}
 		}
 		feeCapacity := state.GetTRC2FeeCapacityFromStateWithCache(parent.Root(), statedb)
@@ -1617,7 +1617,7 @@ func (bc *BlockChain) getResultBlock(block *types.Block, verifiedM2 bool) (*Resu
 	var waihuiState *waihui_state.WaihuiStateDB
 	if bc.Config().IsTIPWaihui(block.Number()) && engine != nil {
 		if waihuiService := engine.GetWaihuiService(); waihuiService != nil {
-			waihuiState, err = waihuiService.GetTomoxState(parent)
+			waihuiState, err = waihuiService.GetWaihuiState(parent)
 			if err != nil {
 				bc.reportBlock(block, nil, err)
 				return nil, err
@@ -1637,16 +1637,16 @@ func (bc *BlockChain) getResultBlock(block *types.Block, verifiedM2 bool) (*Resu
 			}
 			if len(txMatchBatchData) > 0 {
 				gotRoot := waihuiState.IntermediateRoot()
-				expectRoot, _ := waihuiService.GetTomoxStateRoot(block)
+				expectRoot, _ := waihuiService.GetWaihuiStateRoot(block)
 				if gotRoot != expectRoot {
 					err = fmt.Errorf("invalid waihui merke trie got : %s , expect : %s ", gotRoot.Hex(), expectRoot.Hex())
 					bc.reportBlock(block, nil, err)
 					return nil, err
 				}
 			}
-			parentWaihuiRoot, _ := waihuiService.GetTomoxStateRoot(parent)
-			nextTomoxRoot, _ := waihuiService.GetTomoxStateRoot(block)
-			log.Debug("Waihui State Root", "number", block.NumberU64(), "parent", parentWaihuiRoot.Hex(), "nextTomoxRoot", nextTomoxRoot.Hex())
+			parentWaihuiRoot, _ := waihuiService.GetWaihuiStateRoot(parent)
+			nextWaihuiRoot, _ := waihuiService.GetWaihuiStateRoot(block)
+			log.Debug("Waihui State Root", "number", block.NumberU64(), "parent", parentWaihuiRoot.Hex(), "nextWaihuiRoot", nextWaihuiRoot.Hex())
 		}
 	}
 	feeCapacity := state.GetTRC2FeeCapacityFromStateWithCache(parent.Root(), statedb)

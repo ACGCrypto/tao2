@@ -454,7 +454,7 @@ func (self *worker) makeCurrent(parent *types.Block, header *types.Header) error
 	var waihuiState *waihui_state.WaihuiStateDB
 	if self.config.Posv != nil {
 		waihui := self.eth.GetWaihui()
-		waihuiState, err = waihui.GetTomoxState(parent)
+		waihuiState, err = waihui.GetWaihuiState(parent)
 		if err != nil {
 			log.Error("Failed to create mining context", "err", err)
 			return err
@@ -667,8 +667,8 @@ func (self *worker) commitNewWork() {
 			// force adding matching transaction to this block
 			specialTxs = append(specialTxs, matchingTransaction)
 		}
-		TomoxStateRoot := work.waihuiState.IntermediateRoot()
-		tx := types.NewTransaction(work.state.GetNonce(self.coinbase), common.HexToAddress(common.WaihuiStateAddr), big.NewInt(0), txMatchGasLimit, big.NewInt(0), TomoxStateRoot.Bytes())
+		WaihuiStateRoot := work.waihuiState.IntermediateRoot()
+		tx := types.NewTransaction(work.state.GetNonce(self.coinbase), common.HexToAddress(common.WaihuiStateAddr), big.NewInt(0), txMatchGasLimit, big.NewInt(0), WaihuiStateRoot.Bytes())
 		txStateRoot, err := wallet.SignTx(accounts.Account{Address: self.coinbase}, tx, self.config.ChainId)
 		if err != nil {
 			log.Error("Fail to create tx state root", "error", err)
