@@ -288,7 +288,7 @@ func (st *StateTransition) refundGas() {
 	balanceTokenFee := st.balanceTokenFee()
 	if balanceTokenFee == nil {
 		from := st.from()
-		// Return ETH for remaining gas, exchanged at the original rate.
+		// Return TAO for remaining gas, exchanged at the original rate.
 		remaining := new(big.Int).Mul(new(big.Int).SetUint64(st.gas), st.gasPrice)
 		st.state.AddBalance(from.Address(), remaining)
 	}

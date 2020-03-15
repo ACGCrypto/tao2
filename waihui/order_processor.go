@@ -219,18 +219,18 @@ func (waihui *Waihui) processOrderList(coinbase common.Address, chain consensus.
 		var quotePrice *big.Int
 		if oldestOrder.QuoteToken.String() != common.TaoNativeAddress {
 			quotePrice = waihuistatedb.GetPrice(waihui_state.GetOrderBookHash(oldestOrder.QuoteToken, common.HexToAddress(common.TaoNativeAddress)))
-			log.Debug("TryGet quotePrice QuoteToken/TOMO", "quotePrice", quotePrice)
+			log.Debug("TryGet quotePrice QuoteToken/TAO", "quotePrice", quotePrice)
 			if (quotePrice == nil || quotePrice.Sign() == 0) && oldestOrder.BaseToken.String() != common.TaoNativeAddress {
 				inversePrice := waihuistatedb.GetPrice(waihui_state.GetOrderBookHash(common.HexToAddress(common.TaoNativeAddress), oldestOrder.QuoteToken))
 				quoteTokenDecimal, err := waihui.GetTokenDecimal(chain, statedb, coinbase, oldestOrder.QuoteToken)
 				if err != nil || quoteTokenDecimal.Sign() == 0 {
 					return nil, nil, nil, fmt.Errorf("Fail to get tokenDecimal. Token: %v . Err: %v", oldestOrder.QuoteToken.String(), err)
 				}
-				log.Debug("TryGet inversePrice TOMO/QuoteToken", "inversePrice", inversePrice)
+				log.Debug("TryGet inversePrice TAO/QuoteToken", "inversePrice", inversePrice)
 				if inversePrice != nil && inversePrice.Sign() > 0 {
 					quotePrice = new(big.Int).Div(common.BasePrice, inversePrice)
 					quotePrice = new(big.Int).Mul(quotePrice, quoteTokenDecimal)
-					log.Debug("TryGet quotePrice after get inversePrice TOMO/QuoteToken", "quotePrice", quotePrice, "quoteTokenDecimal", quoteTokenDecimal)
+					log.Debug("TryGet quotePrice after get inversePrice TAO/QuoteToken", "quotePrice", quotePrice, "quoteTokenDecimal", quoteTokenDecimal)
 				}
 			}
 		}
@@ -599,7 +599,7 @@ func (waihui *Waihui) ProcessCancelOrder(waihuistatedb *waihui_state.WaihuiState
 		log.Debug("Error when cancel order", "order", order)
 		return err, false
 	}
-	// relayers pay TOMO for masternode
+	// relayers pay TAO for masternode
 	waihui_state.SubRelayerFee(originOrder.ExchangeAddress, common.RelayerCancelFee, statedb)
 	switch originOrder.Side {
 	case waihui_state.Ask:
@@ -613,7 +613,7 @@ func (waihui *Waihui) ProcessCancelOrder(waihuistatedb *waihui_state.WaihuiState
 	default:
 	}
 	masternodeOwner := statedb.GetOwner(coinbase)
-	// relayers pay TOMO for masternode
+	// relayers pay TAO for masternode
 	statedb.AddBalance(masternodeOwner, common.RelayerCancelFee)
 	return nil, false
 }
@@ -621,14 +621,14 @@ func (waihui *Waihui) ProcessCancelOrder(waihuistatedb *waihui_state.WaihuiState
 func getCancelFee(baseTokenDecimal *big.Int, feeRate *big.Int, order *waihui_state.OrderItem) *big.Int {
 	cancelFee := big.NewInt(0)
 	if order.Side == waihui_state.Ask {
-		// SELL 1 BTC => TOMO ,,
+		// SELL 1 BTC => TAO ,,
 		// order.Quantity =1 && fee rate =2
 		// ==> cancel fee = 2/10000
 		baseTokenQuantity := new(big.Int).Mul(order.Quantity, baseTokenDecimal)
 		cancelFee = new(big.Int).Mul(baseTokenQuantity, feeRate)
 		cancelFee = new(big.Int).Div(cancelFee, common.WaihuiBaseCancelFee)
 	} else {
-		// BUY 1 BTC => TOMO with Price : 10000
+		// BUY 1 BTC => TAO with Price : 10000
 		// quoteTokenQuantity = 10000 && fee rate =2
 		// => cancel fee =2
 		quoteTokenQuantity := new(big.Int).Mul(order.Quantity, order.Price)

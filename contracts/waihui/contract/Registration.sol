@@ -116,7 +116,7 @@ contract RelayerRegistration {
         require(RELAYER_LIST[coinbase]._deposit == 0, "Coinbase already registered.");
         require(RelayerCount < MaximumRelayers, "Maximum relayers registered");
 
-        // check valid tokens, token must pair with tao(x/TOMO)
+        // check valid tokens, token must pair with tao(x/TAO)
         require(validateTokens(fromTokens, toTokens) == true, "Invalid quote tokens");
 
         /// @notice Do we need to check the duplication of Token trade-pairs?
@@ -209,7 +209,7 @@ contract RelayerRegistration {
 
 
     function depositMore(address coinbase) public payable relayerOwnerOnly(coinbase) onlyActiveRelayer(coinbase) notForSale(coinbase) nonZeroValue {
-        require(msg.value >= 1 ether, "At least 1 TOMO is required for a deposit request");
+        require(msg.value >= 1 ether, "At least 1 TAO is required for a deposit request");
         RELAYER_LIST[coinbase]._deposit.add(msg.value);
         emit UpdateEvent(RELAYER_LIST[coinbase]._deposit,
                          RELAYER_LIST[coinbase]._tradeFee,

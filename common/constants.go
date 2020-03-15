@@ -35,7 +35,7 @@ var IsTestnet bool = false
 var StoreRewardFolder string
 var RollbackHash Hash
 var BasePrice = big.NewInt(1000000000000000000) // 1
-var RelayerLockedFund = big.NewInt(20000)       // 20000 TOMO
+var RelayerLockedFund = big.NewInt(20000)       // 20000 TAO
 var RelayerFee = big.NewInt(1000000000000000)   // 0.001
 var WaihuiBaseFee = big.NewInt(10000)
 var RelayerCancelFee = big.NewInt(100000000000000) // 0.0001

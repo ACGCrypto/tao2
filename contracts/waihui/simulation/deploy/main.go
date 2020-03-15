@@ -97,44 +97,44 @@ func main() {
 	/*
 		for _, token := range tokenList {
 			fromTokens = append(fromTokens, token["address"].(common.Address))
-			toTokens = append(toTokens, simulation.TOMONative)
+			toTokens = append(toTokens, simulation.TAONative)
 		}
 	*/
 
-	// TOMO/BTC
-	fromTokens = append(fromTokens, simulation.TOMONative)
+	// TAO/BTC
+	fromTokens = append(fromTokens, simulation.TAONative)
 	toTokens = append(toTokens, tokenList[0]["address"].(common.Address))
 
-	// TOMO/USD
-	fromTokens = append(fromTokens, simulation.TOMONative)
+	// TAO/USD
+	fromTokens = append(fromTokens, simulation.TAONative)
 	toTokens = append(toTokens, tokenList[9]["address"].(common.Address))
 
-	// ETH/TOMO
+	// TAO/TAO
 	fromTokens = append(fromTokens, tokenList[1]["address"].(common.Address))
-	toTokens = append(toTokens, simulation.TOMONative)
+	toTokens = append(toTokens, simulation.TAONative)
 
 	fromTokens = append(fromTokens, tokenList[2]["address"].(common.Address))
-	toTokens = append(toTokens, simulation.TOMONative)
+	toTokens = append(toTokens, simulation.TAONative)
 
 	fromTokens = append(fromTokens, tokenList[3]["address"].(common.Address))
-	toTokens = append(toTokens, simulation.TOMONative)
+	toTokens = append(toTokens, simulation.TAONative)
 
 	fromTokens = append(fromTokens, tokenList[4]["address"].(common.Address))
-	toTokens = append(toTokens, simulation.TOMONative)
+	toTokens = append(toTokens, simulation.TAONative)
 
 	fromTokens = append(fromTokens, tokenList[5]["address"].(common.Address))
-	toTokens = append(toTokens, simulation.TOMONative)
+	toTokens = append(toTokens, simulation.TAONative)
 
 	fromTokens = append(fromTokens, tokenList[6]["address"].(common.Address))
-	toTokens = append(toTokens, simulation.TOMONative)
+	toTokens = append(toTokens, simulation.TAONative)
 
 	fromTokens = append(fromTokens, tokenList[7]["address"].(common.Address))
-	toTokens = append(toTokens, simulation.TOMONative)
+	toTokens = append(toTokens, simulation.TAONative)
 
 	fromTokens = append(fromTokens, tokenList[8]["address"].(common.Address))
-	toTokens = append(toTokens, simulation.TOMONative)
+	toTokens = append(toTokens, simulation.TAONative)
 
-	// ETH/BTC
+	// TAO/BTC
 	fromTokens = append(fromTokens, tokenList[1]["address"].(common.Address))
 	toTokens = append(toTokens, tokenList[0]["address"].(common.Address))
 
@@ -146,7 +146,7 @@ func main() {
 	fromTokens = append(fromTokens, tokenList[0]["address"].(common.Address))
 	toTokens = append(toTokens, tokenList[9]["address"].(common.Address))
 
-	// ETH/USD
+	// TAO/USD
 	fromTokens = append(fromTokens, tokenList[1]["address"].(common.Address))
 	toTokens = append(toTokens, tokenList[9]["address"].(common.Address))
 
