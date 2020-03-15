@@ -29,28 +29,32 @@ import (
 
 // nginxDockerfile is theis the Dockerfile required to build an nginx reverse-
 // proxy.
-var nginxDockerfile = `FROM jwilder/nginx-proxy`
+var nginxDockerfile = `FROM linuxserver/letsencrypt`
 
 // nginxComposefile is the docker-compose.yml file required to deploy and maintain
 // an nginx reverse-proxy. The proxy is responsible for exposing one or more HTTP
 // services running on a single host.
 var nginxComposefile = `
-version: '2'
+version: "2"
 services:
-  nginx:
-    build: .
+  letsencrypt:
     image: {{.Network}}/nginx
-    ports:
-      - "{{.Port}}:80"
+    container_name: {{.Network}}/nginx
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/LosAngeles
+      - URL=stats.tao.network
+      - SUBDOMAINS=www,
+      - VALIDATION=http
     volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "1m"
-        max-file: "10"
-    restart: always
-`
+      - /root/dns-config:/config
+    ports:
+      - 443:443
+      - 80:80 #optional
+    restart: unless-stopped`
 
 // deployNginx deploys a new nginx reverse-proxy container to expose one or more
 // HTTP services running on a single host. If an instance with the specified
