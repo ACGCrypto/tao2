@@ -40,7 +40,6 @@ jobs:
     before_script:
       - docker build -t taoblockchain/tao2 .
       - docker build -t taoblockchain/node -f Dockerfile.node .
-      - docker build -t taoblockchain/bootnode -f Dockerfile.bootnode .
     script:
       - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
       - docker tag taoblockchain/tao2 taoblockchain/tao2:latest
@@ -59,7 +58,6 @@ jobs:
     before_script:
       - docker build -t taoblockchain/tao2 .
       - docker build -t taoblockchain/node -f Dockerfile.node .
-      - docker build -t taoblockchain/bootnode -f Dockerfile.bootnode .
     script:
       - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
       - docker tag taoblockchain/tao2 taoblockchain/tao2:latest
