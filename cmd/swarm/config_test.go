@@ -45,7 +45,7 @@ func TestDumpConfig(t *testing.T) {
 
 func TestFailsSwapEnabledNoSwapApi(t *testing.T) {
 	flags := []string{
-		fmt.Sprintf("--%s", SwarmNetworkIdFlag.Name), "42",
+		fmt.Sprintf("--%s", SwarmNetworkIdFlag.Name), "558",
 		fmt.Sprintf("--%s", SwarmPortFlag.Name), "54545",
 		fmt.Sprintf("--%s", SwarmSwapEnabledFlag.Name),
 	}
@@ -57,7 +57,7 @@ func TestFailsSwapEnabledNoSwapApi(t *testing.T) {
 
 func TestFailsNoBzzAccount(t *testing.T) {
 	flags := []string{
-		fmt.Sprintf("--%s", SwarmNetworkIdFlag.Name), "42",
+		fmt.Sprintf("--%s", SwarmNetworkIdFlag.Name), "558",
 		fmt.Sprintf("--%s", SwarmPortFlag.Name), "54545",
 	}
 
@@ -83,7 +83,7 @@ func TestCmdLineOverrides(t *testing.T) {
 	}
 
 	flags := []string{
-		fmt.Sprintf("--%s", SwarmNetworkIdFlag.Name), "42",
+		fmt.Sprintf("--%s", SwarmNetworkIdFlag.Name), "558",
 		fmt.Sprintf("--%s", SwarmPortFlag.Name), httpPort,
 		fmt.Sprintf("--%s", SwarmSyncEnabledFlag.Name),
 		fmt.Sprintf("--%s", CorsStringFlag.Name), "*",
@@ -120,7 +120,7 @@ func TestCmdLineOverrides(t *testing.T) {
 		t.Fatalf("Expected port to be %s, got %s", httpPort, info.Port)
 	}
 
-	if info.NetworkId != 42 {
+	if info.NetworkId != 558 {
 		t.Fatalf("Expected network ID to be %d, got %d", 42, info.NetworkId)
 	}
 
@@ -148,7 +148,7 @@ func TestFileOverrides(t *testing.T) {
 	defaultConf := api.NewDefaultConfig()
 	//change some values in order to test if they have been loaded
 	defaultConf.SyncEnabled = true
-	defaultConf.NetworkId = 54
+	defaultConf.NetworkId = 558
 	defaultConf.Port = httpPort
 	defaultConf.StoreParams.DbCapacity = 9000000
 	defaultConf.ChunkerParams.Branches = 64
@@ -215,8 +215,8 @@ func TestFileOverrides(t *testing.T) {
 		t.Fatalf("Expected port to be %s, got %s", httpPort, info.Port)
 	}
 
-	if info.NetworkId != 54 {
-		t.Fatalf("Expected network ID to be %d, got %d", 54, info.NetworkId)
+	if info.NetworkId != 558 {
+		t.Fatalf("Expected network ID to be %d, got %d", 558, info.NetworkId)
 	}
 
 	if !info.SyncEnabled {
@@ -224,7 +224,7 @@ func TestFileOverrides(t *testing.T) {
 	}
 
 	if info.StoreParams.DbCapacity != 9000000 {
-		t.Fatalf("Expected network ID to be %d, got %d", 54, info.NetworkId)
+		t.Fatalf("Expected network ID to be %d, got %d", 558, info.NetworkId)
 	}
 
 	if info.ChunkerParams.Branches != 64 {
@@ -355,7 +355,7 @@ func TestCmdLineOverridesFile(t *testing.T) {
 	defaultConf := api.NewDefaultConfig()
 	//change some values in order to test if they have been loaded
 	defaultConf.SyncEnabled = false
-	defaultConf.NetworkId = 54
+	defaultConf.NetworkId = 558
 	defaultConf.Port = "8588"
 	defaultConf.StoreParams.DbCapacity = 9000000
 	defaultConf.ChunkerParams.Branches = 64

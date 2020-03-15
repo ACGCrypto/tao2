@@ -120,7 +120,7 @@ tao account list --datadir ./  --keystore $KEYSTORE_DIR
    - $IDENTITY: the name of your node
    - $PASSWORD: the password file to unlock your account
    - $YOUR_COINBASE_ADDRESS: address of your account which generated in the previous step
-   - $NETWORK_ID: the networkId. Mainnet: 88. Testnet: 89
+   - $NETWORK_ID: the networkId. Mainnet: 558. Testnet: 688
    - $BOOTNODES: The comma separated list of bootnodes. Find them [here](https://docs.tao.network/general/networks/)
    - $WS_SECRET: The password to send data to the stats website. Find them [here](https://docs.tao.network/general/networks/)
    - $NETSTATS_HOST: The stats website to report to, regarding to your environment. Find them [here](https://docs.tao.network/general/networks/)

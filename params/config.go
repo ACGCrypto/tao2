@@ -32,7 +32,7 @@ var (
 var (
 	// Tao mainnet config
 	TaoMainnetChainConfig = &ChainConfig{
-		ChainId:        big.NewInt(30558),
+		ChainId:        big.NewInt(558),
 		HomesteadBlock: big.NewInt(1),
 		EIP150Block:    big.NewInt(2),
 		EIP150Hash:     common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
@@ -66,7 +66,7 @@ var (
 
 	// TestnetChainConfig contains the chain parameters to run a node on the Ropsten test network.
 	TestnetChainConfig = &ChainConfig{
-		ChainId:             big.NewInt(62688),
+		ChainId:             big.NewInt(688),
 		HomesteadBlock:      big.NewInt(0),
 		DAOForkBlock:        nil,
 		DAOForkSupport:      true,
