@@ -32,7 +32,7 @@ var (
 var (
 	// Tao mainnet config
 	TaoMainnetChainConfig = &ChainConfig{
-		ChainId:        big.NewInt(88),
+		ChainId:        big.NewInt(30558),
 		HomesteadBlock: big.NewInt(1),
 		EIP150Block:    big.NewInt(2),
 		EIP150Hash:     common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
@@ -42,10 +42,10 @@ var (
 		Posv: &PosvConfig{
 			Period:              2,
 			Epoch:               900,
-			Reward:              250,
+			Reward:              10,
 			RewardCheckpoint:    900,
 			Gap:                 5,
-			FoudationWalletAddr: common.HexToAddress("0x0000000000000000000000000000000000000068"),
+			FoudationWalletAddr: common.HexToAddress("0x4e596130c6ed2f47ae72e30814ddbf0edf2df8f6"),
 		},
 	}
 
@@ -66,15 +66,15 @@ var (
 
 	// TestnetChainConfig contains the chain parameters to run a node on the Ropsten test network.
 	TestnetChainConfig = &ChainConfig{
-		ChainId:             big.NewInt(3),
+		ChainId:             big.NewInt(62688),
 		HomesteadBlock:      big.NewInt(0),
 		DAOForkBlock:        nil,
 		DAOForkSupport:      true,
-		EIP150Block:         big.NewInt(0),
-		EIP150Hash:          common.HexToHash("0x62e0fde86e34c263e250fbcd5ca4598ba8ca10a1d166c8526bb127e10b313311"),
-		EIP155Block:         big.NewInt(10),
-		EIP158Block:         big.NewInt(10),
-		ByzantiumBlock:      big.NewInt(1700000),
+		EIP150Block:         big.NewInt(1),
+		EIP150Hash:          common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
+		EIP155Block:         big.NewInt(2),
+		EIP158Block:         big.NewInt(2),
+		ByzantiumBlock:      big.NewInt(3),
 		ConstantinopleBlock: nil,
 		Ethash:              new(EthashConfig),
 	}

@@ -12,7 +12,7 @@
       "epoch": 900,
       "reward": 10,
       "rewardCheckpoint": 900,
-      "gap": 450,
+      "gap": 5,
       "foudationWalletAddr": "0x4e596130c6ed2f47ae72e30814ddbf0edf2df8f6"
     }
   },
