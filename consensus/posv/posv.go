@@ -63,8 +63,8 @@ type Masternode struct {
 }
 
 type WaihuiService interface {
-	GetTomoxStateRoot(block *types.Block) (common.Hash, error)
-	GetTomoxState(block *types.Block) (*waihui_state.WaihuiStateDB, error)
+	GetWaihuiStateRoot(block *types.Block) (common.Hash, error)
+	GetWaihuiState(block *types.Block) (*waihui_state.WaihuiStateDB, error)
 	GetStateCache() waihui_state.Database
 	GetTriegc() *prque.Prque
 	ApplyOrder(coinbase common.Address, chain consensus.ChainContext, statedb *state.StateDB, waihuistatedb *waihui_state.WaihuiStateDB, orderBook common.Hash, order *waihui_state.OrderItem) ([]map[string]string, []*waihui_state.OrderItem, error)

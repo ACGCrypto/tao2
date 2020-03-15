@@ -413,7 +413,7 @@ func (b *EthApiBackend) AreTwoBlockSamePath(bh1 common.Hash, bh2 common.Hash) bo
 func (b *EthApiBackend) GetOrderNonce(address common.Hash) (uint64, error) {
 	waihuiService := b.eth.GetWaihui()
 	if waihuiService != nil {
-		waihuiState, err := waihuiService.GetTomoxState(b.CurrentBlock())
+		waihuiState, err := waihuiService.GetWaihuiState(b.CurrentBlock())
 		if err != nil {
 			return 0, err
 		}
@@ -422,6 +422,6 @@ func (b *EthApiBackend) GetOrderNonce(address common.Hash) (uint64, error) {
 	return 0, errors.New("cannot find waihui service")
 }
 
-func (b *EthApiBackend) TomoxService() *waihui.Waihui {
+func (b *EthApiBackend) WaihuiService() *waihui.Waihui {
 	return b.eth.Waihui
 }

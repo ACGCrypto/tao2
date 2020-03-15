@@ -41,7 +41,7 @@ func main() {
 	auth.Nonce = big.NewInt(int64(nonce + 1))
 
 	// init trc1
-	trc2TokenAddr, trc2Token, err := trc2issuer.DeployTRC2(auth, client, "TEST", "TOMO", 18, simulation.Cap, simulation.Fee)
+	trc2TokenAddr, trc2Token, err := trc2issuer.DeployTRC2(auth, client, "TEST", "TAO", 18, simulation.Cap, simulation.Fee)
 	if err != nil {
 		log.Fatal(err)
 	}

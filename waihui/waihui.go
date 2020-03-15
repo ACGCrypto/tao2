@@ -491,8 +491,8 @@ func (waihui *Waihui) SyncDataToSDKNode(takerOrderInTx *waihui_state.OrderItem, 
 	return nil
 }
 
-func (waihui *Waihui) GetTomoxState(block *types.Block) (*waihui_state.WaihuiStateDB, error) {
-	root, err := waihui.GetTomoxStateRoot(block)
+func (waihui *Waihui) GetWaihuiState(block *types.Block) (*waihui_state.WaihuiStateDB, error) {
+	root, err := waihui.GetWaihuiStateRoot(block)
 	if err != nil {
 		return nil, err
 	}
@@ -510,7 +510,7 @@ func (waihui *Waihui) GetTriegc() *prque.Prque {
 	return waihui.Triegc
 }
 
-func (waihui *Waihui) GetTomoxStateRoot(block *types.Block) (common.Hash, error) {
+func (waihui *Waihui) GetWaihuiStateRoot(block *types.Block) (common.Hash, error) {
 	for _, tx := range block.Transactions() {
 		if tx.To() != nil && tx.To().Hex() == common.WaihuiStateAddr {
 			if len(tx.Data()) > 0 {
@@ -543,9 +543,9 @@ func (waihui *Waihui) RollbackReorgTxMatch(txhash common.Hash) {
 
 	for _, order := range db.GetOrderByTxHash(txhash) {
 		c, ok := waihui.orderCache.Get(txhash)
-		log.Debug("Tomox reorg: rollback order", "txhash", txhash.Hex(), "order", waihui_state.ToJSON(order))
+		log.Debug("Waihui reorg: rollback order", "txhash", txhash.Hex(), "order", waihui_state.ToJSON(order))
 		if !ok {
-			log.Debug("Tomox reorg: remove order due to no orderCache", "order", waihui_state.ToJSON(order))
+			log.Debug("Waihui reorg: remove order due to no orderCache", "order", waihui_state.ToJSON(order))
 			if err := db.DeleteObject(order.Hash); err != nil {
 				log.Error("SDKNode: failed to remove reorg order", "err", err.Error(), "order", waihui_state.ToJSON(order))
 			}
@@ -554,7 +554,7 @@ func (waihui *Waihui) RollbackReorgTxMatch(txhash common.Hash) {
 		orderCacheAtTxHash := c.(map[common.Hash]waihui_state.OrderHistoryItem)
 		orderHistoryItem, _ := orderCacheAtTxHash[waihui_state.GetOrderHistoryKey(order.BaseToken, order.QuoteToken, order.Hash)]
 		if (orderHistoryItem == waihui_state.OrderHistoryItem{}) {
-			log.Debug("Tomox reorg: remove order due to empty orderHistory", "order", waihui_state.ToJSON(order))
+			log.Debug("Waihui reorg: remove order due to empty orderHistory", "order", waihui_state.ToJSON(order))
 			if err := db.DeleteObject(order.Hash); err != nil {
 				log.Error("SDKNode: failed to remove reorg order", "err", err.Error(), "order", waihui_state.ToJSON(order))
 			}
@@ -564,12 +564,12 @@ func (waihui *Waihui) RollbackReorgTxMatch(txhash common.Hash) {
 		order.Status = orderHistoryItem.Status
 		order.FilledAmount = waihui_state.CloneBigInt(orderHistoryItem.FilledAmount)
 		order.UpdatedAt = orderHistoryItem.UpdatedAt
-		log.Debug("Tomox reorg: update order to the last orderHistoryItem", "order", waihui_state.ToJSON(order), "orderHistoryItem", waihui_state.ToJSON(orderHistoryItem))
+		log.Debug("Waihui reorg: update order to the last orderHistoryItem", "order", waihui_state.ToJSON(order), "orderHistoryItem", waihui_state.ToJSON(orderHistoryItem))
 		if err := db.PutObject(order.Hash, order); err != nil {
 			log.Error("SDKNode: failed to update reorg order", "err", err.Error(), "order", waihui_state.ToJSON(order))
 		}
 	}
-	log.Debug("Tomox reorg: DeleteTradeByTxHash", "txhash", txhash.Hex())
+	log.Debug("Waihui reorg: DeleteTradeByTxHash", "txhash", txhash.Hex())
 	db.DeleteTradeByTxHash(txhash)
 
 }

@@ -264,6 +264,6 @@ func (b *LesApiBackend) GetOrderNonce(address common.Hash) (uint64, error) {
 	return 0, errors.New("cannot find waihui service")
 }
 
-func (b *LesApiBackend) TomoxService() *waihui.Waihui {
+func (b *LesApiBackend) WaihuiService() *waihui.Waihui {
 	return nil
 }

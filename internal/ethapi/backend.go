@@ -47,7 +47,7 @@ type Backend interface {
 	ChainDb() ethdb.Database
 	EventMux() *event.TypeMux
 	AccountManager() *accounts.Manager
-	TomoxService() *waihui.Waihui
+	WaihuiService() *waihui.Waihui
 
 	// BlockChain API
 	SetHead(number uint64)

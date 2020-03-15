@@ -23,7 +23,7 @@ var (
 	token = common.HexToAddress("0000000000000000000000000000000000000089")
 
 	delay    = big.NewInt(30 * 48)
-	minApply = big.NewInt(0).Mul(big.NewInt(1000), big.NewInt(100000000000000000)) // 100 TOMO
+	minApply = big.NewInt(0).Mul(big.NewInt(1000), big.NewInt(100000000000000000)) // 100 TAO
 )
 
 func TestFeeTxWithTRC2Token(t *testing.T) {
@@ -45,7 +45,7 @@ func TestFeeTxWithTRC2Token(t *testing.T) {
 	cap := big.NewInt(0).Mul(big.NewInt(10000000), big.NewInt(10000000000000))
 	TRC2fee := big.NewInt(100)
 	//  deploy a TRC2 SMC
-	trc2TokenAddr, trc2, err := DeployTRC2(transactOpts, contractBackend, "TEST", "TOMO", 18, cap, TRC2fee)
+	trc2TokenAddr, trc2, err := DeployTRC2(transactOpts, contractBackend, "TEST", "TAO", 18, cap, TRC2fee)
 	if err != nil {
 		t.Fatal("can't deploy smart contract: ", err)
 	}
