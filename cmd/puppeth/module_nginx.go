@@ -38,7 +38,7 @@ var nginxComposefile = `
 version: "2"
 services:
   letsencrypt:
-    image: {{.Network}}/nginx
+  	image: linuxserver/letsencrypt
     cap_add:
       - NET_ADMIN
     environment:
