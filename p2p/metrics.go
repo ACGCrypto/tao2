@@ -21,7 +21,7 @@ package p2p
 import (
 	"net"
 
-	"github.com/tao2-core/tao2-core/metrics"
+	"github.com/taoblockchain/tao2/metrics"
 )
 
 var (

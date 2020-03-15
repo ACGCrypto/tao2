@@ -25,14 +25,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/common/mclock"
-	"github.com/tao2-core/tao2-core/event"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/p2p/discover"
-	"github.com/tao2-core/tao2-core/p2p/discv5"
-	"github.com/tao2-core/tao2-core/p2p/nat"
-	"github.com/tao2-core/tao2-core/p2p/netutil"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/common/mclock"
+	"github.com/taoblockchain/tao2/event"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/p2p/discover"
+	"github.com/taoblockchain/tao2/p2p/discv5"
+	"github.com/taoblockchain/tao2/p2p/nat"
+	"github.com/taoblockchain/tao2/p2p/netutil"
 )
 
 const (

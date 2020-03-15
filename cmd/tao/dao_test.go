@@ -23,9 +23,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core"
-	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core"
+	"github.com/taoblockchain/tao2/ethdb"
 )
 
 // Genesis block for nodes which don't care about the DAO fork (i.e. not configured)

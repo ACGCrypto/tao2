@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/log"
 )
 
 // deployWallet creates a new web wallet based on some user input.

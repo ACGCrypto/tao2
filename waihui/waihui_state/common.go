@@ -3,11 +3,11 @@ package waihui_state
 import (
 	"encoding/json"
 	"errors"
-	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/taoblockchain/tao2/crypto"
 	"math/big"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
+	"github.com/taoblockchain/tao2/common"
 )
 
 const (

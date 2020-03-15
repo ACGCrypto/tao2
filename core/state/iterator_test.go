@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/ethdb"
 )
 
 // Tests that the node iterator indeed walks over the entire database contents.

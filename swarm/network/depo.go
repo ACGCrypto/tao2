@@ -22,9 +22,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/metrics"
-	"github.com/tao2-core/tao2-core/swarm/storage"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/metrics"
+	"github.com/taoblockchain/tao2/swarm/storage"
 )
 
 //metrics variables

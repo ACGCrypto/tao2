@@ -1,7 +1,7 @@
 package simulation
 
 import (
-	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/taoblockchain/tao2/crypto"
 	"math/big"
 )
 

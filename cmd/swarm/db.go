@@ -22,9 +22,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/tao2-core/tao2-core/cmd/utils"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/swarm/storage"
+	"github.com/taoblockchain/tao2/cmd/utils"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/swarm/storage"
 	"gopkg.in/urfave/cli.v1"
 )
 

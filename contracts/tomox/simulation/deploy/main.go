@@ -7,11 +7,11 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/tao2-core/tao2-core/accounts/abi/bind"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/contracts/waihui"
-	"github.com/tao2-core/tao2-core/contracts/waihui/simulation"
-	"github.com/tao2-core/tao2-core/ethclient"
+	"github.com/taoblockchain/tao2/accounts/abi/bind"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/contracts/waihui"
+	"github.com/taoblockchain/tao2/contracts/waihui/simulation"
+	"github.com/taoblockchain/tao2/ethclient"
 )
 
 func main() {

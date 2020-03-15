@@ -21,9 +21,9 @@ package geth
 import (
 	"encoding/json"
 
-	"github.com/tao2-core/tao2-core/core"
-	"github.com/tao2-core/tao2-core/p2p/discv5"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/core"
+	"github.com/taoblockchain/tao2/p2p/discv5"
+	"github.com/taoblockchain/tao2/params"
 )
 
 // MainnetGenesis returns the JSON spec to use for the main Ethereum network. It

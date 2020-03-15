@@ -27,9 +27,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/rlp"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/rlp"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/errors"
 	"github.com/syndtr/goleveldb/leveldb/iterator"

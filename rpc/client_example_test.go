@@ -22,7 +22,7 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/tao2-core/tao2-core/rpc"
+	"github.com/taoblockchain/tao2/rpc"
 )
 
 // In this example, our client whishes to track the latest 'block number'

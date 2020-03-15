@@ -19,7 +19,7 @@ package tests
 import (
 	"testing"
 
-	"github.com/tao2-core/tao2-core/core/vm"
+	"github.com/taoblockchain/tao2/core/vm"
 )
 
 func TestVM(t *testing.T) {

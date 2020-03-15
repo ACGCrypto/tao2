@@ -31,11 +31,11 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/crypto/ecies"
-	"github.com/tao2-core/tao2-core/crypto/sha3"
-	"github.com/tao2-core/tao2-core/p2p/discover"
-	"github.com/tao2-core/tao2-core/rlp"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/crypto/ecies"
+	"github.com/taoblockchain/tao2/crypto/sha3"
+	"github.com/taoblockchain/tao2/p2p/discover"
+	"github.com/taoblockchain/tao2/rlp"
 )
 
 func TestSharedSecret(t *testing.T) {

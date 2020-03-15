@@ -41,23 +41,23 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tao2-core/tao2-core/accounts"
-	"github.com/tao2-core/tao2-core/accounts/keystore"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/eth"
-	"github.com/tao2-core/tao2-core/eth/downloader"
-	"github.com/tao2-core/tao2-core/ethclient"
-	"github.com/tao2-core/tao2-core/ethstats"
-	"github.com/tao2-core/tao2-core/les"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/node"
-	"github.com/tao2-core/tao2-core/p2p"
-	"github.com/tao2-core/tao2-core/p2p/discover"
-	"github.com/tao2-core/tao2-core/p2p/discv5"
-	"github.com/tao2-core/tao2-core/p2p/nat"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/accounts"
+	"github.com/taoblockchain/tao2/accounts/keystore"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/eth"
+	"github.com/taoblockchain/tao2/eth/downloader"
+	"github.com/taoblockchain/tao2/ethclient"
+	"github.com/taoblockchain/tao2/ethstats"
+	"github.com/taoblockchain/tao2/les"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/node"
+	"github.com/taoblockchain/tao2/p2p"
+	"github.com/taoblockchain/tao2/p2p/discover"
+	"github.com/taoblockchain/tao2/p2p/discv5"
+	"github.com/taoblockchain/tao2/p2p/nat"
+	"github.com/taoblockchain/tao2/params"
 	"golang.org/x/net/websocket"
 )
 
@@ -450,7 +450,7 @@ func (f *faucet) apiHandler(conn *websocket.Conn) {
 		case *noauthFlag:
 			username, avatar, address, err = authNoAuth(msg.URL)
 		default:
-			err = errors.New("Something funky happened, please open an issue at https://github.com/taoblockchain/tao2-core/issues")
+			err = errors.New("Something funky happened, please open an issue at https://github.com/taoblockchain/tao2/issues")
 		}
 		if err != nil {
 			if err = sendError(conn, err); err != nil {

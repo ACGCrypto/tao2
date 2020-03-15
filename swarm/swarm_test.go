@@ -19,7 +19,7 @@ package swarm
 import (
 	"testing"
 
-	"github.com/tao2-core/tao2-core/common"
+	"github.com/taoblockchain/tao2/common"
 )
 
 func TestParseEnsAPIAddress(t *testing.T) {

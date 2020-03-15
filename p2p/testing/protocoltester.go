@@ -32,14 +32,14 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/node"
-	"github.com/tao2-core/tao2-core/p2p"
-	"github.com/tao2-core/tao2-core/p2p/discover"
-	"github.com/tao2-core/tao2-core/p2p/simulations"
-	"github.com/tao2-core/tao2-core/p2p/simulations/adapters"
-	"github.com/tao2-core/tao2-core/rlp"
-	"github.com/tao2-core/tao2-core/rpc"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/node"
+	"github.com/taoblockchain/tao2/p2p"
+	"github.com/taoblockchain/tao2/p2p/discover"
+	"github.com/taoblockchain/tao2/p2p/simulations"
+	"github.com/taoblockchain/tao2/p2p/simulations/adapters"
+	"github.com/taoblockchain/tao2/rlp"
+	"github.com/taoblockchain/tao2/rpc"
 )
 
 // ProtocolTester is the tester environment used for unit testing protocol

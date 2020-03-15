@@ -20,10 +20,10 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/consensus/ethash"
-	"github.com/tao2-core/tao2-core/core/vm"
-	"github.com/tao2-core/tao2-core/ethdb"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/consensus/ethash"
+	"github.com/taoblockchain/tao2/core/vm"
+	"github.com/taoblockchain/tao2/ethdb"
+	"github.com/taoblockchain/tao2/params"
 )
 
 // Tests that DAO-fork enabled clients can properly filter out fork-commencing

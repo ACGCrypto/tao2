@@ -19,7 +19,7 @@ package trie
 import (
 	"fmt"
 
-	"github.com/tao2-core/tao2-core/common"
+	"github.com/taoblockchain/tao2/common"
 )
 
 // MissingNodeError is returned by the trie functions (TryGet, TryUpdate, TryDelete)

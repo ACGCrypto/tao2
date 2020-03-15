@@ -24,8 +24,8 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/common/math"
-	"github.com/tao2-core/tao2-core/crypto/randentropy"
+	"github.com/taoblockchain/tao2/common/math"
+	"github.com/taoblockchain/tao2/crypto/randentropy"
 )
 
 const TestCount = 1000

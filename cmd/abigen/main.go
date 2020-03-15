@@ -24,8 +24,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/tao2-core/tao2-core/accounts/abi/bind"
-	"github.com/tao2-core/tao2-core/common/compiler"
+	"github.com/taoblockchain/tao2/accounts/abi/bind"
+	"github.com/taoblockchain/tao2/common/compiler"
 )
 
 var (

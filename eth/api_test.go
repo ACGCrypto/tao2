@@ -21,9 +21,9 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/state"
-	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/state"
+	"github.com/taoblockchain/tao2/ethdb"
 )
 
 var dumper = spew.ConfigState{Indent: "    "}

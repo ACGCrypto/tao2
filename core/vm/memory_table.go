@@ -19,7 +19,7 @@ package vm
 import (
 	"math/big"
 
-	"github.com/tao2-core/tao2-core/common/math"
+	"github.com/taoblockchain/tao2/common/math"
 )
 
 func memorySha3(stack *Stack) *big.Int {

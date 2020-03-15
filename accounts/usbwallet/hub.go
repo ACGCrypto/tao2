@@ -22,9 +22,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tao2-core/tao2-core/accounts"
-	"github.com/tao2-core/tao2-core/event"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/accounts"
+	"github.com/taoblockchain/tao2/event"
+	"github.com/taoblockchain/tao2/log"
 	"github.com/karalabe/hid"
 )
 

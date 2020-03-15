@@ -3,13 +3,13 @@ package waihui
 import (
 	"bytes"
 	"encoding/hex"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/waihui/waihui_state"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/waihui/waihui_state"
 	"github.com/globalsign/mgo"
 	"sync"
 
-	"github.com/tao2-core/tao2-core/ethdb"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/ethdb"
+	"github.com/taoblockchain/tao2/log"
 	lru "github.com/hashicorp/golang-lru"
 )
 

@@ -47,7 +47,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/tao2-core/tao2-core/internal/build"
+	"github.com/taoblockchain/tao2/internal/build"
 )
 
 var (

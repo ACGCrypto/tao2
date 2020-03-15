@@ -21,7 +21,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/taoblockchain/tao2/core/types"
 )
 
 // Tests that batched bloom bits are correctly rotated from the input bloom

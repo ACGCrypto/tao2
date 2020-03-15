@@ -24,12 +24,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/common/hexutil"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/p2p/discover"
-	"github.com/tao2-core/tao2-core/rpc"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/common/hexutil"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/p2p/discover"
+	"github.com/taoblockchain/tao2/rpc"
 )
 
 const (

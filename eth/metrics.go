@@ -17,8 +17,8 @@
 package eth
 
 import (
-	"github.com/tao2-core/tao2-core/metrics"
-	"github.com/tao2-core/tao2-core/p2p"
+	"github.com/taoblockchain/tao2/metrics"
+	"github.com/taoblockchain/tao2/p2p"
 )
 
 var (

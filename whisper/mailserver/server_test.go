@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/crypto"
-	whisper "github.com/tao2-core/tao2-core/whisper/whisperv6"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/crypto"
+	whisper "github.com/taoblockchain/tao2/whisper/whisperv6"
 )
 
 const powRequirement = 0.00001

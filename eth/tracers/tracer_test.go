@@ -24,9 +24,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/vm"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/vm"
+	"github.com/taoblockchain/tao2/params"
 )
 
 type account struct{}

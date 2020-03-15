@@ -21,8 +21,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/swarm/storage"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/swarm/storage"
 )
 
 const requesterCount = 3

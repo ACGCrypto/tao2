@@ -24,13 +24,13 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/common/hexutil"
-	"github.com/tao2-core/tao2-core/consensus/ethash"
-	"github.com/tao2-core/tao2-core/core"
-	"github.com/tao2-core/tao2-core/eth/downloader"
-	"github.com/tao2-core/tao2-core/eth/gasprice"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/common/hexutil"
+	"github.com/taoblockchain/tao2/consensus/ethash"
+	"github.com/taoblockchain/tao2/core"
+	"github.com/taoblockchain/tao2/eth/downloader"
+	"github.com/taoblockchain/tao2/eth/gasprice"
+	"github.com/taoblockchain/tao2/params"
 )
 
 // DefaultConfig contains default settings for use on the Ethereum main net.

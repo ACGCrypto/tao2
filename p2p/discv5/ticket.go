@@ -25,10 +25,10 @@ import (
 	"sort"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/common/mclock"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/common/mclock"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/log"
 )
 
 const (

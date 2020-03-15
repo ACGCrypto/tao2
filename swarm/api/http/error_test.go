@@ -25,7 +25,7 @@ import (
 
 	"golang.org/x/net/html"
 
-	"github.com/tao2-core/tao2-core/swarm/testutil"
+	"github.com/taoblockchain/tao2/swarm/testutil"
 )
 
 func TestError(t *testing.T) {

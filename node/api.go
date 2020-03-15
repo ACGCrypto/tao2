@@ -22,12 +22,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common/hexutil"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/metrics"
-	"github.com/tao2-core/tao2-core/p2p"
-	"github.com/tao2-core/tao2-core/p2p/discover"
-	"github.com/tao2-core/tao2-core/rpc"
+	"github.com/taoblockchain/tao2/common/hexutil"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/metrics"
+	"github.com/taoblockchain/tao2/p2p"
+	"github.com/taoblockchain/tao2/p2p/discover"
+	"github.com/taoblockchain/tao2/rpc"
 )
 
 // PrivateAdminAPI is the collection of administrative API methods exposed only

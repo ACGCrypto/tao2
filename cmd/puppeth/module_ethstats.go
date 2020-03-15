@@ -25,7 +25,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/log"
 )
 
 // ethstatsDockerfile is the Dockerfile required to build an ethstats backend

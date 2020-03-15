@@ -28,13 +28,13 @@ import (
 
 	cli "gopkg.in/urfave/cli.v1"
 
-	"github.com/tao2-core/tao2-core/cmd/utils"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/node"
+	"github.com/taoblockchain/tao2/cmd/utils"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/node"
 	"github.com/naoina/toml"
 
-	bzzapi "github.com/tao2-core/tao2-core/swarm/api"
+	bzzapi "github.com/taoblockchain/tao2/swarm/api"
 )
 
 var (
@@ -84,7 +84,7 @@ var tomlSettings = toml.Config{
 	MissingField: func(rt reflect.Type, field string) error {
 		link := ""
 		if unicode.IsUpper(rune(rt.Name()[0])) && rt.PkgPath() != "main" {
-			link = fmt.Sprintf(", check github.com/tao2-core/tao2-core/swarm/api/config.go for available fields")
+			link = fmt.Sprintf(", check github.com/taoblockchain/tao2/swarm/api/config.go for available fields")
 		}
 		return fmt.Errorf("field '%s' is not defined in %s%s", field, rt.String(), link)
 	},

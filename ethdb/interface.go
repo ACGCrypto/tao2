@@ -16,7 +16,7 @@
 
 package ethdb
 
-import "github.com/tao2-core/tao2-core/common"
+import "github.com/taoblockchain/tao2/common"
 
 // Code using batches should try to add this much data to the batch.
 // The value was determined empirically.

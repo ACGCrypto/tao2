@@ -23,8 +23,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/tao2-core/tao2-core/common/math"
-	"github.com/tao2-core/tao2-core/core/vm"
+	"github.com/taoblockchain/tao2/common/math"
+	"github.com/taoblockchain/tao2/core/vm"
 )
 
 // Compiler contains information about the parsed source

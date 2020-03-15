@@ -27,15 +27,15 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/ethdb"
-	"github.com/tao2-core/tao2-core/internal/debug"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/node"
-	"github.com/tao2-core/tao2-core/rlp"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/ethdb"
+	"github.com/taoblockchain/tao2/internal/debug"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/node"
+	"github.com/taoblockchain/tao2/rlp"
 )
 
 const (

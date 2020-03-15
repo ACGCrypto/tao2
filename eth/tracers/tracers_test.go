@@ -25,15 +25,15 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/common/hexutil"
-	"github.com/tao2-core/tao2-core/common/math"
-	"github.com/tao2-core/tao2-core/core"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/core/vm"
-	"github.com/tao2-core/tao2-core/ethdb"
-	"github.com/tao2-core/tao2-core/rlp"
-	"github.com/tao2-core/tao2-core/tests"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/common/hexutil"
+	"github.com/taoblockchain/tao2/common/math"
+	"github.com/taoblockchain/tao2/core"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/core/vm"
+	"github.com/taoblockchain/tao2/ethdb"
+	"github.com/taoblockchain/tao2/rlp"
+	"github.com/taoblockchain/tao2/tests"
 )
 
 // To generate a new callTracer test, copy paste the makeTest method below into

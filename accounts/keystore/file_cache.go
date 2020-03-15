@@ -24,7 +24,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/log"
 	mapset "github.com/deckarep/golang-set"
 )
 

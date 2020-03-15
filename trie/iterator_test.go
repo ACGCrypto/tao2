@@ -22,8 +22,8 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/ethdb"
 )
 
 func TestIterator(t *testing.T) {

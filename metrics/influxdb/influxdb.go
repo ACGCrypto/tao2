@@ -6,7 +6,7 @@ import (
 	uurl "net/url"
 	"time"
 
-	"github.com/tao2-core/tao2-core/metrics"
+	"github.com/taoblockchain/tao2/metrics"
 	"github.com/influxdata/influxdb/client"
 )
 

@@ -20,7 +20,7 @@ import (
 	"crypto/sha256"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/taoblockchain/tao2/crypto"
 	"golang.org/x/crypto/pbkdf2"
 )
 

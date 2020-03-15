@@ -1,7 +1,7 @@
 # Tao
 
-[![Build Status](https://travis-ci.org/taoblockchain/tao2-core.svg?branch=master)](https://travis-ci.org/taoblockchain/tao2-core)
-[![Join the chat at https://gitter.im/taoblockchain/tao2-core](https://badges.gitter.im/taoblockchain/tao2-core.svg)](https://gitter.im/taoblockchain/tao2-core?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/taoblockchain/tao2.svg?branch=master)](https://travis-ci.org/taoblockchain/tao2)
+[![Join the chat at https://gitter.im/taoblockchain/tao2](https://badges.gitter.im/taoblockchain/tao2.svg)](https://gitter.im/taoblockchain/tao2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## About Tao 2.0
 
@@ -31,12 +31,12 @@ Building `tao` requires both a Go (1.7+) and C compiler; install both of these.
 Once the dependencies are installed, just run the below commands:
 
 ```bash
-$ git clone https://github.com/taoblockchain/tao2-core tao
+$ git clone https://github.com/taoblockchain/tao2 tao
 $ cd tao
 $ make tao
 ```
 
-Alternatively, you could quickly download our pre-complied binary from our [github release page](https://github.com/taoblockchain/tao2-core/releases)
+Alternatively, you could quickly download our pre-complied binary from our [github release page](https://github.com/taoblockchain/tao2/releases)
 
 ## Running `tao`
 
@@ -67,12 +67,12 @@ export GENESIS_PATH=path/to/genesis.json
 ```
 - Testnet
 ```bash
-curl -L https://raw.githubusercontent.com/taoblockchain/tao2-core/master/genesis/testnet.json -o $GENESIS_PATH
+curl -L https://raw.githubusercontent.com/taoblockchain/tao2/master/genesis/testnet.json -o $GENESIS_PATH
 ```
 
 - Mainnet
 ```bash
-curl -L https://raw.githubusercontent.com/taoblockchain/tao2-core/master/genesis/mainnet.json -o $GENESIS_PATH
+curl -L https://raw.githubusercontent.com/taoblockchain/tao2/master/genesis/mainnet.json -o $GENESIS_PATH
 ```
 
 #### Create datadir
@@ -160,7 +160,7 @@ tao  --syncmode "full" \
 --targetgaslimit: Target gas limit sets the artificial target gas floor for the blocks to mine (default: 4712388)
 --bootnode: bootnode information to help to discover other nodes in the network
 --gcmode: blockchain garbage collection mode ("full", "archive")
---synmode: blockchain sync mode ("fast", "full", or "light". More detail: https://github.com/taoblockchain/tao2-core/blob/master/eth/downloader/modes.go#L24)           
+--synmode: blockchain sync mode ("fast", "full", or "light". More detail: https://github.com/taoblockchain/tao2/blob/master/eth/downloader/modes.go#L24)           
 --ethstats: send data to stats website
 ```
 To see all flags usage
@@ -187,7 +187,7 @@ Please also make sure your contributions adhere to the base coding guidelines:
 - Code must adhere to official Go [formatting](https://golang.org/doc/effective_go.html#formatting) guidelines (i.e uses [gofmt](https://golang.org/cmd/gofmt/)).
 - Code comments must adhere to the official Go [commentary](https://golang.org/doc/effective_go.html#commentary) guidelines.
 - Pull requests need to be based on and opened against the `master` branch.
-- Any code you are trying to contribute must be well-explained as an issue on our [github issue page](https://github.com/taoblockchain/tao2-core/issues)
+- Any code you are trying to contribute must be well-explained as an issue on our [github issue page](https://github.com/taoblockchain/tao2/issues)
 - Commit messages should be short but clear enough and should refer to the corresponding pre-logged issue mentioned above.
 
-For technical discussion, feel free to join our chat at [Gitter](https://gitter.im/taoblockchain/tao2-core).
+For technical discussion, feel free to join our chat at [Gitter](https://gitter.im/taoblockchain/tao2).

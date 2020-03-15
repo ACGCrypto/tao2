@@ -2,16 +2,16 @@ package waihui
 
 import (
 	"context"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/log"
 	"math/big"
 	"strings"
 
-	"github.com/tao2-core/taoblockchain"
-	"github.com/tao2-core/tao2-core/accounts/abi"
-	"github.com/tao2-core/tao2-core/accounts/abi/bind/backends"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/consensus"
-	"github.com/tao2-core/tao2-core/core/state"
+	"github.com/taoblockchain/tao2"
+	"github.com/taoblockchain/tao2/accounts/abi"
+	"github.com/taoblockchain/tao2/accounts/abi/bind/backends"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/consensus"
+	"github.com/taoblockchain/tao2/core/state"
 )
 
 const tokenAbi = `

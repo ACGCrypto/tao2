@@ -21,7 +21,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/tao2-core/tao2-core/core/vm"
+	"github.com/taoblockchain/tao2/core/vm"
 )
 
 // Iterator for disassembled EVM instructions

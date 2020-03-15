@@ -22,8 +22,8 @@ import (
 	"io"
 	"net"
 
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/rlp"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/rlp"
 )
 
 // Entry is implemented by known node record entry types.

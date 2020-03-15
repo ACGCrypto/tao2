@@ -25,8 +25,8 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/swarm/api"
-	"github.com/tao2-core/tao2-core/swarm/testutil"
+	"github.com/taoblockchain/tao2/swarm/api"
+	"github.com/taoblockchain/tao2/swarm/testutil"
 )
 
 // TestClientUploadDownloadRaw test uploading and downloading raw data to swarm

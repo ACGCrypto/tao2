@@ -22,9 +22,9 @@ import (
 	"math/big"
 	"sort"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/log"
 )
 
 // nonceHeap is a heap.Interface implementation over 64bit unsigned integers for

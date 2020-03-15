@@ -25,7 +25,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tao2-core/tao2-core/internal/build"
+	"github.com/taoblockchain/tao2/internal/build"
 )
 
 // androidTestClass is a Java class to do some lightweight tests against the Android
@@ -207,7 +207,7 @@ func TestAndroid(t *testing.T) {
 		}
 	}
 	// Generate the mobile bindings for Geth and add the tester class
-	gobind := exec.Command("gomobile", "bind", "-javapkg", "org.ethereum", "github.com/tao2-core/tao2-core/mobile")
+	gobind := exec.Command("gomobile", "bind", "-javapkg", "org.ethereum", "github.com/taoblockchain/tao2/mobile")
 	if output, err := gobind.CombinedOutput(); err != nil {
 		t.Logf("%s", output)
 		t.Fatalf("failed to run gomobile bind: %v", err)

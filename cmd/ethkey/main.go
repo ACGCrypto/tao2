@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/tao2-core/tao2-core/cmd/utils"
+	"github.com/taoblockchain/tao2/cmd/utils"
 	"gopkg.in/urfave/cli.v1"
 )
 

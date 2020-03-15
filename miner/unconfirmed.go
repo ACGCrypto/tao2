@@ -20,9 +20,9 @@ import (
 	"container/ring"
 	"sync"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/log"
 )
 
 // headerRetriever is used by the unconfirmed block set to verify whether a previously

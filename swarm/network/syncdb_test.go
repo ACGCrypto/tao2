@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/swarm/storage"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/swarm/storage"
 )
 
 func init() {

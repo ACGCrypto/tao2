@@ -21,12 +21,12 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/consensus/ethash"
-	"github.com/tao2-core/tao2-core/core"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/ethdb"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/consensus/ethash"
+	"github.com/taoblockchain/tao2/core"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/ethdb"
+	"github.com/taoblockchain/tao2/params"
 )
 
 // So we can deterministically seed different blockchains

@@ -18,9 +18,9 @@ package waihui_state
 
 import (
 	"fmt"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/common/math"
-	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/common/math"
+	"github.com/taoblockchain/tao2/ethdb"
 	"math/big"
 	"testing"
 )

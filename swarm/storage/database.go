@@ -22,7 +22,7 @@ package storage
 import (
 	"fmt"
 
-	"github.com/tao2-core/tao2-core/compression/rle"
+	"github.com/taoblockchain/tao2/compression/rle"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/iterator"
 	"github.com/syndtr/goleveldb/leveldb/opt"

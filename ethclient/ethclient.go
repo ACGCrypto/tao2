@@ -24,12 +24,12 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/tao2-core/taoblockchain"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/common/hexutil"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/rlp"
-	"github.com/tao2-core/tao2-core/rpc"
+	"github.com/taoblockchain/tao2"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/common/hexutil"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/rlp"
+	"github.com/taoblockchain/tao2/rpc"
 )
 
 // Client defines typed wrappers for the Ethereum RPC API.

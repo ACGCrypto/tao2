@@ -20,12 +20,12 @@ import (
 	"encoding/binary"
 	"fmt"
 
-	"github.com/tao2-core/tao2-core/cmd/utils"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/rlp"
-	whisper "github.com/tao2-core/tao2-core/whisper/whisperv6"
+	"github.com/taoblockchain/tao2/cmd/utils"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/rlp"
+	whisper "github.com/taoblockchain/tao2/whisper/whisperv6"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/util"
 )

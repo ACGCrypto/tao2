@@ -19,7 +19,7 @@ package bloombits
 import (
 	"errors"
 
-	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/taoblockchain/tao2/core/types"
 )
 
 // errSectionOutOfBounds is returned if the user tried to add more bloom filters

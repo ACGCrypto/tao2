@@ -29,7 +29,7 @@ import (
 	"net"
 	"sort"
 
-	"github.com/tao2-core/tao2-core/common"
+	"github.com/taoblockchain/tao2/common"
 )
 
 const (

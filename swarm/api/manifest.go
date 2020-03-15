@@ -27,9 +27,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/swarm/storage"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/swarm/storage"
 )
 
 const (

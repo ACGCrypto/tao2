@@ -42,7 +42,7 @@ import (
 	"fmt"
 	"hash"
 
-	ethcrypto "github.com/tao2-core/tao2-core/crypto"
+	ethcrypto "github.com/taoblockchain/tao2/crypto"
 )
 
 var (

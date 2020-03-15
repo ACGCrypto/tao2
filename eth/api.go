@@ -25,17 +25,17 @@ import (
 	"os"
 	"strings"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/common/hexutil"
-	"github.com/tao2-core/tao2-core/core"
-	"github.com/tao2-core/tao2-core/core/state"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/miner"
-	"github.com/tao2-core/tao2-core/params"
-	"github.com/tao2-core/tao2-core/rlp"
-	"github.com/tao2-core/tao2-core/rpc"
-	"github.com/tao2-core/tao2-core/trie"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/common/hexutil"
+	"github.com/taoblockchain/tao2/core"
+	"github.com/taoblockchain/tao2/core/state"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/miner"
+	"github.com/taoblockchain/tao2/params"
+	"github.com/taoblockchain/tao2/rlp"
+	"github.com/taoblockchain/tao2/rpc"
+	"github.com/taoblockchain/tao2/trie"
 )
 
 // PublicEthereumAPI provides an API to access Ethereum full node-related

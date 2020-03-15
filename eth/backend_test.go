@@ -1,7 +1,7 @@
 package eth
 
 import (
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/params"
 	"math/big"
 	"testing"
 )

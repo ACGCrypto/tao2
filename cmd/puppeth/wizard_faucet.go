@@ -20,8 +20,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/tao2-core/tao2-core/accounts/keystore"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/accounts/keystore"
+	"github.com/taoblockchain/tao2/log"
 )
 
 // deployFaucet queries the user for various input on deploying a faucet, after

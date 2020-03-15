@@ -29,7 +29,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/log"
 	"golang.org/x/net/websocket"
 	mapset "github.com/deckarep/golang-set"
 )

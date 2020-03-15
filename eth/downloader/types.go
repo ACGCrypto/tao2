@@ -19,7 +19,7 @@ package downloader
 import (
 	"fmt"
 
-	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/taoblockchain/tao2/core/types"
 )
 
 // peerDropFn is a callback type for dropping a peer detected as malicious.

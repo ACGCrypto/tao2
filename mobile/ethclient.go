@@ -21,8 +21,8 @@ package geth
 import (
 	"math/big"
 
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/ethclient"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/ethclient"
 )
 
 // EthereumClient provides access to the Ethereum APIs.

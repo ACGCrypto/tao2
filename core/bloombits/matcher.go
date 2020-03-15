@@ -26,8 +26,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common/bitutil"
-	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/taoblockchain/tao2/common/bitutil"
+	"github.com/taoblockchain/tao2/crypto"
 )
 
 // bloomIndexes represents the bit indexes inside the bloom filter that belong

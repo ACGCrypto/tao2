@@ -23,10 +23,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tao2-core/tao2-core/p2p"
-	"github.com/tao2-core/tao2-core/p2p/discover"
-	"github.com/tao2-core/tao2-core/p2p/simulations/adapters"
-	p2ptest "github.com/tao2-core/tao2-core/p2p/testing"
+	"github.com/taoblockchain/tao2/p2p"
+	"github.com/taoblockchain/tao2/p2p/discover"
+	"github.com/taoblockchain/tao2/p2p/simulations/adapters"
+	p2ptest "github.com/taoblockchain/tao2/p2p/testing"
 )
 
 // handshake message type

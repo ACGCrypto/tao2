@@ -21,9 +21,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tao2-core/tao2-core/eth/downloader"
-	"github.com/tao2-core/tao2-core/p2p"
-	"github.com/tao2-core/tao2-core/p2p/discover"
+	"github.com/taoblockchain/tao2/eth/downloader"
+	"github.com/taoblockchain/tao2/p2p"
+	"github.com/taoblockchain/tao2/p2p/discover"
 )
 
 // Tests that fast sync gets disabled as soon as a real block is successfully

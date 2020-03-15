@@ -21,7 +21,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/common/hexutil"
+	"github.com/taoblockchain/tao2/common/hexutil"
 )
 
 // Tests that data bitset encoding and decoding works and is bijective.

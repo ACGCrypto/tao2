@@ -25,8 +25,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/crypto"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -244,7 +244,7 @@ func unpackTestEventData(dest interface{}, hexData string, jsonEvent []byte, ass
 
 /*
 Taken from
-https://github.com/taoblockchain/tao2-core/pull/15568
+https://github.com/taoblockchain/tao2/pull/15568
 */
 
 type testResult struct {

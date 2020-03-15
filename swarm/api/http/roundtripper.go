@@ -20,17 +20,17 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/log"
 )
 
 /*
 http roundtripper to register for bzz url scheme
-see https://github.com/taoblockchain/tao2-core/issues/2040
+see https://github.com/taoblockchain/tao2/issues/2040
 Usage:
 
 import (
- "github.com/tao2-core/tao2-core/common/httpclient"
- "github.com/tao2-core/tao2-core/swarm/api/http"
+ "github.com/taoblockchain/tao2/common/httpclient"
+ "github.com/taoblockchain/tao2/swarm/api/http"
 )
 client := httpclient.New()
 // for (private) swarm proxy running locally

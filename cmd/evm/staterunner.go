@@ -23,10 +23,10 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/tao2-core/tao2-core/core/state"
-	"github.com/tao2-core/tao2-core/core/vm"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/tests"
+	"github.com/taoblockchain/tao2/core/state"
+	"github.com/taoblockchain/tao2/core/vm"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/tests"
 
 	cli "gopkg.in/urfave/cli.v1"
 )

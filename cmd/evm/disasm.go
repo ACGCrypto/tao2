@@ -22,7 +22,7 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/tao2-core/tao2-core/core/asm"
+	"github.com/taoblockchain/tao2/core/asm"
 	cli "gopkg.in/urfave/cli.v1"
 )
 

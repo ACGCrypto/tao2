@@ -26,8 +26,8 @@ import (
 
 	"bazil.org/fuse"
 	"bazil.org/fuse/fs"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/swarm/storage"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/swarm/storage"
 	"golang.org/x/net/context"
 )
 

@@ -25,7 +25,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/log"
 )
 
 // walletDockerfile is the Dockerfile required to run a web wallet.

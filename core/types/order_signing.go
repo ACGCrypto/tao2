@@ -22,9 +22,9 @@ import (
 	"math/big"
 	"strconv"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/crypto/sha3"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/crypto/sha3"
 )
 
 // OrderSigner interface for order transaction

@@ -20,9 +20,9 @@ import (
 	"context"
 	"sync"
 
-	ethereum "github.com/tao2-core/taoblockchain"
-	"github.com/tao2-core/tao2-core/event"
-	"github.com/tao2-core/tao2-core/rpc"
+	ethereum "github.com/taoblockchain/tao2"
+	"github.com/taoblockchain/tao2/event"
+	"github.com/taoblockchain/tao2/rpc"
 )
 
 // PublicDownloaderAPI provides an API which gives information about the current synchronisation status.

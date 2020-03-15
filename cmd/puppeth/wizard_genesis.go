@@ -24,22 +24,22 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/params"
 
 	"context"
 	"math/big"
 
-	"github.com/tao2-core/tao2-core/accounts/abi/bind"
-	"github.com/tao2-core/tao2-core/accounts/abi/bind/backends"
-	blockSignerContract "github.com/tao2-core/tao2-core/contracts/blocksigner"
-	multiSignWalletContract "github.com/tao2-core/tao2-core/contracts/multisigwallet"
-	randomizeContract "github.com/tao2-core/tao2-core/contracts/randomize"
-	validatorContract "github.com/tao2-core/tao2-core/contracts/validator"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/rlp"
+	"github.com/taoblockchain/tao2/accounts/abi/bind"
+	"github.com/taoblockchain/tao2/accounts/abi/bind/backends"
+	blockSignerContract "github.com/taoblockchain/tao2/contracts/blocksigner"
+	multiSignWalletContract "github.com/taoblockchain/tao2/contracts/multisigwallet"
+	randomizeContract "github.com/taoblockchain/tao2/contracts/randomize"
+	validatorContract "github.com/taoblockchain/tao2/contracts/validator"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/rlp"
 )
 
 // makeGenesis creates a new genesis struct based on some user input.

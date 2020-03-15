@@ -34,8 +34,8 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/tao2-core/tao2-core/core"
-	"github.com/tao2-core/tao2-core/rlp"
+	"github.com/taoblockchain/tao2/core"
+	"github.com/taoblockchain/tao2/rlp"
 )
 
 type allocItem struct{ Addr, Balance *big.Int }

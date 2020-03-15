@@ -19,8 +19,8 @@ package runtime_test
 import (
 	"fmt"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/vm/runtime"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/vm/runtime"
 )
 
 func ExampleExecute() {

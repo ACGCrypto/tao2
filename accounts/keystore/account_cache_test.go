@@ -29,8 +29,8 @@ import (
 
 	"github.com/cespare/cp"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/tao2-core/tao2-core/accounts"
-	"github.com/tao2-core/tao2-core/common"
+	"github.com/taoblockchain/tao2/accounts"
+	"github.com/taoblockchain/tao2/common"
 )
 
 var (

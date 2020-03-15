@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"sync/atomic"
 
-	"github.com/tao2-core/tao2-core/common/math"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/common/math"
+	"github.com/taoblockchain/tao2/params"
 )
 
 // Config are the configuration options for the Interpreter

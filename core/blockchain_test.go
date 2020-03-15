@@ -24,14 +24,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/consensus/ethash"
-	"github.com/tao2-core/tao2-core/core/state"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/core/vm"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/ethdb"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/consensus/ethash"
+	"github.com/taoblockchain/tao2/core/state"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/core/vm"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/ethdb"
+	"github.com/taoblockchain/tao2/params"
 )
 
 // Test fork of length N starting from block i
@@ -1179,7 +1179,7 @@ func TestEIP161AccountRemoval(t *testing.T) {
 // tests that under weird reorg conditions the blockchain and its internal header-
 // chain return the same latest block/header.
 //
-// https://github.com/taoblockchain/tao2-core/pull/15941how Source Control
+// https://github.com/taoblockchain/tao2/pull/15941how Source Control
 func TestBlockchainHeaderchainReorgConsistency(t *testing.T) {
 	// Generate a canonical chain to act as the main dataset
 	engine := ethash.NewFaker()

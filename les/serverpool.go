@@ -27,13 +27,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common/mclock"
-	"github.com/tao2-core/tao2-core/ethdb"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/p2p"
-	"github.com/tao2-core/tao2-core/p2p/discover"
-	"github.com/tao2-core/tao2-core/p2p/discv5"
-	"github.com/tao2-core/tao2-core/rlp"
+	"github.com/taoblockchain/tao2/common/mclock"
+	"github.com/taoblockchain/tao2/ethdb"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/p2p"
+	"github.com/taoblockchain/tao2/p2p/discover"
+	"github.com/taoblockchain/tao2/p2p/discv5"
+	"github.com/taoblockchain/tao2/rlp"
 )
 
 const (

@@ -27,16 +27,16 @@ import (
 
 	goruntime "runtime"
 
-	"github.com/tao2-core/tao2-core/cmd/evm/internal/compiler"
-	"github.com/tao2-core/tao2-core/cmd/utils"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core"
-	"github.com/tao2-core/tao2-core/core/state"
-	"github.com/tao2-core/tao2-core/core/vm"
-	"github.com/tao2-core/tao2-core/core/vm/runtime"
-	"github.com/tao2-core/tao2-core/ethdb"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/cmd/evm/internal/compiler"
+	"github.com/taoblockchain/tao2/cmd/utils"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core"
+	"github.com/taoblockchain/tao2/core/state"
+	"github.com/taoblockchain/tao2/core/vm"
+	"github.com/taoblockchain/tao2/core/vm/runtime"
+	"github.com/taoblockchain/tao2/ethdb"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/params"
 	cli "gopkg.in/urfave/cli.v1"
 )
 

@@ -24,13 +24,13 @@ import (
 	"net"
 	"os"
 
-	"github.com/tao2-core/tao2-core/cmd/utils"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/p2p/discover"
-	"github.com/tao2-core/tao2-core/p2p/discv5"
-	"github.com/tao2-core/tao2-core/p2p/nat"
-	"github.com/tao2-core/tao2-core/p2p/netutil"
+	"github.com/taoblockchain/tao2/cmd/utils"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/p2p/discover"
+	"github.com/taoblockchain/tao2/p2p/discv5"
+	"github.com/taoblockchain/tao2/p2p/nat"
+	"github.com/taoblockchain/tao2/p2p/netutil"
 )
 
 func main() {

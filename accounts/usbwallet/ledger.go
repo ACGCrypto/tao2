@@ -28,12 +28,12 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/tao2-core/tao2-core/accounts"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/common/hexutil"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/rlp"
+	"github.com/taoblockchain/tao2/accounts"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/common/hexutil"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/rlp"
 )
 
 // ledgerOpcode is an enumeration encoding the supported Ledger opcodes.

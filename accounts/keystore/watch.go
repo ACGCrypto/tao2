@@ -21,7 +21,7 @@ package keystore
 import (
 	"time"
 
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/log"
 	"github.com/rjeczalik/notify"
 )
 

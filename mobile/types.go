@@ -23,9 +23,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/rlp"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/rlp"
 )
 
 // A Nonce is a 64-bit hash which proves (combined with the mix-hash) that

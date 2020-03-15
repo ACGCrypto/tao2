@@ -19,10 +19,10 @@ package core
 import (
 	"math/big"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/consensus"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/core/vm"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/consensus"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/core/vm"
 )
 
 

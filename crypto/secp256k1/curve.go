@@ -36,7 +36,7 @@ import (
 	"math/big"
 	"unsafe"
 
-	"github.com/tao2-core/tao2-core/common/math"
+	"github.com/taoblockchain/tao2/common/math"
 )
 
 /*

@@ -2,11 +2,11 @@ package core
 
 import (
 	"context"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/ethclient"
-	"github.com/tao2-core/tao2-core/rpc"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/ethclient"
+	"github.com/taoblockchain/tao2/rpc"
 	"log"
 	"math/big"
 	"strconv"

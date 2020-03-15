@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/tao2-core/tao2-core/accounts/keystore"
-	"github.com/tao2-core/tao2-core/cmd/utils"
-	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/taoblockchain/tao2/accounts/keystore"
+	"github.com/taoblockchain/tao2/cmd/utils"
+	"github.com/taoblockchain/tao2/crypto"
 	"gopkg.in/urfave/cli.v1"
 )
 

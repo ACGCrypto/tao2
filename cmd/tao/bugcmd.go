@@ -26,10 +26,10 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/tao2-core/tao2-core/cmd/internal/browser"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/cmd/internal/browser"
+	"github.com/taoblockchain/tao2/params"
 
-	"github.com/tao2-core/tao2-core/cmd/utils"
+	"github.com/taoblockchain/tao2/cmd/utils"
 	cli "gopkg.in/urfave/cli.v1"
 )
 
@@ -41,7 +41,7 @@ var bugCommand = cli.Command{
 	Category:  "MISCELLANEOUS COMMANDS",
 }
 
-const issueUrl = "https://github.com/taoblockchain/tao2-core/issues/new"
+const issueUrl = "https://github.com/taoblockchain/tao2/issues/new"
 
 // reportBug reports a bug by opening a new URL to the go-ethereum GH issue
 // tracker and setting default values as the issue body.

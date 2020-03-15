@@ -25,7 +25,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/taoblockchain/tao2/ethdb"
 )
 
 func newTestLDB() (*ethdb.LDBDatabase, func()) {

@@ -22,8 +22,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/crypto"
 )
 
 func TestNetwork_Lookup(t *testing.T) {

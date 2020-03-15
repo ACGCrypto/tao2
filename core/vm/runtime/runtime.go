@@ -21,12 +21,12 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/state"
-	"github.com/tao2-core/tao2-core/core/vm"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/ethdb"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/state"
+	"github.com/taoblockchain/tao2/core/vm"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/ethdb"
+	"github.com/taoblockchain/tao2/params"
 )
 
 // Config is a basic type specifying certain configuration flags for running

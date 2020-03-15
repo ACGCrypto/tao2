@@ -19,7 +19,7 @@ package state
 import (
 	"math/big"
 
-	"github.com/tao2-core/tao2-core/common"
+	"github.com/taoblockchain/tao2/common"
 )
 
 type journalEntry interface {

@@ -20,7 +20,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/tao2-core/tao2-core/p2p/discover"
+	"github.com/taoblockchain/tao2/p2p/discover"
 )
 
 // Simulation provides a framework for running actions in a simulated network

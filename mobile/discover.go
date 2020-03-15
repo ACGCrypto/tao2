@@ -22,7 +22,7 @@ package geth
 import (
 	"errors"
 
-	"github.com/tao2-core/tao2-core/p2p/discv5"
+	"github.com/taoblockchain/tao2/p2p/discv5"
 )
 
 // Enode represents a host on the network.

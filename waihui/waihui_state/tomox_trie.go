@@ -18,11 +18,11 @@ package waihui_state
 
 import (
 	"fmt"
-	"github.com/tao2-core/tao2-core/ethdb"
-	"github.com/tao2-core/tao2-core/trie"
+	"github.com/taoblockchain/tao2/ethdb"
+	"github.com/taoblockchain/tao2/trie"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/log"
 )
 
 // WaihuiTrie wraps a trie with key hashing. In a secure trie, all

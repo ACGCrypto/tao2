@@ -26,8 +26,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/log"
 )
 
 // faucetDockerfile is the Dockerfile required to build an faucet container to

@@ -18,15 +18,15 @@ package core
 
 import (
 	"fmt"
-	"github.com/tao2-core/tao2-core/consensus/posv"
-	"github.com/tao2-core/tao2-core/waihui/waihui_state"
+	"github.com/taoblockchain/tao2/consensus/posv"
+	"github.com/taoblockchain/tao2/waihui/waihui_state"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/consensus"
-	"github.com/tao2-core/tao2-core/core/state"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/consensus"
+	"github.com/taoblockchain/tao2/core/state"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/params"
 )
 
 // BlockValidator is responsible for validating block headers, uncles and

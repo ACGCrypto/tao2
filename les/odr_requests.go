@@ -23,15 +23,15 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/ethdb"
-	"github.com/tao2-core/tao2-core/light"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/rlp"
-	"github.com/tao2-core/tao2-core/trie"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/ethdb"
+	"github.com/taoblockchain/tao2/light"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/rlp"
+	"github.com/taoblockchain/tao2/trie"
 )
 
 var (

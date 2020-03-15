@@ -19,8 +19,8 @@ package state
 import (
 	"testing"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/ethdb"
 )
 
 var addr = common.BytesToAddress([]byte("test"))

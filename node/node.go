@@ -26,13 +26,13 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/tao2-core/tao2-core/accounts"
-	"github.com/tao2-core/tao2-core/ethdb"
-	"github.com/tao2-core/tao2-core/event"
-	"github.com/tao2-core/tao2-core/internal/debug"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/p2p"
-	"github.com/tao2-core/tao2-core/rpc"
+	"github.com/taoblockchain/tao2/accounts"
+	"github.com/taoblockchain/tao2/ethdb"
+	"github.com/taoblockchain/tao2/event"
+	"github.com/taoblockchain/tao2/internal/debug"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/p2p"
+	"github.com/taoblockchain/tao2/rpc"
 	"github.com/prometheus/prometheus/util/flock"
 )
 

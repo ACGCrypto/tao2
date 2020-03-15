@@ -17,11 +17,11 @@
 package core
 
 import (
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/state"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/core/vm"
-	"github.com/tao2-core/tao2-core/waihui/waihui_state"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/state"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/core/vm"
+	"github.com/taoblockchain/tao2/waihui/waihui_state"
 	"math/big"
 )
 

@@ -21,7 +21,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/common"
+	"github.com/taoblockchain/tao2/common"
 )
 
 // precompiledTest defines the input/output pairs for precompiled contract tests.

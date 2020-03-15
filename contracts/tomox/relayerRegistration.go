@@ -3,9 +3,9 @@ package waihui
 import (
 	"math/big"
 
-	"github.com/tao2-core/tao2-core/accounts/abi/bind"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/contracts/waihui/contract"
+	"github.com/taoblockchain/tao2/accounts/abi/bind"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/contracts/waihui/contract"
 )
 
 type RelayerRegistration struct {

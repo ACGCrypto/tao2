@@ -19,9 +19,9 @@ package misc
 import (
 	"fmt"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/params"
 )
 
 // VerifyForkHashes verifies that blocks conforming to network hard-forks do have

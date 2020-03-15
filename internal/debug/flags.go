@@ -24,10 +24,10 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/log/term"
-	"github.com/tao2-core/tao2-core/metrics"
-	"github.com/tao2-core/tao2-core/metrics/exp"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/log/term"
+	"github.com/taoblockchain/tao2/metrics"
+	"github.com/taoblockchain/tao2/metrics/exp"
 	colorable "github.com/mattn/go-colorable"
 	"gopkg.in/urfave/cli.v1"
 )

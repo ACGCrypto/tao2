@@ -21,10 +21,10 @@ import (
 	"math"
 	"math/big"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/vm"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/vm"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/params"
 )
 
 var (
@@ -242,7 +242,7 @@ func (st *StateTransition) TransitionDb(owner common.Address) (ret []byte, usedG
 		vmerr error
 	)
 	// for debugging purpose
-	// TODO: clean it after fixing the issue https://github.com/taoblockchain/tao2-core/issues/401
+	// TODO: clean it after fixing the issue https://github.com/taoblockchain/tao2/issues/401
 	var contractAction string
 	nonce := uint64(1)
 	if contractCreation {

@@ -19,7 +19,7 @@ package storage
 import (
 	"encoding/binary"
 
-	"github.com/tao2-core/tao2-core/metrics"
+	"github.com/taoblockchain/tao2/metrics"
 )
 
 //metrics variables

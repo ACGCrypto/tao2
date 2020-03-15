@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/tao2-core/tao2-core/metrics"
+	"github.com/taoblockchain/tao2/metrics"
 )
 
 // a regexp for extracting the unit from time.Duration.String

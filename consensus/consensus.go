@@ -18,11 +18,11 @@
 package consensus
 
 import (
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/state"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/params"
-	"github.com/tao2-core/tao2-core/rpc"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/state"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/params"
+	"github.com/taoblockchain/tao2/rpc"
 	"math/big"
 )
 

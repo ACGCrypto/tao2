@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/tao2-core/tao2-core/accounts/keystore"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/accounts/keystore"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/log"
 )
 
 // deployNode creates a new node configuration based on some user input.

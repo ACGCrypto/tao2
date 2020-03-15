@@ -25,9 +25,9 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/common/hexutil"
-	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/common/hexutil"
+	"github.com/taoblockchain/tao2/core/types"
 )
 
 // Tests whether the dataset size calculator works correctly by cross checking the

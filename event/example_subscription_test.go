@@ -19,7 +19,7 @@ package event_test
 import (
 	"fmt"
 
-	"github.com/tao2-core/tao2-core/event"
+	"github.com/taoblockchain/tao2/event"
 )
 
 func ExampleNewSubscription() {

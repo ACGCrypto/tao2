@@ -20,7 +20,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/params"
 )
 
 func TestTransaction(t *testing.T) {

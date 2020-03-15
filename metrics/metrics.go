@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/log"
 )
 
 // Enabled is checked by the constructor functions for all of the

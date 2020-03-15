@@ -37,13 +37,13 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/tao2-core/tao2-core/contracts/chequebook"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/metrics"
-	"github.com/tao2-core/tao2-core/p2p"
-	bzzswap "github.com/tao2-core/tao2-core/swarm/services/swap"
-	"github.com/tao2-core/tao2-core/swarm/services/swap/swap"
-	"github.com/tao2-core/tao2-core/swarm/storage"
+	"github.com/taoblockchain/tao2/contracts/chequebook"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/metrics"
+	"github.com/taoblockchain/tao2/p2p"
+	bzzswap "github.com/taoblockchain/tao2/swarm/services/swap"
+	"github.com/taoblockchain/tao2/swarm/services/swap/swap"
+	"github.com/taoblockchain/tao2/swarm/storage"
 )
 
 //metrics variables

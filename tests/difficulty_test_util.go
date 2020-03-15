@@ -20,11 +20,11 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/common/math"
-	"github.com/tao2-core/tao2-core/consensus/ethash"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/common/math"
+	"github.com/taoblockchain/tao2/consensus/ethash"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/params"
 )
 
 //go:generate gencodec -type DifficultyTest -field-override difficultyTestMarshaling -out gen_difficultytest.go

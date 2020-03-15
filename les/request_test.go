@@ -21,12 +21,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/eth"
-	"github.com/tao2-core/tao2-core/ethdb"
-	"github.com/tao2-core/tao2-core/light"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/eth"
+	"github.com/taoblockchain/tao2/ethdb"
+	"github.com/taoblockchain/tao2/light"
 )
 
 var testBankSecureTrieKey = secAddr(testBankAddress)

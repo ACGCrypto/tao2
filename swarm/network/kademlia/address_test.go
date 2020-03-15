@@ -21,7 +21,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/common"
+	"github.com/taoblockchain/tao2/common"
 )
 
 func (Address) Generate(rand *rand.Rand, size int) reflect.Value {

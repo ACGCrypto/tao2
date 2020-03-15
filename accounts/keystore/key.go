@@ -29,9 +29,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/tao2-core/tao2-core/accounts"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/taoblockchain/tao2/accounts"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/crypto"
 	"github.com/pborman/uuid"
 )
 

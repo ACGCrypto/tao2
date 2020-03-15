@@ -24,10 +24,10 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/tao2-core/tao2-core/cmd/utils"
-	"github.com/tao2-core/tao2-core/console"
-	"github.com/tao2-core/tao2-core/node"
-	"github.com/tao2-core/tao2-core/rpc"
+	"github.com/taoblockchain/tao2/cmd/utils"
+	"github.com/taoblockchain/tao2/console"
+	"github.com/taoblockchain/tao2/node"
+	"github.com/taoblockchain/tao2/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 
@@ -43,7 +43,7 @@ var (
 		Description: `
 The Tomo console is an interactive shell for the JavaScript runtime environment
 which exposes a node admin interface as well as the Ðapp JavaScript API.
-See https://github.com/taoblockchain/tao2-core/wiki/JavaScript-Console.`,
+See https://github.com/taoblockchain/tao2/wiki/JavaScript-Console.`,
 	}
 
 	attachCommand = cli.Command{
@@ -56,7 +56,7 @@ See https://github.com/taoblockchain/tao2-core/wiki/JavaScript-Console.`,
 		Description: `
 The Tomo console is an interactive shell for the JavaScript runtime environment
 which exposes a node admin interface as well as the Ðapp JavaScript API.
-See https://github.com/taoblockchain/tao2-core/wiki/JavaScript-Console.
+See https://github.com/taoblockchain/tao2/wiki/JavaScript-Console.
 This command allows to open a console on a running tao node.`,
 	}
 
@@ -69,7 +69,7 @@ This command allows to open a console on a running tao node.`,
 		Category:  "CONSOLE COMMANDS",
 		Description: `
 The JavaScript VM exposes a node admin interface as well as the Ðapp
-JavaScript API. See https://github.com/taoblockchain/tao2-core/wiki/JavaScript-Console`,
+JavaScript API. See https://github.com/taoblockchain/tao2/wiki/JavaScript-Console`,
 	}
 )
 

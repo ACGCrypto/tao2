@@ -20,9 +20,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/ethdb"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/ethdb"
+	"github.com/taoblockchain/tao2/log"
 )
 
 // secureKeyPrefix is the database key prefix used to store trie node preimages.

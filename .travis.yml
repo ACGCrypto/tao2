@@ -1,6 +1,6 @@
 sudo: required
 language: go
-go_import_path: github.com/tao2-core/taoblockchain
+go_import_path: github.com/taoblockchain/tao2
 
 env:
   global:

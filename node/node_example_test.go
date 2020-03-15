@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/tao2-core/tao2-core/node"
-	"github.com/tao2-core/tao2-core/p2p"
-	"github.com/tao2-core/tao2-core/rpc"
+	"github.com/taoblockchain/tao2/node"
+	"github.com/taoblockchain/tao2/p2p"
+	"github.com/taoblockchain/tao2/rpc"
 )
 
 // SampleService is a trivial network service that can be attached to a node for

@@ -22,10 +22,10 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/tao2-core/tao2-core/accounts/abi"
-	"github.com/tao2-core/tao2-core/accounts/abi/bind"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/taoblockchain/tao2/accounts/abi"
+	"github.com/taoblockchain/tao2/accounts/abi/bind"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/types"
 )
 
 // Signer is an interaface defining the callback when a contract requires a

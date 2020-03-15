@@ -23,10 +23,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/tao2-core/tao2-core/cmd/utils"
-	"github.com/tao2-core/tao2-core/consensus/ethash"
-	"github.com/tao2-core/tao2-core/eth"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/cmd/utils"
+	"github.com/taoblockchain/tao2/consensus/ethash"
+	"github.com/taoblockchain/tao2/eth"
+	"github.com/taoblockchain/tao2/params"
 	"gopkg.in/urfave/cli.v1"
 )
 

@@ -1,7 +1,7 @@
 package waihui_state
 
 import (
-	"github.com/tao2-core/tao2-core/rlp"
+	"github.com/taoblockchain/tao2/rlp"
 )
 
 func EncodeBytesItem(val interface{}) ([]byte, error) {

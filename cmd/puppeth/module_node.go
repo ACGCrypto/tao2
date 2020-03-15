@@ -26,8 +26,8 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/log"
 )
 
 // nodeDockerfile is the Dockerfile required to run an Ethereum node.

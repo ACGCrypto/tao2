@@ -54,7 +54,7 @@ func TestBloom(t *testing.T) {
 import (
 	"testing"
 
-	"github.com/tao2-core/tao2-core/core/state"
+	"github.com/taoblockchain/tao2/core/state"
 )
 
 func TestBloom9(t *testing.T) {

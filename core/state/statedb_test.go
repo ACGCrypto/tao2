@@ -30,9 +30,9 @@ import (
 
 	check "gopkg.in/check.v1"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/ethdb"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/ethdb"
 )
 
 // Tests that updating a state trie does not leak any database writes prior to
@@ -119,7 +119,7 @@ func TestIntermediateLeaks(t *testing.T) {
 
 // TestCopy tests that copying a statedb object indeed makes the original and
 // the copy independent of each other. This test is a regression test against
-// https://github.com/taoblockchain/tao2-core/pull/15549.
+// https://github.com/taoblockchain/tao2/pull/15549.
 func TestCopy(t *testing.T) {
 	// Create a random state test to copy and modify "independently"
 	db, _ := ethdb.NewMemDatabase()

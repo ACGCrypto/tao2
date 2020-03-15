@@ -18,9 +18,9 @@ package waihui_state
 
 import (
 	"fmt"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/rlp"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/rlp"
 	"io"
 	"math/big"
 )

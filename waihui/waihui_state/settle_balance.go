@@ -3,8 +3,8 @@ package waihui_state
 import (
 	"encoding/json"
 	"errors"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/log"
 	"math/big"
 )
 

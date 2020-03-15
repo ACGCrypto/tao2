@@ -19,7 +19,7 @@ package vm
 import (
 	"math/big"
 
-	"github.com/tao2-core/tao2-core/common"
+	"github.com/taoblockchain/tao2/common"
 )
 
 // ContractRef is a reference to the contract's backing object

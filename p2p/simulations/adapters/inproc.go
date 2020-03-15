@@ -23,12 +23,12 @@ import (
 	"net"
 	"sync"
 
-	"github.com/tao2-core/tao2-core/event"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/node"
-	"github.com/tao2-core/tao2-core/p2p"
-	"github.com/tao2-core/tao2-core/p2p/discover"
-	"github.com/tao2-core/tao2-core/rpc"
+	"github.com/taoblockchain/tao2/event"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/node"
+	"github.com/taoblockchain/tao2/p2p"
+	"github.com/taoblockchain/tao2/p2p/discover"
+	"github.com/taoblockchain/tao2/rpc"
 )
 
 // SimAdapter is a NodeAdapter which creates in-memory simulation nodes and

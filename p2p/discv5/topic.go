@@ -23,8 +23,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common/mclock"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/common/mclock"
+	"github.com/taoblockchain/tao2/log"
 )
 
 const (

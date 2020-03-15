@@ -1,13 +1,13 @@
 package utils
 
 import (
-	"github.com/tao2-core/tao2-core/eth"
-	"github.com/tao2-core/tao2-core/eth/downloader"
-	"github.com/tao2-core/tao2-core/ethstats"
-	"github.com/tao2-core/tao2-core/les"
-	"github.com/tao2-core/tao2-core/node"
-	"github.com/tao2-core/tao2-core/waihui"
-	whisper "github.com/tao2-core/tao2-core/whisper/whisperv6"
+	"github.com/taoblockchain/tao2/eth"
+	"github.com/taoblockchain/tao2/eth/downloader"
+	"github.com/taoblockchain/tao2/ethstats"
+	"github.com/taoblockchain/tao2/les"
+	"github.com/taoblockchain/tao2/node"
+	"github.com/taoblockchain/tao2/waihui"
+	whisper "github.com/taoblockchain/tao2/whisper/whisperv6"
 )
 
 // RegisterEthService adds an Ethereum client to the stack.

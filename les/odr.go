@@ -19,10 +19,10 @@ package les
 import (
 	"context"
 
-	"github.com/tao2-core/tao2-core/core"
-	"github.com/tao2-core/tao2-core/ethdb"
-	"github.com/tao2-core/tao2-core/light"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/core"
+	"github.com/taoblockchain/tao2/ethdb"
+	"github.com/taoblockchain/tao2/light"
+	"github.com/taoblockchain/tao2/log"
 )
 
 // LesOdr implements light.OdrBackend

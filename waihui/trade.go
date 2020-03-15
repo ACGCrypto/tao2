@@ -1,13 +1,13 @@
 package waihui
 
 import (
-	"github.com/tao2-core/tao2-core/waihui/waihui_state"
+	"github.com/taoblockchain/tao2/waihui/waihui_state"
 	"math/big"
 	"time"
 
 	"github.com/globalsign/mgo/bson"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/crypto/sha3"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/crypto/sha3"
 )
 
 const (

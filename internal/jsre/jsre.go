@@ -26,8 +26,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/internal/jsre/deps"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/internal/jsre/deps"
 	"github.com/robertkrimen/otto"
 )
 

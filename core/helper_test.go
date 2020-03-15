@@ -20,9 +20,9 @@ import (
 	"container/list"
 	"fmt"
 
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/ethdb"
-	"github.com/tao2-core/tao2-core/event"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/ethdb"
+	"github.com/taoblockchain/tao2/event"
 )
 
 // Implement our EthTest Manager

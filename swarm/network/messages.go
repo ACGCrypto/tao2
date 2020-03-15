@@ -21,11 +21,11 @@ import (
 	"net"
 	"time"
 
-	"github.com/tao2-core/tao2-core/contracts/chequebook"
-	"github.com/tao2-core/tao2-core/p2p/discover"
-	"github.com/tao2-core/tao2-core/swarm/network/kademlia"
-	"github.com/tao2-core/tao2-core/swarm/services/swap"
-	"github.com/tao2-core/tao2-core/swarm/storage"
+	"github.com/taoblockchain/tao2/contracts/chequebook"
+	"github.com/taoblockchain/tao2/p2p/discover"
+	"github.com/taoblockchain/tao2/swarm/network/kademlia"
+	"github.com/taoblockchain/tao2/swarm/services/swap"
+	"github.com/taoblockchain/tao2/swarm/storage"
 )
 
 /*

@@ -30,8 +30,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/tao2-core/tao2-core/cmd/utils"
-	swarm "github.com/tao2-core/tao2-core/swarm/api/client"
+	"github.com/taoblockchain/tao2/cmd/utils"
+	swarm "github.com/taoblockchain/tao2/swarm/api/client"
 	"gopkg.in/urfave/cli.v1"
 )
 

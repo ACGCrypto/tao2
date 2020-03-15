@@ -35,11 +35,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/metrics"
-	"github.com/tao2-core/tao2-core/swarm/api"
-	"github.com/tao2-core/tao2-core/swarm/storage"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/metrics"
+	"github.com/taoblockchain/tao2/swarm/api"
+	"github.com/taoblockchain/tao2/swarm/storage"
 	"github.com/rs/cors"
 )
 

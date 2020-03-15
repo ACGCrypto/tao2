@@ -25,13 +25,13 @@ import (
 	"time"
 
 	mapset "github.com/deckarep/golang-set"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/common/math"
-	"github.com/tao2-core/tao2-core/consensus"
-	"github.com/tao2-core/tao2-core/consensus/misc"
-	"github.com/tao2-core/tao2-core/core/state"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/params"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/common/math"
+	"github.com/taoblockchain/tao2/consensus"
+	"github.com/taoblockchain/tao2/consensus/misc"
+	"github.com/taoblockchain/tao2/core/state"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/params"
 )
 
 // Ethash proof-of-work protocol constants.

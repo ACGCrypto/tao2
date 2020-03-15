@@ -23,13 +23,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tao2-core/tao2-core/accounts/abi/bind"
-	"github.com/tao2-core/tao2-core/accounts/abi/bind/backends"
-	"github.com/tao2-core/tao2-core/common"
-	contractValidator "github.com/tao2-core/tao2-core/contracts/validator/contract"
-	"github.com/tao2-core/tao2-core/core"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/accounts/abi/bind"
+	"github.com/taoblockchain/tao2/accounts/abi/bind/backends"
+	"github.com/taoblockchain/tao2/common"
+	contractValidator "github.com/taoblockchain/tao2/contracts/validator/contract"
+	"github.com/taoblockchain/tao2/core"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/log"
 )
 
 var (

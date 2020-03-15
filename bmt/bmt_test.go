@@ -28,7 +28,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tao2-core/tao2-core/crypto/sha3"
+	"github.com/taoblockchain/tao2/crypto/sha3"
 )
 
 const (

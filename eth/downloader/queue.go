@@ -25,10 +25,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/metrics"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/metrics"
 	"gopkg.in/karalabe/cookiejar.v2/collections/prque"
 )
 

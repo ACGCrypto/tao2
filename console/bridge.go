@@ -23,9 +23,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/tao2-core/tao2-core/accounts/usbwallet"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/rpc"
+	"github.com/taoblockchain/tao2/accounts/usbwallet"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/rpc"
 	"github.com/robertkrimen/otto"
 )
 

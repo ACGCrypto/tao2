@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/log"
 )
 
 // deployEthstats queries the user for various input on deploying an ethstats

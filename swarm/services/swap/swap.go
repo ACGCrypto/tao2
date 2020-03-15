@@ -26,14 +26,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tao2-core/tao2-core/accounts/abi/bind"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/contracts/chequebook"
-	"github.com/tao2-core/tao2-core/contracts/chequebook/contract"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/swarm/services/swap/swap"
+	"github.com/taoblockchain/tao2/accounts/abi/bind"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/contracts/chequebook"
+	"github.com/taoblockchain/tao2/contracts/chequebook/contract"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/swarm/services/swap/swap"
 )
 
 // SwAP       Swarm Accounting Protocol with

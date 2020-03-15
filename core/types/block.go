@@ -27,10 +27,10 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/common/hexutil"
-	"github.com/tao2-core/tao2-core/crypto/sha3"
-	"github.com/tao2-core/tao2-core/rlp"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/common/hexutil"
+	"github.com/taoblockchain/tao2/crypto/sha3"
+	"github.com/taoblockchain/tao2/rlp"
 )
 
 var (

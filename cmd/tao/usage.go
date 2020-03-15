@@ -22,8 +22,8 @@ import (
 	"io"
 	"sort"
 
-	"github.com/tao2-core/tao2-core/cmd/utils"
-	"github.com/tao2-core/tao2-core/internal/debug"
+	"github.com/taoblockchain/tao2/cmd/utils"
+	"github.com/taoblockchain/tao2/internal/debug"
 	"gopkg.in/urfave/cli.v1"
 )
 

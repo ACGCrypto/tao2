@@ -3,20 +3,20 @@ package waihui
 import (
 	"errors"
 	"fmt"
-	"github.com/tao2-core/tao2-core/consensus"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/p2p"
-	"github.com/tao2-core/tao2-core/waihui/waihui_state"
+	"github.com/taoblockchain/tao2/consensus"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/p2p"
+	"github.com/taoblockchain/tao2/waihui/waihui_state"
 	"gopkg.in/karalabe/cookiejar.v2/collections/prque"
 	"math/big"
 	"strconv"
 	"time"
 
 	lru "github.com/hashicorp/golang-lru"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/state"
-	"github.com/tao2-core/tao2-core/log"
-	"github.com/tao2-core/tao2-core/rpc"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/state"
+	"github.com/taoblockchain/tao2/log"
+	"github.com/taoblockchain/tao2/rpc"
 	"golang.org/x/sync/syncmap"
 )
 

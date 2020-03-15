@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/tao2-core/tao2-core/event"
+	"github.com/taoblockchain/tao2/event"
 )
 
 // This example demonstrates how SubscriptionScope can be used to control the lifetime of

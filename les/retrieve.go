@@ -26,7 +26,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/tao2-core/tao2-core/common/mclock"
+	"github.com/taoblockchain/tao2/common/mclock"
 )
 
 var (

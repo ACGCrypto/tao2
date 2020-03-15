@@ -5,7 +5,7 @@ package whisperv5
 import (
 	"encoding/json"
 
-	"github.com/tao2-core/tao2-core/common/hexutil"
+	"github.com/taoblockchain/tao2/common/hexutil"
 )
 
 var _ = (*messageOverride)(nil)

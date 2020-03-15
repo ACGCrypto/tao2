@@ -19,8 +19,8 @@ package miner
 import (
 	"testing"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/types"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/types"
 )
 
 // noopHeaderRetriever is an implementation of headerRetriever that always

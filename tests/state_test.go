@@ -22,7 +22,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/tao2-core/tao2-core/core/vm"
+	"github.com/taoblockchain/tao2/core/vm"
 )
 
 func TestState(t *testing.T) {

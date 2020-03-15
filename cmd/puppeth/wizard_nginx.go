@@ -19,7 +19,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/log"
 )
 
 // ensureVirtualHost checks whether a reverse-proxy is running on the specified

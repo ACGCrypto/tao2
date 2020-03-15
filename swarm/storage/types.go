@@ -24,9 +24,9 @@ import (
 	"io"
 	"sync"
 
-	"github.com/tao2-core/tao2-core/bmt"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/crypto/sha3"
+	"github.com/taoblockchain/tao2/bmt"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/crypto/sha3"
 )
 
 type Hasher func() hash.Hash

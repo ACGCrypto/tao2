@@ -22,7 +22,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/tao2-core/tao2-core/common"
+	"github.com/taoblockchain/tao2/common"
 )
 
 // Interface represents a wrapped version of Go's interface{}, with the capacity

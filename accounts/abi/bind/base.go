@@ -22,12 +22,12 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/tao2-core/taoblockchain"
-	"github.com/tao2-core/tao2-core/accounts/abi"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/core/types"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/event"
+	"github.com/taoblockchain/tao2"
+	"github.com/taoblockchain/tao2/accounts/abi"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/core/types"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/event"
 )
 
 // SignerFn is a signer function callback when a contract requires a method to

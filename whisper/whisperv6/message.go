@@ -28,10 +28,10 @@ import (
 	mrand "math/rand"
 	"strconv"
 
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/crypto"
-	"github.com/tao2-core/tao2-core/crypto/ecies"
-	"github.com/tao2-core/tao2-core/log"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/crypto"
+	"github.com/taoblockchain/tao2/crypto/ecies"
+	"github.com/taoblockchain/tao2/log"
 )
 
 // MessageParams specifies the exact way a message should be wrapped

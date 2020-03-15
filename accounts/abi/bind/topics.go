@@ -22,9 +22,9 @@ import (
 	"math/big"
 	"reflect"
 
-	"github.com/tao2-core/tao2-core/accounts/abi"
-	"github.com/tao2-core/tao2-core/common"
-	"github.com/tao2-core/tao2-core/crypto"
+	"github.com/taoblockchain/tao2/accounts/abi"
+	"github.com/taoblockchain/tao2/common"
+	"github.com/taoblockchain/tao2/crypto"
 )
 
 // makeTopics converts a filter query argument list into a filter topic set.

@@ -19,8 +19,8 @@ package les
 import (
 	"time"
 
-	"github.com/tao2-core/tao2-core/common/bitutil"
-	"github.com/tao2-core/tao2-core/light"
+	"github.com/taoblockchain/tao2/common/bitutil"
+	"github.com/taoblockchain/tao2/light"
 )
 
 const (

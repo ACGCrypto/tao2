@@ -25,9 +25,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/tao2-core/tao2-core/cmd/utils"
-	"github.com/tao2-core/tao2-core/node"
-	"github.com/tao2-core/tao2-core/rpc"
+	"github.com/taoblockchain/tao2/cmd/utils"
+	"github.com/taoblockchain/tao2/node"
+	"github.com/taoblockchain/tao2/rpc"
 	"github.com/gizak/termui"
 	"gopkg.in/urfave/cli.v1"
 )
