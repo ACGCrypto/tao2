@@ -40,6 +40,7 @@ jobs:
     before_script:
       - docker build -t taoblockchain/tao2 .
       - docker build -t taoblockchain/node -f Dockerfile.node .
+      - docker build -t taoblockchain/bootnode -f Dockerfile.bootnode .
     script:
       - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
       - docker tag taoblockchain/tao2 taoblockchain/tao2:latest
@@ -50,6 +51,10 @@ jobs:
       - docker push taoblockchain/node:latest
       - docker tag taoblockchain/node taoblockchain/node:$TRAVIS_BUILD_ID
       - docker push taoblockchain/node:$TRAVIS_BUILD_ID
+      - docker tag taoblockchain/bootnode taoblockchain/bootnode:latest
+      - docker push taoblockchain/bootnode:latest
+      - docker tag taoblockchain/bootnode taoblockchain/bootnode:$TRAVIS_BUILD_ID
+      - docker push taoblockchain/bootnode:$TRAVIS_BUILD_ID
 
   - stage: Build and push image (tagged)
     services:
@@ -58,6 +63,7 @@ jobs:
     before_script:
       - docker build -t taoblockchain/tao2 .
       - docker build -t taoblockchain/node -f Dockerfile.node .
+      - docker build -t taoblockchain/bootnode -f Dockerfile.bootnode .
     script:
       - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
       - docker tag taoblockchain/tao2 taoblockchain/tao2:latest
@@ -68,6 +74,10 @@ jobs:
       - docker push taoblockchain/node:latest
       - docker tag taoblockchain/node taoblockchain/node:$TRAVIS_TAG
       - docker push taoblockchain/node:$TRAVIS_TAG
+      - docker tag taoblockchain/tao2 taoblockchain/bootnode:latest
+      - docker push taoblockchain/bootnode:latest
+      - docker tag taoblockchain/bootnode taoblockchain/bootnode:$TRAVIS_TAG
+      - docker push taoblockchain/bootnode:$TRAVIS_TAG
 
 stages:
   - name: Lint
