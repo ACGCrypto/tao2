@@ -2,14 +2,14 @@ FROM golang:1.12-alpine as builder
 
 RUN apk add --no-cache make gcc musl-dev linux-headers git
 
-ADD . /taoblockchain
-RUN cd /taoblockchain && make tao
+ADD . /tao2
+RUN cd /tao2 && make tao
 
 FROM alpine:latest
 
-WORKDIR /taoblockchain
+WORKDIR /tao2
 
-COPY --from=builder /taoblockchain/build/bin/tao /usr/local/bin/tao
+COPY --from=builder /tao2/build/bin/tao /usr/local/bin/tao
 
 RUN chmod +x /usr/local/bin/tao
 
