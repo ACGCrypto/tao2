@@ -29,7 +29,7 @@ jobs:
     - while sleep 540; do echo "[ still running ]"; done &
     - go run build/ci.go test -coverage
     - kill %1
-  - go: '1.11.x'
+  - go: '1.13.x'
     script:
     - sudo modprobe fuse
     - sudo chmod 666 /dev/fuse
