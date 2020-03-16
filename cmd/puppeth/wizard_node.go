@@ -29,6 +29,7 @@ import (
 // deployNode creates a new node configuration based on some user input.
 func (w *wizard) deployNode(boot bool) {
 	// Do some sanity check before the user wastes time on input
+
 	if w.conf.Genesis == nil {
 		log.Error("No genesis block configured")
 		return
@@ -76,6 +77,10 @@ func (w *wizard) deployNode(boot bool) {
 			fmt.Printf("Where should the ethash mining DAGs be stored on the remote machine? (default = %s)\n", infos.ethashdir)
 			infos.ethashdir = w.readDefaultString(infos.ethashdir)
 		}
+	}
+	if infos.password == "" {
+		fmt.Printf("Where should data be stored on the remote machine?\n")
+		infos.password = w.readString()
 	}
 	// Figure out which port to listen on
 	fmt.Println()
@@ -157,7 +162,7 @@ func (w *wizard) deployNode(boot bool) {
 		infos.gasPrice = w.readDefaultFloat(infos.gasPrice)
 	}
 	// Try to deploy the full node on the host
-	nocache := false
+	nocache := boot
 	if existed {
 		fmt.Println()
 		fmt.Printf("Should the node be built from scratch (y/n)? (default = no)\n")

@@ -38,8 +38,8 @@ var nginxComposefile = `
 version: '2'
 services:
   letsencrypt:
-  	build: .
-  	image: {{.Network}}/nginx
+    build: .
+    image: {{.Network}}/nginx
     cap_add:
       - NET_ADMIN
     environment:
@@ -47,14 +47,18 @@ services:
       - PGID=1000
       - TZ=America/LosAngeles
       - URL=stats.tao.network
-      - SUBDOMAINS=www,
       - VALIDATION=http
     volumes:
-      - /root/dns-config:/config
       - /var/run/docker.sock:/tmp/docker.sock:ro      
+      - /root/dns-config:/config
     ports:
       - 443:443
       - 80:80 #optional
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "10"
     restart: unless-stopped`
 
 // deployNginx deploys a new nginx reverse-proxy container to expose one or more
@@ -109,7 +113,7 @@ func (info *nginxInfos) Report() map[string]string {
 // it's running, and if yes, gathering a collection of useful infos about it.
 func checkNginx(client *sshClient, network string) (*nginxInfos, error) {
 	// Inspect a possible nginx container on the host
-	infos, err := inspectContainer(client, fmt.Sprintf("%s_nginx_1", network))
+	infos, err := inspectContainer(client, fmt.Sprintf("%s_letsencrypt_1", network))
 	if err != nil {
 		return nil, err
 	}

@@ -41,7 +41,7 @@ RUN echo 'module.exports = {trusted: [{{.Trusted}}], banned: [{{.Banned}}], rese
 var ethstatsComposefile = `
 version: '2'
 services:
-  ethstats:
+  netstats:
     build: .
     image: {{.Network}}/netstats{{if not .VHost}}
     ports:
@@ -132,10 +132,14 @@ func checkEthstats(client *sshClient, network string) (*ethstatsInfos, error) {
 	// Inspect a possible ethstats container on the host
 	infos, err := inspectContainer(client, fmt.Sprintf("%s_ethstats_1", network))
 	if err != nil {
+		log.Warn("Error?","err",err)
 		return nil, err
 	}
 	if !infos.running {
 		return nil, ErrServiceOffline
+	}
+	if infos.running {
+		log.Warn("Running!")
 	}
 	// Resolve the port from the host, or the reverse proxy
 	port := infos.portmap["3000/tcp"]

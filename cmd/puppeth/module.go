@@ -61,6 +61,7 @@ func inspectContainer(client *sshClient, container string) (*containerInfos, err
 	if err != nil {
 		return nil, ErrServiceUnknown
 	}
+
 	// If yes, extract various configuration options
 	type inspection struct {
 		State struct {
@@ -104,6 +105,7 @@ func inspectContainer(client *sshClient, container string) (*containerInfos, err
 	for _, mount := range inspect.Mounts {
 		infos.volumes[mount.Destination] = mount.Source
 	}
+
 	return infos, err
 }
 

@@ -32,17 +32,19 @@ import (
 
 // nodeDockerfile is the Dockerfile required to run an Ethereum node.
 var nodeDockerfile = `
-FROM taoblockchain/node:latest
+	FROM taoblockchain/node:latest
 
-ADD genesis/mainnet.json /genesis.json
 {{if .Unlock}}
 	ADD signer.json /signer.json
 	ADD signer.pass /signer.pass
 {{end}}
+RUN cp mainnet.json /genesis.json
+RUN echo '{{.Password}}' > passwd
 RUN \
-  echo 'tao --cache 512 init /genesis.json' > tao.sh && \{{if .Unlock}}
+  echo 'tao init /genesis.json' > tao.sh && \
+  echo 'tao account new --password=passwd' > tao.sh && \{{if .Unlock}}
 	echo 'mkdir -p /root/.tao/keystore/ && cp /signer.json /root/.tao/keystore/' >> tao.sh && \{{end}}
-	echo $'tao --networkid {{.NetworkID}} --cache 512 --port {{.Port}} --maxpeers {{.Peers}} {{.LightFlag}} --ethstats \'{{.Ethstats}}\' {{if .Bootnodes}}--bootnodes {{.Bootnodes}}{{end}} {{if .Etherbase}}--etherbase {{.Etherbase}} --mine --minerthreads 1{{end}} {{if .Unlock}}--unlock 0 --password /signer.pass --mine{{end}} --targetgaslimit {{.GasTarget}} --gasprice {{.GasPrice}}' >> tao.sh
+	echo $'tao --rpc --networkid {{.NetworkID}} --port {{.Port}} --maxpeers {{.Peers}} {{.LightFlag}} --ethstats \'{{.Ethstats}}\' {{if .Bootnodes}}--bootnodes {{.Bootnodes}}{{end}} {{if .Etherbase}}--etherbase {{.Etherbase}} --mine --minerthreads 1{{end}} {{if .Unlock}}--unlock 0 --password /signer.pass --mine{{end}} --targetgaslimit {{.GasTarget}} --gasprice {{.GasPrice}}' >> tao.sh
 
 ENTRYPOINT ["/bin/sh", "tao.sh"]
 `
@@ -59,7 +61,7 @@ services:
       - "{{.Port}}:{{.Port}}"
       - "{{.Port}}:{{.Port}}/udp"
     volumes:
-      - {{.Datadir}}:/root/.tao{{if .Ethashdir}}
+      - {{.Datadir}}:/root/.tao:rw{{if .Ethashdir}}
       - {{.Ethashdir}}:/root/.ethash{{end}}
     environment:
       - PORT={{.Port}}/tcp
@@ -106,6 +108,7 @@ func deployNode(client *sshClient, network string, bootnodes []string, config *n
 		"GasTarget": uint64(1000000 * config.gasTarget),
 		"GasPrice":  uint64(1000000000 * config.gasPrice),
 		"Unlock":    config.keyJSON != "",
+		"Password":    config.password,
 	})
 	files[filepath.Join(workdir, "Dockerfile")] = dockerfile.Bytes()
 
@@ -123,6 +126,7 @@ func deployNode(client *sshClient, network string, bootnodes []string, config *n
 		"Etherbase":  config.etherbase,
 		"GasTarget":  config.gasTarget,
 		"GasPrice":   config.gasPrice,
+		"Password":   config.password,
 	})
 	files[filepath.Join(workdir, "docker-compose.yaml")] = composefile.Bytes()
 
@@ -135,7 +139,7 @@ func deployNode(client *sshClient, network string, bootnodes []string, config *n
 	if out, err := client.Upload(files); err != nil {
 		return out, err
 	}
-	defer client.Run("rm -rf " + workdir)
+	//defer client.Run("rm -rf " + workdir)
 
 	// Build and deploy the boot or seal node service
 	if nocache {
@@ -161,6 +165,7 @@ type nodeInfos struct {
 	keyPass    string
 	gasTarget  float64
 	gasPrice   float64
+	password   string
 }
 
 // Report converts the typed struct into a plain string->string map, containing
@@ -257,6 +262,7 @@ func checkNode(client *sshClient, network string, boot bool) (*nodeInfos, error)
 		keyPass:    keyPass,
 		gasTarget:  gasTarget,
 		gasPrice:   gasPrice,
+		password:	"",
 	}
 	stats.enode = fmt.Sprintf("enode://%s@%s:%d", id, client.address, stats.port)
 
