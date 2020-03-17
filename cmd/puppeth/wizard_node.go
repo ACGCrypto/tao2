@@ -79,7 +79,7 @@ func (w *wizard) deployNode(boot bool) {
 		}
 	}
 	if infos.password == "" {
-		fmt.Printf("Where should data be stored on the remote machine?\n")
+		fmt.Printf("What's WS_SECRET?\n")
 		infos.password = w.readString()
 	}
 	// Figure out which port to listen on
