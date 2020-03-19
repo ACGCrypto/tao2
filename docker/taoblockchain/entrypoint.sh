@@ -172,7 +172,7 @@ echo "dump: $IDENTITY $account $BOOTNODES"
 set -x
 
 echo '[
-  "enode://5b65023779f99a6e7accd7931f9ecd460b7007a13fcf9ad89181d5cc49a16fc4df73752f7166d33d33bf9a3059a7286818b49fe40b8329150860502d88607b1e@159.89.199.223:30303"
+  "enode://5b65023779f99a6e7accd7931f9ecd460b7007a13fcf9ad89181d5cc49a16fc4df73752f7166d33d33bf9a3059a7286818b49fe40b8329150860502d88607b1e@159.89.199.223:20202"
 ]' > $DATA_DIR/tao/static-nodes.json
 
 exec tao $params \
@@ -182,7 +182,7 @@ exec tao $params \
   --identity $IDENTITY \
   --maxpeers $MAXPEERS \
   --password ./password \
-  --port 30303 \
+  --port 20202 \
   --txpool.globalqueue 5000 \
   --txpool.globalslots 5000 \
   --rpc \
