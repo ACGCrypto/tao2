@@ -40,10 +40,10 @@ var (
 		EIP158Block:    big.NewInt(3),
 		ByzantiumBlock: big.NewInt(4),
 		Posv: &PosvConfig{
-			Period:              2,
+			Period:              5,
 			Epoch:               900,
-			Reward:              10,
-			RewardCheckpoint:    900,
+			Reward:              1,
+			RewardCheckpoint:    450,
 			Gap:                 5,
 			FoudationWalletAddr: common.HexToAddress("0x4e596130c6ed2f47ae72e30814ddbf0edf2df8f6"),
 		},
