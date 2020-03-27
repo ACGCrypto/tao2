@@ -10,8 +10,8 @@
     "posv": {
       "period": 2,
       "epoch": 900,
-      "reward": 10,
-      "rewardCheckpoint": 900,
+      "reward": 1,
+      "rewardCheckpoint": 450,
       "gap": 5,
       "foudationWalletAddr": "0x4e596130c6ed2f47ae72e30814ddbf0edf2df8f6"
     }
