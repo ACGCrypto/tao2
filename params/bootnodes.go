@@ -20,8 +20,7 @@ package params
 // the main Ethereum network.
 var MainnetBootnodes = []string{
 	// Tao Bootnodes Mainnet
-	"enode://7d9153c9e3a4a1e5351661baa67d7dfe49486c7ef5f9ac57585cd544b9bca1de2158c6c027b6071161eaeaef7d7dc575c4ee27fe3a641b64c0d75833e3d34341@66.42.98.118:20202",
-	"enode://8d8abe9bce93a2b31934162d2de298355dc12f7d1d7f524cad5b315048e5a3019470b904116e9f5a32c0a5e434cac795f87ddf211f7ef2864b4f67b441869200@8.3.29.246:20202",
+	"enode://023628d1b2b87066d8c0af658d67fa76d17d4e870d70ba4a37512869357407bad8f485fcbfe145289d16c06096a3b4445d7dd4d537b6cf6be9cce0b5cec32bb3@108.61.242.3:20202",
 }
 
 // TestnetBootnodes are the enode URLs of the P2P bootstrap nodes running on the

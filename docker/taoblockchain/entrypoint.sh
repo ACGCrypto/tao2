@@ -172,7 +172,7 @@ echo "dump: $IDENTITY $account $BOOTNODES"
 set -x
 
 echo '[
-  "enode://5b65023779f99a6e7accd7931f9ecd460b7007a13fcf9ad89181d5cc49a16fc4df73752f7166d33d33bf9a3059a7286818b49fe40b8329150860502d88607b1e@159.89.199.223:20202"
+  "enode://2a51082adb865a5c0cb3090248c53c02581f4f6026c3db078c3dc642e625978c6b6dfd0bd95aa0d3245ec0472ceca0ee7757e7a4f041d20b8aa2ec07c3944377@66.42.98.118:20202"
 ]' > $DATA_DIR/tao/static-nodes.json
 
 exec tao $params \
