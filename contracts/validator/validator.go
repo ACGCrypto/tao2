@@ -47,12 +47,12 @@ func DeployValidator(transactOpts *bind.TransactOpts, contractBackend bind.Contr
 	minDeposit.SetString("100000000000000000000000", 10)
 	minVoterCap := new(big.Int)
 	minVoterCap.SetString("10000000000000000000", 10)
-	// Deposit 50K TAO
+	// Deposit 100K TAO
 	// Min Voter Cap 10 TAO
 	// 150 masternodes
-	// Candidate Delay Withdraw 30 days = 1296000 blocks
-	// Voter Delay Withdraw 2 days = 86400 blocks
-	validatorAddr, _, _, err := contract.DeployTaoValidator(transactOpts, contractBackend, validatorAddress, caps, ownerAddress, minDeposit, minVoterCap, big.NewInt(150), big.NewInt(1296000), big.NewInt(86400))
+	// Candidate Delay Withdraw 30 days = 518,400 blocks
+	// Voter Delay Withdraw 2 days = 34,560 blocks
+	validatorAddr, _, _, err := contract.DeployTaoValidator(transactOpts, contractBackend, validatorAddress, caps, ownerAddress, minDeposit, minVoterCap, big.NewInt(150), big.NewInt(518400), big.NewInt(34560))
 	if err != nil {
 		return validatorAddr, nil, err
 	}
