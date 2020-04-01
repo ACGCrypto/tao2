@@ -331,8 +331,8 @@ func (w *wizard) makeGenesis() {
 		// Read the address of the account to fund
 		if address := w.readAddress(); address != nil {
 			newBalance := big.NewInt(0) // 89m for sale
-			newBalance.Add(baseBalance, big.NewInt(89*1000*1000))
-			newBalance.Mul(baseBalance, big.NewInt(1000000000000000000))
+			newBalance.Add(newBalance, big.NewInt(89*1000*1000))
+			newBalance.Mul(newBalance, big.NewInt(1000000000000000000))
 			genesis.Alloc[*address] = core.GenesisAccount{
 				Balance: newBalance, 
 			}
