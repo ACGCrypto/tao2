@@ -33,12 +33,12 @@ var (
 	// Tao mainnet config
 	TaoMainnetChainConfig = &ChainConfig{
 		ChainId:        big.NewInt(558),
-		HomesteadBlock: big.NewInt(1),
-		EIP150Block:    big.NewInt(2),
+		HomesteadBlock: big.NewInt(10),
+		EIP150Block:    big.NewInt(11),
 		EIP150Hash:     common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
-		EIP155Block:    big.NewInt(3),
-		EIP158Block:    big.NewInt(3),
-		ByzantiumBlock: big.NewInt(4),
+		EIP155Block:    big.NewInt(12),
+		EIP158Block:    big.NewInt(13),
+		ByzantiumBlock: big.NewInt(14),
 		Posv: &PosvConfig{
 			Period:              5,
 			Epoch:               360,
