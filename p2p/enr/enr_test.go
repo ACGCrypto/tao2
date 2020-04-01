@@ -17,6 +17,7 @@
 package enr
 
 import (
+	"bytes"
 	"encoding/hex"
 	"fmt"
 	"math/rand"
@@ -235,6 +236,35 @@ func TestNodeAddr(t *testing.T) {
 }
 
 var pyRecord, _ = hex.DecodeString("f896b840954dc36583c1f4b69ab59b1375f362f06ee99f3723cd77e64b6de6d211c27d7870642a79d4516997f94091325d2a7ca6215376971455fb221d34f35b277149a1018664697363763582765f82696490736563703235366b312d6b656363616b83697034847f00000189736563703235366b31a103ca634cae0d49acb401d8a4c6b6fe8c55b70d115bf400769cc1400f3258cd3138")
+
+// TestPythonInterop checks that we can decode and verify a record produced by the Python
+// implementation.
+func TestPythonInterop(t *testing.T) {
+	var r Record
+	if err := rlp.DecodeBytes(pyRecord, &r); err != nil {
+		t.Fatalf("can't decode: %v", err)
+	}
+
+	var (
+		wantAddr, _  = hex.DecodeString("caaa1485d83b18b32ed9ad666026151bf0cae8a0a88c857ae2d4c5be2daa6726")
+		wantSeq      = uint64(1)
+		wantIP       = IP4{127, 0, 0, 1}
+		wantDiscport = DiscPort(30303)
+	)
+	if r.Seq() != wantSeq {
+		t.Errorf("wrong seq: got %d, want %d", r.Seq(), wantSeq)
+	}
+	if addr := r.NodeAddr(); !bytes.Equal(addr, wantAddr) {
+		t.Errorf("wrong addr: got %x, want %x", addr, wantAddr)
+	}
+	want := map[Entry]interface{}{new(IP4): &wantIP, new(DiscPort): &wantDiscport}
+	for k, v := range want {
+		desc := fmt.Sprintf("loading key %q", k.ENRKey())
+		if assert.NoError(t, r.Load(k), desc) {
+			assert.Equal(t, k, v, desc)
+		}
+	}
+}
 
 // TestRecordTooBig tests that records bigger than SizeLimit bytes cannot be signed.
 func TestRecordTooBig(t *testing.T) {
