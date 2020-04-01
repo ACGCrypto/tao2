@@ -231,8 +231,8 @@ func (w *wizard) makeGenesis() {
 		code, _ = contractBackend.CodeAt(ctx, multiSignWalletAddr, nil)
 		storage = make(map[common.Hash]common.Hash)
 		contractBackend.ForEachStorageAt(ctx, multiSignWalletAddr, nil, f)
-		fBalance := big.NewInt(0) // 16m
-		fBalance.Add(fBalance, big.NewInt(16*1000*1000))
+		fBalance := big.NewInt(0) // 10m
+		fBalance.Add(fBalance, big.NewInt(10*1000*1000))
 		fBalance.Mul(fBalance, big.NewInt(1000000000000000000))
 		genesis.Alloc[common.HexToAddress(common.FoudationAddr)] = core.GenesisAccount{
 			Balance: fBalance,
@@ -298,13 +298,13 @@ func (w *wizard) makeGenesis() {
 		storage = make(map[common.Hash]common.Hash)
 		contractBackend.ForEachStorageAt(ctx, multiSignWalletTeamAddr, nil, f)
 		// Team balance.
-		balance := big.NewInt(0) // 12m
-		balance.Add(balance, big.NewInt(12*1000*1000))
+		balance := big.NewInt(0) // 16m
+		balance.Add(balance, big.NewInt(16*1000*1000))
 		balance.Mul(balance, big.NewInt(1000000000000000000))
-		subBalance := big.NewInt(0) // i * 50k
-		subBalance.Add(subBalance, big.NewInt(int64(len(signers))*50*1000))
+		subBalance := big.NewInt(0) // i * 100k
+		subBalance.Add(subBalance, big.NewInt(int64(len(signers))*100*1000))
 		subBalance.Mul(subBalance, big.NewInt(1000000000000000000))
-		balance.Sub(balance, subBalance) // 12m - i * 50k
+		balance.Sub(balance, subBalance) // 16m - i * 100k
 		genesis.Alloc[common.HexToAddress(common.TeamAddr)] = core.GenesisAccount{
 			Balance: balance,
 			Code:    code,
@@ -312,10 +312,10 @@ func (w *wizard) makeGenesis() {
 		}
 
 		fmt.Println()
-		fmt.Println("What is swap wallet address for fund 150m tao?")
+		fmt.Println("What is swap wallet address for fund 35m tao?")
 		swapAddr := *w.readAddress()
-		baseBalance := big.NewInt(0) // 120m
-		baseBalance.Add(baseBalance, big.NewInt(120*1000*1000))
+		baseBalance := big.NewInt(0) // 35m
+		baseBalance.Add(baseBalance, big.NewInt(35*1000*1000))
 		baseBalance.Mul(baseBalance, big.NewInt(1000000000000000000))
 		genesis.Alloc[swapAddr] = core.GenesisAccount{
 			Balance: baseBalance,
@@ -330,8 +330,11 @@ func (w *wizard) makeGenesis() {
 	for {
 		// Read the address of the account to fund
 		if address := w.readAddress(); address != nil {
+			newBalance := big.NewInt(0) // 89m for sale
+			newBalance.Add(baseBalance, big.NewInt(89*1000*1000))
+			newBalance.Mul(baseBalance, big.NewInt(1000000000000000000))
 			genesis.Alloc[*address] = core.GenesisAccount{
-				Balance: new(big.Int).Lsh(big.NewInt(1), 256-7), // 2^256 / 128 (allow many pre-funds without balance overflows)
+				Balance: newBalance, 
 			}
 			continue
 		}
