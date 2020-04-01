@@ -128,7 +128,7 @@ func testTransferTRC2TokenWithAccountNoTao() {
 		log.Fatal("can't get balance token fee in  smart contract: ", err, "got", balanceIssuerFee, "wanted", remainFee)
 	}
 }
-func testTransferTrc21Fail() {
+func testTransferTrc2Fail() {
 	client, err := ethclient.Dial(simulation.RpcEndpoint)
 	if err != nil {
 		fmt.Println(err, client)
@@ -208,7 +208,7 @@ func main() {
 		fmt.Println("Finish airdrop token to a account")
 		testTransferTRC2TokenWithAccountNoTao()
 		fmt.Println("Finish transfer trc2 token with a account no tao")
-		testTransferTrc21Fail()
+		testTransferTrc2Fail()
 		fmt.Println("Finish testing ! Success transferAmount token trc1 with a account no tao")
 	}
 	fmt.Println(common.PrettyDuration(time.Since(start)))

@@ -67,8 +67,8 @@ func PayFeeWithTRC2TxFail(statedb *StateDB, from common.Address, token common.Ad
 	if statedb == nil {
 		return
 	}
-	slotBalanceTrc21 := SlotTRC2Token["balances"]
-	balanceKey := GetLocMappingAtKey(from.Hash(), slotBalanceTrc21)
+	slotBalanceTrc2 := SlotTRC2Token["balances"]
+	balanceKey := GetLocMappingAtKey(from.Hash(), slotBalanceTrc2)
 	balanceHash := statedb.GetState(token, common.BigToHash(balanceKey))
 	if !common.EmptyHash(balanceHash) {
 		balance := balanceHash.Big()
@@ -92,7 +92,7 @@ func PayFeeWithTRC2TxFail(statedb *StateDB, from common.Address, token common.Ad
 		balance = balance.Sub(balance, feeUsed)
 		statedb.SetState(token, common.BigToHash(balanceKey), common.BigToHash(balance))
 
-		issuerBalanceKey := GetLocMappingAtKey(issuerAddr.Hash(), slotBalanceTrc21)
+		issuerBalanceKey := GetLocMappingAtKey(issuerAddr.Hash(), slotBalanceTrc2)
 		issuerBalanceHash := statedb.GetState(token, common.BigToHash(issuerBalanceKey))
 		issuerBalance := issuerBalanceHash.Big()
 		issuerBalance = issuerBalance.Add(issuerBalance, feeUsed)
@@ -104,8 +104,8 @@ func ValidateTRC2Tx(statedb *StateDB, from common.Address, token common.Address,
 	if data == nil || statedb == nil {
 		return false
 	}
-	slotBalanceTrc21 := SlotTRC2Token["balances"]
-	balanceKey := GetLocMappingAtKey(from.Hash(), slotBalanceTrc21)
+	slotBalanceTrc2 := SlotTRC2Token["balances"]
+	balanceKey := GetLocMappingAtKey(from.Hash(), slotBalanceTrc2)
 	balanceHash := statedb.GetState(token, common.BigToHash(balanceKey))
 
 	if !common.EmptyHash(balanceHash) {
