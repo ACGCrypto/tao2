@@ -56,6 +56,26 @@ jobs:
       - docker tag taoblockchain/bootnode taoblockchain/bootnode:$TRAVIS_BUILD_ID
       - docker push taoblockchain/bootnode:$TRAVIS_BUILD_ID
 
+  - stage: Build and test
+    go: '1.12.x'
+    script:
+    - sudo modprobe fuse
+    - sudo chmod 666 /dev/fuse
+    - sudo chown root:$USER /etc/fuse.conf
+    - go run build/ci.go install
+    - while sleep 540; do echo "[ still running ]"; done &
+    - go run build/ci.go test -coverage
+    - kill %1
+  - go: '1.11.x'
+    script:
+    - sudo modprobe fuse
+    - sudo chmod 666 /dev/fuse
+    - sudo chown root:$USER /etc/fuse.conf
+    - go run build/ci.go install
+    - while sleep 540; do echo "[ still running ]"; done &
+    - go run build/ci.go test -coverage
+    - kill %1
+
   - stage: Build and push image (tagged)
     services:
       - docker
