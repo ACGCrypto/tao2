@@ -10,7 +10,7 @@ import (
 
 var (
 	BaseTAO    = big.NewInt(0).Mul(big.NewInt(10), big.NewInt(100000000000000000)) // 1 TAO
-	RpcEndpoint = "http://127.0.0.1:8501/"
+	RpcEndpoint = "http://127.0.0.1:1545/"
 	MainKey, _  = crypto.HexToECDSA(os.Getenv("MAIN_ADDRESS_KEY"))
 	MainAddr    = crypto.PubkeyToAddress(MainKey.PublicKey) //0x17F2beD710ba50Ed27aEa52fc4bD7Bda5ED4a037
 
@@ -23,7 +23,7 @@ var (
 	// WAIHUI
 	MaxRelayers  = big.NewInt(200)
 	MaxTokenList = big.NewInt(200)
-	MinDeposit   = big.NewInt(0).Mul(big.NewInt(25000), BaseTAO) // 25000 TAO
+	MinDeposit   = big.NewInt(0).Mul(big.NewInt(50000), BaseTAO) // 50000 TAO
 	TradeFee     = uint16(10)                                     // trade fee decimals 10
 
 	RelayerCoinbaseKey, _ = crypto.HexToECDSA(os.Getenv("RELAYER_COINBASE_KEY")) //
