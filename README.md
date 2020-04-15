@@ -5,22 +5,22 @@
 
 ## About Tao 2.0
 
-Tao is an innovative solution to the governance problem with the Ethereum blockchain.
-Our mission is to lead development in building the Internet of Value, and its infrastructure with a specific focus on serving the music industry.
-We are working to create an alternative, scalable financial system which is more secure, transparent, efficient, inclusive, and equitable for everyone.
+Tao is a cryptocurrency designed to support artists in the music industry. It began in 2016 as a Bitcoin-derived blockchain powered by Proof of Stake. After nearly four years of flawless operation, the Tao blockchain is due  for some major upgrades so we can move into the next phase of our project. To achieve our project goals we have chosen to utilise an Ethereum Virtual Machine based protocol which will enable Solidity development and the potential migration of music and entertainment projects from Ethereum to Tao. 
 
-Tao relies on a system of 150 Masternodes with a Proof of Stake Voting consensus that can support near-zero fee, and 2-second transaction confirmation times.
-Security, stability, and chain finality are guaranteed via novel techniques such as double validation, staking via smart-contracts, and "true" randomization processes.
+We have chosen the worthy open source Tomochain as the best Ethereum-derived codebase to start with, but will incorporate elements from accross the crypto space to best serve the interests of the unique needs of the music economy. 
 
-Tao supports all EVM-compatible smart-contracts, protocols, and atomic cross-chain token transfers.
-New scaling techniques such as sharding, private-chain generation, and hardware integration will be continuously researched and incorporated into Tao's masternode architecture. This architecture will be an ideal scalable smart-contract public blockchain for decentralized apps, token issuances, and token integrations for small and big businesses.
+Tao will be driven by a maximum of 150 Masternodes with a Delegated Proof of Stake voting consensus supporting near-zero fee, and 5-second transaction confirmation times. Masternodes will require a minimum of 100,000 TAO to operate as well as sufficient votes to qualify once there are more than 150 masternode candidates. A board of governors will be elected from the active Masternodes to guide future development.
 
-More details can be found at our [technical white paper](https://tao.network/docs/technical-whitepaper---1.0.pdf)
+Tao supports standard EVM-compatible smart-contracts, protocols, as well as atomic cross-chain token transfers.
+
+This readme file is an early draft and is subject to revision.
+
+More details can be found by reading our [technical white paper](https://tao.network/docs/technical-whitepaper---1.0.pdf)
 
 Read more about us on:
 
 - our website: http://tao.network
-- our blogs and announcements: https://medium.com/taoblockchain
+- our blogs and announcements: https://medium.com/BryceWeiner/
 - our documentation portal: https://docs.tao.network
 
 ## Building the source
@@ -190,4 +190,4 @@ Please also make sure your contributions adhere to the base coding guidelines:
 - Any code you are trying to contribute must be well-explained as an issue on our [github issue page](https://github.com/taoblockchain/tao2/issues)
 - Commit messages should be short but clear enough and should refer to the corresponding pre-logged issue mentioned above.
 
-For technical discussion, feel free to join our chat at [Gitter](https://gitter.im/taoblockchain/tao2).
+
